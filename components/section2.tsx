@@ -27,7 +27,7 @@ export default function section2() {
           >
             <p className=" font-bold text-2xl"> About Me</p>
           </Chip>
-          <p className="text-lg indent-10">
+          <p className="text-lg indent-10 text-pretty">
             สวัสดีครับ ผมชื่อ พลสิงห์ ตาเละมัน
             เป็นนักศึกษาที่มหาวิทยาลัยสรีปทุมสาขาวิศวกรรมคอมพิวเตอร์
             มีความสนใจและหลงใหลในการพัฒนาเทคโนโลยีและนวัตกรรมต่างๆ ภายในสาขานี้

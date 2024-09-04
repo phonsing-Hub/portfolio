@@ -1,5 +1,5 @@
 "use client";
-import { Image } from "@nextui-org/image";
+
 import { TypeAnimation } from "react-type-animation";
 import { Chip } from "@nextui-org/chip";
 import { Divider } from "@nextui-org/divider";
@@ -17,12 +17,16 @@ import { FaLine } from "react-icons/fa6";
 export default function Section1() {
   const iconSiize = 34;
   return (
-    <section className="flex justify-center items-center display bg1">
-      <div className="flex flex-wrap md:gap-36 gap-10 " >
-        <div className="flex-[1_0_250px] flex justify-center ">
-          <Image isBlurred width={300} src="./phonsing.jpg" alt="phonsing" className="m-5"/>
+    <section className="flex justify-center items-start pt-32 display bg1 ">
+      <div className="flex flex-wrap gap-10 w-full px-10 ">
+        <div className="flex-[1_0_400px] flex justify-center items-center">
+          <div className="p-1 bdImg">
+            <div className="image">
+              <img src="./phonsing.jpg" alt="avatar" />
+            </div>
+          </div>
         </div>
-        <div className="flex-[1_0_400px] flex flex-col justify-center items-center ">
+        <div className="flex-[1_0_400px] flex flex-col justify-center lg:items-start items-center ">
           <p className="font-bold text-5xl">Phonsing Taleman</p>
           <TypeAnimation
             sequence={[
@@ -45,7 +49,7 @@ export default function Section1() {
             </Chip>
           </h1>
           <br />
-          <Divider />
+          <Divider className="w-72" />
           <div className="flex mt-2 gap-6">
             <Popover placement="bottom">
               <PopoverTrigger>
