@@ -12,7 +12,6 @@ import { Link } from "@nextui-org/link";
 import { Input } from "@nextui-org/input";
 import NextLink from "next/link";
 
-import { siteConfig } from "@/config/site";
 import { ThemeSwitch } from "@/components/theme-switch";
 import {
   LinkedInIcon,
@@ -77,7 +76,7 @@ export const Navbar = () => {
             isExternal
             as={Link}
             className="text-sm font-normal text-default-600 bg-default-100"
-            href={siteConfig.links.sponsor}
+            href="#"
             startContent={<HeartFilledIcon className="text-danger" />}
             variant="flat"
           >
@@ -87,7 +86,7 @@ export const Navbar = () => {
       </NavbarContent>
 
       <NavbarContent className="sm:hidden basis-1 pl-4" justify="end">
-        <Link isExternal aria-label="Github" href={siteConfig.links.github}>
+        <Link isExternal aria-label="Github" href="https://github.com/phonsing-Hub">
           <GithubIcon className="text-default-500" />
         </Link>
         <ThemeSwitch />

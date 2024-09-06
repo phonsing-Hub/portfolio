@@ -3,51 +3,65 @@
 @tailwind utilities;
 
 * {
-    font-family: "IBM Plex Sans Thai Looped", sans-serif;
-    font-weight: 500;
-    font-style: normal;
+  font-family: "IBM Plex Sans Thai Looped", sans-serif;
+  font-weight: 500;
+  font-style: normal;
 }
 
-.border{
-    border: 1px solid black;
+.border {
+  border: 1px solid black;
 }
 
-.display{
-    min-height: calc(100vh - 64px);
+.display {
+  min-height: calc(100vh - 250px);
 }
 
-.bg1{
-  background-image: url("../public/bg.png");
-  background-position: center; /* Center the image */
-  background-repeat: no-repeat; /* Do not repeat the image */
-  background-size: cover;
+.bdImg {
+  border: 6px solid #006fee;
+  border-radius: 55% 45% 55% 45%;
+  animation: imgFloat 7s ease-in-out infinite;
+  box-shadow:
+    rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 }
 
-.bdImg{
-    border: 6px solid #006FEE;
-    border-radius: 55% 45% 55% 45%;
-    animation: imgFloat 7s ease-in-out infinite;
-    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
-    }
-
-.image{
-    margin: auto 0;
-    width: 380px;
-    height: 380px;
-    border-radius: 55% 45% 55% 45%;
-    overflow: hidden;
-    animation: imgFloat 7s ease-in-out infinite;
-    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+.image {
+  margin: auto 0;
+  border-radius: 55% 45% 55% 45%;
+  overflow: hidden;
+  animation: imgFloat 7s ease-in-out infinite;
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
 }
 
-.image img{
-    width: 380px;
-    height: 380px;
-    object-fit: cover;
+.image img {
+  object-fit: cover;
 }
+
+.bgPage {
+  animation: spinAndPulse 50s linear infinite;
+}
+
+@keyframes spinAndPulse {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg) scale(1);
+  }
+  25% {
+    transform: translate(-50%, -50%) rotate(90deg) scale(1.2);
+  }
+  50% {
+    transform: translate(-50%, -50%) rotate(180deg) scale(1); 
+  }
+  75% {
+    transform: translate(-50%, -50%) rotate(270deg) scale(0.8);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg) scale(1); 
+  }
+}
+
 @keyframes imgFloat {
-    50%{
-        transform: translateY(10px);
-        border-radius: 45% 55% 45% 55%;
-    }
+  50% {
+    transform: translateY(10px);
+    border-radius: 45% 55% 45% 55%;
+  }
 }

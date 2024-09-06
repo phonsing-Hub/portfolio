@@ -17,17 +17,17 @@ import { FaLine } from "react-icons/fa6";
 export default function Section1() {
   const iconSiize = 34;
   return (
-    <section className="flex justify-center items-start pt-32 display bg1 ">
-      <div className="flex flex-wrap gap-10 w-full px-10 ">
-        <div className="flex-[1_0_400px] flex justify-center items-center">
+    <section className="flex justify-center items-center display">
+      <div className="flex flex-wrap gap-4 w-full lg:px-10 ">
+        <div className="flex-[1_0_350px] flex justify-center items-center ">
           <div className="p-1 bdImg">
-            <div className="image">
-              <img src="./phonsing.jpg" alt="avatar" />
+            <div className="image lg:w-[380px] lg:h-[380px] w-[250px] h-[250px]">
+              <img src="./phonsing.jpg" alt="avatar" className="lg:w-[380px] lg:h-[380px] w-[250px] h-[250px]" />
             </div>
           </div>
         </div>
-        <div className="flex-[1_0_400px] flex flex-col justify-center lg:items-start items-center ">
-          <p className="font-bold text-5xl">Phonsing Taleman</p>
+        <div className="flex-[1_0_350px] flex flex-col justify-center lg:items-start items-center z-10">
+          <p className="font-bold text-3xl lg:text-5xl">Phonsing Taleman</p>
           <TypeAnimation
             sequence={[
               "Computer Engineering",
@@ -39,8 +39,9 @@ export default function Section1() {
             ]}
             wrapper="span"
             speed={50}
-            style={{ fontSize: "2em", display: "inline-block" }}
+            style={{ display: "inline-block" }}
             repeat={Infinity}
+            className="lg:text-3xl text-2xl"
           />
           <h1>
             You can call me{" "}
