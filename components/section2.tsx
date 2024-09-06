@@ -50,7 +50,7 @@ export default function section2() {
             <p className=" font-bold text-2xl"> My Skill</p>
           </Chip>
           <ScrollShadow className="h-[280px]" hideScrollBar>
-            <div className=" flex flex-wrap gap-4 w-full">
+            <div className=" flex flex-wrap gap-4 w-full justify-center">
               <Button
                 variant={borderVariant}
                 radius="sm"
