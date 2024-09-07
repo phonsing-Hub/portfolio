@@ -25,7 +25,7 @@ export default function Section1() {
               <img
                 alt="avatar"
                 className="lg:w-[380px] lg:h-[380px] w-[250px] h-[250px]"
-                src="./phonsing.jpg"
+                src="./175073.jpg"
               />
             </div>
           </div>
