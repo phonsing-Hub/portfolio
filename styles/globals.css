@@ -2,6 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --green: #b8d953;
+  --lilac: #b2b2eb;
+  --pink: #bb86e9;
+  --dark-green: #529a91;
+  --peach: #fe96b7;
+  --black: #191819;
+  --grey: #2a292a;
+  --white: #d9d9d9;
+}
+
 * {
   font-family: "IBM Plex Sans Thai Looped", sans-serif;
   font-weight: 500;
@@ -14,6 +25,14 @@
 
 .display {
   min-height: calc(100vh - 250px);
+}
+
+.display2 {
+  min-height: calc(90vh - 92px);
+}
+
+.display3 {
+  min-height: 400px;
 }
 
 .bdImg {
@@ -49,13 +68,13 @@
     transform: translate(-50%, -50%) rotate(90deg) scale(1.2);
   }
   50% {
-    transform: translate(-50%, -50%) rotate(180deg) scale(1); 
+    transform: translate(-50%, -50%) rotate(180deg) scale(1);
   }
   75% {
     transform: translate(-50%, -50%) rotate(270deg) scale(0.8);
   }
   100% {
-    transform: translate(-50%, -50%) rotate(360deg) scale(1); 
+    transform: translate(-50%, -50%) rotate(360deg) scale(1);
   }
 }
 
@@ -64,4 +83,214 @@
     transform: translateY(10px);
     border-radius: 45% 55% 45% 55%;
   }
+}
+
+.title-word {
+  animation: color-animation 4s linear infinite;
+}
+
+.title-word-1 {
+  --color-1: #df8453;
+  --color-2: #3d8dae;
+  --color-3: #e4a9a8;
+}
+
+.title-word-2 {
+  --color-1: #dbad4a;
+  --color-2: #accfcb;
+  --color-3: #17494d;
+}
+
+.title-word-3 {
+  --color-1: #accfcb;
+  --color-2: #e4a9a8;
+  --color-3: #accfcb;
+}
+
+.title-word-4 {
+  --color-1: #3d8dae;
+  --color-2: #df8453;
+  --color-3: #e4a9a8;
+}
+
+@keyframes color-animation {
+  0% {
+    color: var(--color-1);
+  }
+  32% {
+    color: var(--color-1);
+  }
+  33% {
+    color: var(--color-2);
+  }
+  65% {
+    color: var(--color-2);
+  }
+  66% {
+    color: var(--color-3);
+  }
+  99% {
+    color: var(--color-3);
+  }
+  100% {
+    color: var(--color-1);
+  }
+}
+
+.Shimg {
+  filter: drop-shadow(
+    10px 10px 15px rgba(0, 0, 0, 0.5)
+  ); /* เงาแนวนอน 10px, เงาแนวตั้ง 10px, ความเบลอ 15px */
+}
+.Bximg {
+  box-shadow:
+    rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+.Bximg2 {
+  box-shadow:
+    rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+.wrapper.six {
+  background-color: #222222;
+}
+.flicker {
+  font-size: 6rem;
+  font-family: "Merienda", sans-serif;
+  margin: 1rem auto;
+  color: #fffefe61;
+  background: -webkit-gradient(
+      linear,
+      left top,
+      right top,
+      from(#e6e6e6),
+      to(#1d1c1c),
+      color-stop(0.8, #ffffff)
+    )
+    no-repeat;
+  background: gradient(
+      linear,
+      left top,
+      right top,
+      from(#222),
+      to(#222),
+      color-stop(0.8, #fff)
+    )
+    no-repeat;
+  background-size: 110px 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: flick 1.5s infinite;
+}
+@keyframes flick {
+  0% {
+    background-position: top left;
+  }
+  100% {
+    background-position: top right;
+  }
+}
+
+.bizzy {
+  display: flex;
+  align-items: center;
+  gap: 5%;
+  justify-content: space-around;
+  max-height: 100px;
+  text-align: center;
+}
+
+@keyframes fontGrow {
+  0% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(2);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}
+
+.bizzy-letters {
+  animation-name: fontGrow;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  transform-origin: top;
+  transition-timing-function: ease-in-out;
+}
+
+.letter-b {
+  color: var(--peach);
+}
+
+.letter-i {
+  color: var(--green);
+  animation-delay: 1s;
+}
+
+.letter-z1 {
+  color: var(--pink);
+}
+
+.letter-z2 {
+  color: var(--lilac);
+  animation-delay: 1s;
+}
+
+.letter-y {
+  color: var(--dark-green);
+}
+
+.bizzy-B {
+  display: flex;
+  justify-content: space-around;
+  gap: 5%;
+}
+
+@keyframes fontGrowReverse {
+  0% {
+    transform: scaleY(2);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+  100% {
+    transform: scaleY(2);
+  }
+}
+
+.bizzy-letters-B {
+  animation-name: fontGrowReverse;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  transform-origin: bottom;
+  transition-timing-function: ease-in-out;
+}
+
+.letter-C {
+  color: #cbe69f;
+}
+
+.letter-O {
+  color: #cbe;
+  animation-delay: 1s;
+  font-stretch: ultra-condensed;
+}
+
+.letter-D {
+  color: #91d1df;
+}
+
+.letter-I {
+  color: #f7b407;
+  animation-delay: 1s;
+}
+
+.letter-N {
+  color: pink;
 }

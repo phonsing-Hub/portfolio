@@ -11,6 +11,7 @@ import { Kbd } from "@nextui-org/kbd";
 import { Link } from "@nextui-org/link";
 import { Input } from "@nextui-org/input";
 import NextLink from "next/link";
+import { HiRocketLaunch } from "react-icons/hi2";
 
 import { ThemeSwitch } from "@/components/theme-switch";
 import {
@@ -19,7 +20,6 @@ import {
   HeartFilledIcon,
   SearchIcon,
 } from "@/components/icons";
-import { HiRocketLaunch } from "react-icons/hi2";
 
 export const Navbar = () => {
   const searchInput = (
@@ -44,7 +44,7 @@ export const Navbar = () => {
   );
 
   return (
-    <NextUINavbar maxWidth="xl" shouldHideOnScroll>
+    <NextUINavbar shouldHideOnScroll maxWidth="xl">
       <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
         <NavbarBrand as="li" className="gap-3 max-w-fit">
           <NextLink className="flex justify-start items-center gap-1" href="/">
@@ -59,7 +59,11 @@ export const Navbar = () => {
         justify="end"
       >
         <NavbarItem className="hidden sm:flex gap-2">
-          <Link isExternal aria-label="Discord" href="https://www.linkedin.com/in/polsing-ps/">
+          <Link
+            isExternal
+            aria-label="Discord"
+            href="https://www.linkedin.com/in/polsing-ps/"
+          >
             <LinkedInIcon className="text-default-500" />
           </Link>
           <Link
@@ -73,8 +77,6 @@ export const Navbar = () => {
         </NavbarItem>
         <NavbarItem className="hidden md:flex">
           <Button
-            isExternal
-            as={Link}
             className="text-sm font-normal text-default-600 bg-default-100"
             href="#"
             startContent={<HeartFilledIcon className="text-danger" />}
@@ -86,7 +88,11 @@ export const Navbar = () => {
       </NavbarContent>
 
       <NavbarContent className="sm:hidden basis-1 pl-4" justify="end">
-        <Link isExternal aria-label="Github" href="https://github.com/phonsing-Hub">
+        <Link
+          isExternal
+          aria-label="Github"
+          href="https://github.com/phonsing-Hub"
+        >
           <GithubIcon className="text-default-500" />
         </Link>
         <ThemeSwitch />

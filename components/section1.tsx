@@ -7,7 +7,6 @@ import { Snippet } from "@nextui-org/snippet";
 import { Button } from "@nextui-org/button";
 import { Link } from "@nextui-org/link";
 import { Popover, PopoverTrigger, PopoverContent } from "@nextui-org/popover";
-
 import { SiFacebook } from "react-icons/si";
 import { SiInstagram } from "react-icons/si";
 import { FaPhoneVolume } from "react-icons/fa6";
@@ -16,19 +15,26 @@ import { FaLine } from "react-icons/fa6";
 
 export default function Section1() {
   const iconSiize = 34;
+
   return (
     <section className="flex justify-center items-center display">
       <div className="flex flex-wrap gap-4 w-full lg:px-10 ">
         <div className="flex-[1_0_350px] flex justify-center items-center ">
           <div className="p-1 bdImg">
             <div className="image lg:w-[380px] lg:h-[380px] w-[250px] h-[250px]">
-              <img src="./phonsing.jpg" alt="avatar" className="lg:w-[380px] lg:h-[380px] w-[250px] h-[250px]" />
+              <img
+                alt="avatar"
+                className="lg:w-[380px] lg:h-[380px] w-[250px] h-[250px]"
+                src="./phonsing.jpg"
+              />
             </div>
           </div>
         </div>
         <div className="flex-[1_0_350px] flex flex-col justify-center lg:items-start items-center z-10">
           <p className="font-bold text-3xl lg:text-5xl">Phonsing Taleman</p>
           <TypeAnimation
+            className="lg:text-3xl text-2xl"
+            repeat={Infinity}
             sequence={[
               "Computer Engineering",
               1000,
@@ -37,15 +43,13 @@ export default function Section1() {
               "Back-end Developer",
               1000,
             ]}
-            wrapper="span"
             speed={50}
             style={{ display: "inline-block" }}
-            repeat={Infinity}
-            className="lg:text-3xl text-2xl"
+            wrapper="span"
           />
           <h1>
             You can call me{" "}
-            <Chip radius="sm" color="primary" variant="shadow">
+            <Chip color="primary" radius="sm" variant="shadow">
               <p className="font-bold"> NOAH</p>
             </Chip>
           </h1>
@@ -54,14 +58,14 @@ export default function Section1() {
           <div className="flex mt-2 gap-6">
             <Popover placement="bottom">
               <PopoverTrigger>
-                <Button isIconOnly variant="light" color="warning">
+                <Button isIconOnly color="warning" variant="light">
                   <MdOutlineAttachEmail size={iconSiize} />
                 </Button>
               </PopoverTrigger>
               <PopoverContent>
                 <div className="px-1 py-2">
                   <div className="text-small font-bold">Email</div>
-                  <Snippet className="bg-transparent" symbol size="sm">
+                  <Snippet symbol className="bg-transparent" size="sm">
                     <p className="text-tiny">polsing.ap@gmail.com</p>
                   </Snippet>
                 </div>
@@ -70,14 +74,14 @@ export default function Section1() {
 
             <Popover placement="bottom">
               <PopoverTrigger>
-                <Button isIconOnly variant="light" color="secondary">
+                <Button isIconOnly color="secondary" variant="light">
                   <FaPhoneVolume size={iconSiize} />
                 </Button>
               </PopoverTrigger>
               <PopoverContent>
                 <div className="px-1 py-2">
                   <div className="text-small font-bold">Phone</div>
-                  <Snippet className="bg-transparent" symbol size="sm">
+                  <Snippet symbol className="bg-transparent" size="sm">
                     <p className="text-tiny">0647633547</p>
                   </Snippet>
                 </div>
@@ -86,7 +90,7 @@ export default function Section1() {
 
             <Popover placement="bottom">
               <PopoverTrigger>
-                <Button isIconOnly variant="light" color="primary">
+                <Button isIconOnly color="primary" variant="light">
                   <SiFacebook size={iconSiize} />
                 </Button>
               </PopoverTrigger>
@@ -95,10 +99,10 @@ export default function Section1() {
                   <div className="text-small font-bold">Facebook</div>
                   <Link
                     isExternal
-                    className="cursor-pointer"
-                    size="sm"
                     showAnchorIcon
+                    className="cursor-pointer"
                     href="https://www.facebook.com/noar.ps.3?mibextid=ZbWKwL"
+                    size="sm"
                   >
                     Polsing PS
                   </Link>
@@ -108,7 +112,7 @@ export default function Section1() {
 
             <Popover placement="bottom">
               <PopoverTrigger>
-                <Button isIconOnly variant="light" color="danger">
+                <Button isIconOnly color="danger" variant="light">
                   <SiInstagram size={iconSiize} />
                 </Button>
               </PopoverTrigger>
@@ -117,10 +121,10 @@ export default function Section1() {
                   <div className="text-small font-bold">Instagram</div>
                   <Link
                     isExternal
-                    className="cursor-pointer"
-                    size="sm"
                     showAnchorIcon
+                    className="cursor-pointer"
                     href="https://www.instagram.com/p.phonsing_/profilecard/?igsh=aGY5OXAxYnd5YmF0"
+                    size="sm"
                   >
                     p.phonsing_
                   </Link>
@@ -130,14 +134,14 @@ export default function Section1() {
 
             <Popover placement="bottom">
               <PopoverTrigger>
-                <Button isIconOnly variant="light" color="success">
+                <Button isIconOnly color="success" variant="light">
                   <FaLine size={iconSiize} />
                 </Button>
               </PopoverTrigger>
               <PopoverContent>
                 <div className="px-1 py-2">
                   <div className="text-small font-bold">Line</div>
-                  <Snippet className="bg-transparent" symbol size="sm">
+                  <Snippet symbol className="bg-transparent" size="sm">
                     <p className="text-tiny">0647633547</p>
                   </Snippet>
                 </div>

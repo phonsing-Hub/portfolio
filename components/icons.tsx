@@ -66,7 +66,6 @@ export const LinkedInIcon: React.FC<IconSvgProps> = ({
   );
 };
 
-
 export const TwitterIcon: React.FC<IconSvgProps> = ({
   size = 24,
   width,

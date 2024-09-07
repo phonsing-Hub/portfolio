@@ -4,6 +4,8 @@ import { Chip } from "@nextui-org/chip";
 import { Button } from "@nextui-org/button";
 import { ScrollShadow } from "@nextui-org/scroll-shadow";
 
+import { siteConfig } from "@/config/site";
+
 export default function section2() {
   let borderVariant:
     | "shadow"
@@ -14,356 +16,351 @@ export default function section2() {
     | "faded"
     | "ghost"
     | undefined = "faded";
+
   return (
-    <section className="flex justify-center items-center display">
-      <div className="flex flex-wrap  gap-10 w-full ">
-        <div className="flex-[1_0_500px]">
+    <section className="flex justify-center items-center display2">
+      <div className="flex flex-wrap gap-10 w-full ">
+        <div className="flex-[1_0_360px]">
           <Chip
             className="mb-5"
+            color="primary"
+            radius="sm"
             size="lg"
             variant="dot"
-            radius="sm"
-            color="primary"
           >
             <p className=" font-bold text-2xl"> About Me</p>
           </Chip>
           <p className="text-lg indent-10 text-pretty">
-            สวัสดีครับ ผมชื่อ พลสิงห์ ตาเละมัน
-            เป็นนักศึกษาที่มหาวิทยาลัยสรีปทุมสาขาวิศวกรรมคอมพิวเตอร์
-            มีความสนใจและหลงใหลในการพัฒนาเทคโนโลยีและนวัตกรรมต่างๆ ภายในสาขานี้
-            ความเชี่ยวชาญของผมอยู่ที่การพัฒนาซอฟต์แวร์และออกแบบฮาร์ดแวร์
-            ผ่านประสบการณ์และความคุ้นเคยในการทำงานจริง
-            ผมมีความกระตือรือร้นในการเรียนรู้และพัฒนาตนเองอยู่เสมอ
-            และมุ่งมั่นที่จะสร้างสรรค์ผลงานที่มีคุณค่าและน่าสนใจในสาขานี้อย่างต่อเนื่องครับ
+            {siteConfig.aboutTitle}
           </p>
           <br />
           <Divider />
         </div>
-        <div className="flex-[1_0_500px]">
-        <Chip
+        <div className="flex-[1_0_366px]">
+          <Chip
             className="mb-5"
+            color="primary"
+            radius="sm"
             size="lg"
             variant="dot"
-            radius="sm"
-            color="primary"
           >
             <p className=" font-bold text-2xl"> My Skill</p>
           </Chip>
-          <ScrollShadow className="h-[280px]" hideScrollBar>
+          <ScrollShadow hideScrollBar className="h-[280px]">
             <div className=" flex flex-wrap gap-4 w-full justify-center">
               <Button
-                variant={borderVariant}
-                radius="sm"
                 className="w-44 h-12"
-                startContent={<Image src="./c:cpp.png" width={30} isBlurred />}
+                radius="sm"
+                startContent={<Image isBlurred src="./c:cpp.png" width={30} />}
+                variant={borderVariant}
               >
                 C/C++
               </Button>
               <Button
-                variant={borderVariant}
-                radius="sm"
                 className="w-44 h-12"
+                radius="sm"
                 startContent={
                   <Image
-                    src="./javascript.png"
-                    width={30}
                     isBlurred
                     radius="none"
+                    src="./javascript.png"
+                    width={30}
                   />
                 }
+                variant={borderVariant}
               >
                 JavaScript
               </Button>
               <Button
-                variant={borderVariant}
-                radius="sm"
                 className="w-44 h-12"
-                startContent={<Image src="./ts.png" width={50} isBlurred />}
+                radius="sm"
+                startContent={<Image isBlurred src="./ts.png" width={50} />}
+                variant={borderVariant}
               >
                 TypeScript
               </Button>
               <Button
-                variant={borderVariant}
-                radius="sm"
                 className="w-44 h-12"
-                startContent={<Image src="./php.png" width={50} isBlurred />}
+                radius="sm"
+                startContent={<Image isBlurred src="./php.png" width={50} />}
+                variant={borderVariant}
               >
                 PHP
               </Button>
               <Button
-                variant={borderVariant}
-                radius="sm"
                 className="w-44 h-12"
-                startContent={<Image src="./go.png" width={50} isBlurred />}
+                radius="sm"
+                startContent={<Image isBlurred src="./go.png" width={50} />}
+                variant={borderVariant}
               >
                 Go
               </Button>
               <Button
-                variant={borderVariant}
-                radius="sm"
                 className="w-44 h-12"
-                startContent={<Image src="./py.png" width={30} isBlurred />}
+                radius="sm"
+                startContent={<Image isBlurred src="./py.png" width={30} />}
+                variant={borderVariant}
               >
                 Python
               </Button>
               <Button
-                variant={borderVariant}
-                radius="sm"
                 className="w-44 h-12"
-                startContent={<Image src="./react.png" width={30} isBlurred />}
+                radius="sm"
+                startContent={<Image isBlurred src="./react.png" width={30} />}
+                variant={borderVariant}
               >
                 React/Native
               </Button>
               <Button
-                variant={borderVariant}
-                radius="sm"
                 className="w-44 h-12"
+                radius="sm"
                 startContent={
                   <Image
-                    src="./nextjs.svg"
-                    width={30}
                     isBlurred
                     radius="none"
+                    src="./next-js.svg"
+                    width={30}
                   />
                 }
+                variant={borderVariant}
               >
                 Next
               </Button>
               <Button
-                variant={borderVariant}
-                radius="sm"
                 className="w-44 h-12"
-                startContent={<Image src="./tw.png" width={30} isBlurred />}
+                radius="sm"
+                startContent={<Image isBlurred src="./tw.png" width={30} />}
+                variant={borderVariant}
               >
                 Tailwindcss
               </Button>
               <Button
-                variant={borderVariant}
-                radius="sm"
                 className="w-44 h-12"
+                radius="sm"
                 startContent={
                   <Image
-                    src="./nextui.png"
-                    width={30}
                     isBlurred
                     radius="none"
+                    src="./nextui.png"
+                    width={30}
                   />
                 }
+                variant={borderVariant}
               >
                 Next UI
               </Button>
               <Button
-                variant={borderVariant}
-                radius="sm"
                 className="w-44 h-12"
+                radius="sm"
                 startContent={
-                  <Image src="./ant.png" width={30} isBlurred radius="none" />
+                  <Image isBlurred radius="none" src="./ant.png" width={30} />
                 }
+                variant={borderVariant}
               >
                 Ant Design
               </Button>
               <Button
-                variant={borderVariant}
-                radius="sm"
                 className="w-44 h-12"
+                radius="sm"
                 startContent={
-                  <Image src="./node.png" width={50} isBlurred radius="none" />
+                  <Image isBlurred radius="none" src="./node.png" width={50} />
                 }
+                variant={borderVariant}
               >
                 Node
               </Button>
               <Button
-                variant={borderVariant}
-                radius="sm"
                 className="w-44 h-12"
+                radius="sm"
                 startContent={
                   <Image
-                    src="./express.png"
-                    width={30}
                     isBlurred
                     radius="none"
+                    src="./express.png"
+                    width={30}
                   />
                 }
+                variant={borderVariant}
               >
                 Express
               </Button>
               <Button
-                variant={borderVariant}
-                radius="sm"
                 className="w-44 h-12"
+                radius="sm"
                 startContent={
-                  <Image src="./bun.png" width={30} isBlurred radius="none" />
+                  <Image isBlurred radius="none" src="./bun.png" width={30} />
                 }
+                variant={borderVariant}
               >
                 Bun
               </Button>
               <Button
-                variant={borderVariant}
-                radius="sm"
                 className="w-44 h-12"
+                radius="sm"
                 startContent={
                   <Image
-                    src="./elysiajs.png"
-                    width={50}
                     isBlurred
                     radius="none"
+                    src="./elysiajs.png"
+                    width={50}
                   />
                 }
+                variant={borderVariant}
               >
                 Elysia
               </Button>
               <Button
-                variant={borderVariant}
-                radius="sm"
                 className="w-44 h-12"
+                radius="sm"
                 startContent={
-                  <Image src="./fiber.png" width={50} isBlurred radius="none" />
+                  <Image isBlurred radius="none" src="./fiber.png" width={50} />
                 }
+                variant={borderVariant}
               >
                 Fiber
               </Button>
               <Button
-                variant={borderVariant}
-                radius="sm"
                 className="w-44 h-12"
+                radius="sm"
                 startContent={
-                  <Image src="./mysql.png" width={30} isBlurred radius="none" />
+                  <Image isBlurred radius="none" src="./mysql.png" width={30} />
                 }
+                variant={borderVariant}
               >
                 MySQL
               </Button>
               <Button
-                variant={borderVariant}
-                radius="sm"
                 className="w-44 h-12"
+                radius="sm"
                 startContent={
                   <Image
-                    src="./postgresql.png"
-                    width={30}
                     isBlurred
                     radius="none"
+                    src="./postgresql.png"
+                    width={30}
                   />
                 }
+                variant={borderVariant}
               >
                 PostgreSQL
               </Button>
               <Button
-                variant={borderVariant}
-                radius="sm"
                 className="w-44 h-12"
+                radius="sm"
                 startContent={
-                  <Image src="./mssql.png" width={30} isBlurred radius="none" />
+                  <Image isBlurred radius="none" src="./mssql.png" width={30} />
                 }
+                variant={borderVariant}
               >
                 MicrosoftSQL
               </Button>
               <Button
-                variant={borderVariant}
-                radius="sm"
                 className="w-44 h-12"
+                radius="sm"
                 startContent={
                   <Image
-                    src="./mongodb.png"
-                    width={30}
                     isBlurred
                     radius="none"
+                    src="./mongodb.png"
+                    width={30}
                   />
                 }
+                variant={borderVariant}
               >
                 MongoDB
               </Button>
               <Button
-                variant={borderVariant}
-                radius="sm"
                 className="w-44 h-12"
+                radius="sm"
                 startContent={
                   <Image
-                    src="./prisma.png"
-                    width={30}
                     isBlurred
                     radius="none"
+                    src="./prisma.png"
+                    width={30}
                   />
                 }
+                variant={borderVariant}
               >
                 Prisma
               </Button>
               <Button
-                variant={borderVariant}
-                radius="sm"
                 className="w-44 h-12"
+                radius="sm"
                 startContent={
-                  <Image src="./knex.png" width={30} isBlurred radius="none" />
+                  <Image isBlurred radius="none" src="./knex.png" width={30} />
                 }
+                variant={borderVariant}
               >
                 Knex
               </Button>
               <Button
-                variant={borderVariant}
-                radius="sm"
                 className="w-44 h-12"
+                radius="sm"
                 startContent={
                   <Image
-                    src="./arduino.png"
-                    width={30}
                     isBlurred
                     radius="none"
+                    src="./arduino.png"
+                    width={30}
                   />
                 }
+                variant={borderVariant}
               >
                 Arduino
               </Button>
               <Button
-                variant={borderVariant}
-                radius="sm"
                 className="w-44 h-12"
+                radius="sm"
                 startContent={
                   <Image
-                    src="./easyeda.png"
-                    width={30}
                     isBlurred
                     radius="none"
+                    src="./easyeda.png"
+                    width={30}
                   />
                 }
+                variant={borderVariant}
               >
                 Easy EDA
               </Button>
               <Button
-                variant={borderVariant}
-                radius="sm"
                 className="w-44 h-12"
+                radius="sm"
                 startContent={
                   <Image
-                    src="./docker.png"
-                    width={30}
                     isBlurred
                     radius="none"
+                    src="./docker.png"
+                    width={30}
                   />
                 }
+                variant={borderVariant}
               >
                 Docker
               </Button>
               <Button
-                variant={borderVariant}
-                radius="sm"
                 className="w-44 h-12"
+                radius="sm"
                 startContent={
                   <Image
-                    src="./ubuntu.png"
-                    width={30}
                     isBlurred
                     radius="none"
+                    src="./ubuntu.png"
+                    width={30}
                   />
                 }
+                variant={borderVariant}
               >
                 Ubuntu
               </Button>
               <Button
-                variant={borderVariant}
-                radius="sm"
                 className="w-44 h-12"
+                radius="sm"
                 startContent={
-                  <Image src="./cisco.png" width={50} isBlurred radius="none" />
+                  <Image isBlurred radius="none" src="./cisco.png" width={50} />
                 }
+                variant={borderVariant}
               >
                 Cisco
               </Button>

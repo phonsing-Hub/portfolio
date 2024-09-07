@@ -1,7 +1,9 @@
 import "@/styles/globals.css";
-import { SpeedInsights } from '@vercel/speed-insights/next';
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Metadata, Viewport } from "next";
 import clsx from "clsx";
+import { Link } from "@nextui-org/link";
+
 import { Providers } from "./providers";
 
 import { siteConfig } from "@/config/site";
@@ -34,8 +36,8 @@ export default function RootLayout({
   return (
     <html suppressHydrationWarning lang="en">
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link href="https://fonts.googleapis.com" rel="preconnect" />
+        <link href="https://fonts.gstatic.com" rel="preconnect" />
         <link
           href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai+Looped:wght@100;200;300;400;500;600;700&display=swap"
           rel="stylesheet"
@@ -44,17 +46,27 @@ export default function RootLayout({
       <body
         className={clsx(
           "min-h-screen bg-background font-sans antialiased",
-          fontSans.variable
+          fontSans.variable,
         )}
       >
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
           <div className="relative flex flex-col h-auto ">
             <Navbar />
-            {/* <WatermarkBG> */}
-              <main className="container mx-auto max-w-7xl px-6">
-                {children}
-              </main>
-            {/* </WatermarkBG> */}
+            <main className="container mx-auto max-w-7xl px-6">
+              {children}
+              <footer className="flex justify-between items-center w-full h-10">
+                <p className=" text-sm font-bold">@2002</p>
+                <Link
+                  isExternal
+                  className="flex items-center gap-1 text-current text-sm font-bold"
+                  href="https://nextui-docs-v2.vercel.app?utm_source=next-app-template"
+                  title="nextui.org homepage"
+                >
+                  <span className="text-default-600">Powered by</span>
+                  <p className="text-primary">NextUI</p>
+                </Link>
+              </footer>
+            </main>
           </div>
         </Providers>
         <SpeedInsights />

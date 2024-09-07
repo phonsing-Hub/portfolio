@@ -1,53 +1,39 @@
-# Next.js & NextUI Template
+# Portfolio
 
-This is a template for creating applications using Next.js 14 (app directory) and NextUI (v2).
+Welcome to my portfolio! This website showcases my projects, skills, and experiences as a developer. It's designed to provide a comprehensive look at my work in a clean, modern, and responsive interface.
 
-[Try it on CodeSandbox](https://githubbox.com/nextui-org/next-app-template)
+You can visit my portfolio at **[phonsinghub.com](https://phonsinghub.com)**.
 
-## Technologies Used
+## Features
 
-- [Next.js 14](https://nextjs.org/docs/getting-started)
-- [NextUI v2](https://nextui.org/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [Tailwind Variants](https://tailwind-variants.org)
-- [TypeScript](https://www.typescriptlang.org/)
-- [Framer Motion](https://www.framer.com/motion/)
-- [next-themes](https://github.com/pacocoursey/next-themes)
+- **Project Showcase**: A list of my key projects, each with detailed descriptions, technologies used, and live demos.
+- **Skills**: Overview of the technical skills and tools I’m proficient in.
+- **Experience**: Timeline of my career path and work experience.
+- **Contact**: A contact form allowing visitors to get in touch directly.
+- **Blog** (Optional): Includes a blog section where I write about technology, tutorials, and personal thoughts on various topics.
+  
+## Technology Stack
 
-## How to Use
+- **Framework**: [Next.js](https://nextjs.org/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/) for a highly customizable and responsive design.
+- **UI Library**: [NextUI](https://nextui.org/) for pre-built React components with beautiful and customizable design.
+- **Hosting**: Deployed on [Vercel](https://vercel.com/) for seamless CI/CD integration and global CDN.
+- **API**: Integrated with various third-party APIs to fetch project data dynamically.
+- **SEO**: Optimized for SEO using meta tags, sitemaps, and open graph protocols.
+  
+## Getting Started
 
-### Use the template with create-next-app
+To get started locally, follow these steps:
 
-To create a new project based on this template using `create-next-app`, run the following command:
+### Prerequisites
 
-```bash
-npx create-next-app -e https://github.com/nextui-org/next-app-template
-```
+- Bun server
+- bun package manager
 
-### Install dependencies
+### Installation
 
-You can use one of them `npm`, `yarn`, `pnpm`, `bun`, Example using `npm`:
+1. Clone the repository:
 
-```bash
-npm install
-```
-
-### Run the development server
-
-```bash
-npm run dev
-```
-
-### Setup pnpm (optional)
-
-If you are using `pnpm`, you need to add the following code to your `.npmrc` file:
-
-```bash
-public-hoist-pattern[]=*@nextui-org/*
-```
-
-After modifying the `.npmrc` file, you need to run `pnpm install` again to ensure that the dependencies are installed correctly.
-
-## License
-
-Licensed under the [MIT license](https://github.com/nextui-org/next-app-template/blob/main/LICENSE).
+   ```bash
+   git clone https://github.com/phonsing-Hub/portfolio.git
+   cd portfolio
