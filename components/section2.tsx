@@ -20,7 +20,7 @@ export default function section2() {
   return (
     <section className="flex justify-center items-center display2">
       <div className="flex flex-wrap gap-10 w-full ">
-        <div className="flex-[1_0_360px]">
+        <div className="flex-[1_0_360px]" data-aos="fade-up" data-aos-delay="100">
           <Chip
             className="mb-5"
             color="primary"
@@ -36,7 +36,7 @@ export default function section2() {
           <br />
           <Divider />
         </div>
-        <div className="flex-[1_0_366px]">
+        <div className="flex-[1_0_366px]" data-aos="fade-up" data-aos-delay="500">
           <Chip
             className="mb-5"
             color="primary"

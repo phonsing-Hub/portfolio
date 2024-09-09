@@ -14,7 +14,11 @@ export default function section4() {
   return (
     <section className="display2 relative pt-4">
       <div className="w-full h-full flex flex-wrap gap-10 mt-24 ">
-        <div className=" flex-[1_0_300px] flex flex-col justify-center">
+        <div
+          className=" flex-[1_0_300px] flex flex-col justify-center"
+          data-aos="zoom-in-down"
+          data-aos-delay="100"
+        >
           <h1 className="font-bold text-4xl">Authentication</h1>
           <br />
           <p className="indent-10 text-xl">
@@ -27,6 +31,7 @@ export default function section4() {
             isExternal
             showAnchorIcon
             href="https://github.com/phonsing-Hub/E-commerce"
+            className="font-bold"
           >
             Github repo
           </Link>
@@ -44,7 +49,11 @@ export default function section4() {
             </Link>
           </p>
         </div>
-        <div className=" flex-[1_0_300px] flex justify-center ">
+        <div
+          className=" flex-[1_0_300px] flex justify-center "
+          data-aos="zoom-in-left"
+          data-aos-delay="500"
+        >
           <ImageGroup src={src} />
         </div>
       </div>

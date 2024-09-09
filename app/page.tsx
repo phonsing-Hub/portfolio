@@ -1,11 +1,18 @@
+"use client";
+import { useEffect } from "react";
 import Section1 from "@/components/section1";
 import Section2 from "@/components/section2";
 import Section3 from "@/components/section3";
 import Section4 from "@/components/section4";
 import Section5 from "@/components/section5";
 import Section6 from "@/components/section6";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 export default function Home() {
+  useEffect(() => {
+    AOS.init();
+  }, []);
   return (
     <>
       <div className=" relative">

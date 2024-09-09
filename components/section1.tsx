@@ -1,4 +1,3 @@
-"use client";
 
 import { TypeAnimation } from "react-type-animation";
 import { Chip } from "@nextui-org/chip";
@@ -19,7 +18,10 @@ export default function Section1() {
   return (
     <section className="flex justify-center items-center display">
       <div className="flex flex-wrap gap-4 w-full lg:px-10 ">
-        <div className="flex-[1_0_350px] flex justify-center items-center ">
+        <div
+          className="flex-[1_0_350px] flex justify-center items-center"
+          data-aos="fade-right"
+        >
           <div className="p-1 bdImg">
             <div className="image lg:w-[380px] lg:h-[380px] w-[250px] h-[250px]">
               <img
@@ -30,7 +32,10 @@ export default function Section1() {
             </div>
           </div>
         </div>
-        <div className="flex-[1_0_350px] flex flex-col justify-center lg:items-start items-center z-10">
+        <div
+          className="flex-[1_0_350px] flex flex-col justify-center lg:items-start items-center z-10"
+          data-aos="fade-left"
+        >
           <p className="font-bold text-3xl lg:text-5xl">Phonsing Taleman</p>
           <TypeAnimation
             className="lg:text-3xl text-2xl"

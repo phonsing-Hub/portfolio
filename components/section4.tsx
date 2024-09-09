@@ -13,10 +13,18 @@ export default function section4() {
   return (
     <section className="display2 relative pt-4">
       <div className="w-full h-full flex flex-wrap gap-10 mt-24 ">
-        <div className=" flex-[1_0_300px] flex justify-center ">
+        <div
+          className=" flex-[1_0_300px] flex justify-center "
+          data-aos="zoom-in"
+          data-aos-delay="100"
+        >
           <ImageGroup src={src} />
         </div>
-        <div className=" flex-[1_0_300px] flex flex-col justify-center">
+        <div
+          className=" flex-[1_0_300px] flex flex-col justify-center"
+          data-aos="fade-left"
+          data-aos-delay="500"
+        >
           <h1 className="font-bold text-4xl">Network Monitoring</h1>
           <br />
           <p className="indent-10 text-xl">
@@ -29,6 +37,7 @@ export default function section4() {
             isExternal
             showAnchorIcon
             href="https://github.com/phonsing-Hub/NetworkMonitoring"
+            className="font-bold"
           >
             Github repo
           </Link>

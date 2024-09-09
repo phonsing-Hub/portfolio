@@ -15,7 +15,7 @@ export default function section3() {
         <span className="title-word title-word-4 Shimg">PROJECT</span>
       </p>
       <div className="w-full h-full flex flex-wrap gap-4 mt-24">
-        <div className=" flex-[1_0_300px] flex flex-col justify-center">
+        <div className=" flex-[1_0_300px] flex flex-col justify-center" data-aos="fade-up-right" data-aos-delay="100">
           <h1 className="font-bold text-4xl">Embedded System</h1>
           <br />
           <p className="indent-10 text-xl">
@@ -38,7 +38,7 @@ export default function section3() {
           <br />
           <Divider />
         </div>
-        <div className=" flex-[1_0_300px] flex flex-col items-center">
+        <div className=" flex-[1_0_300px] flex flex-col items-center" data-aos="fade-up-left" data-aos-delay="500">
           <Image
             className="Shimg"
             src="https://raw.githubusercontent.com/phonsing-Hub/Images/main/p1.png"
