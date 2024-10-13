@@ -111,7 +111,7 @@ export default function Authentication() {
           ก่อนที่จะเข้ามาที่ API เส้นนี้ได้
         </p>
       </div>
-      <Display />
+{/*       <Display /> */}
       <br />
       <span className=" font-bold">
         Git Repositories:{" "}
