@@ -1,5 +1,6 @@
 import Navbar from "@/components/navbar";
 import { ThemeProvider } from "@/components/theme-provider";
+import {NextUIProvider} from "@nextui-org/react";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { DATA } from "@/data/resume";
 import { cn } from "@/lib/utils";
@@ -57,15 +58,18 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body
         className={cn(
-          "min-h-screen font-sans antialiased max-w-4xl mx-auto pb-12 sm:pb-24 px-6",
+          "min-h-screen font-sans max-w-4xl mx-auto bg-transparent",
           fontSans.variable
         )}
       >
         <ThemeProvider attribute="class" defaultTheme="light">
+          <NextUIProvider>
+
           <TooltipProvider delayDuration={0}>
             {children}
             <Navbar />
           </TooltipProvider>
+          </NextUIProvider>
         </ThemeProvider>
       </body>
     </html>

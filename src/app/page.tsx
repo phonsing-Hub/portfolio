@@ -12,17 +12,19 @@ import Markdown from "react-markdown";
 import { ParticlesBg } from "@/components/magicui/ParticlesBg";
 import { OrbitingCircle } from "@/components/magicui/OrbitingCircle";
 import { ViewMagicCard } from "@/components/magicui/ViewMagicCard";
+import {ScrollShadow} from "@nextui-org/react";
 const BLUR_FADE_DELAY = 0.04;
 
 export default function Page() {
   return (
-    <main className="flex flex-col min-h-[100dvh]">
+    <>
       <ParticlesBg />
+    <ScrollShadow hideScrollBar className="flex flex-col h-screen pb-12 sm:pb-24">
       <section id="hero">
         <OrbitingCircle />
       </section>
       <br />
-      <section id="about" className="border-b">
+      <section id="about" className="px-6">
         <BlurFade delay={BLUR_FADE_DELAY * 3}>
           <h2 className="text-2xl font-bold">About</h2>
         </BlurFade>
@@ -33,33 +35,9 @@ export default function Page() {
         </BlurFade>
       </section>
       <br />
-      {/* <section id="work">
-        <div className="flex min-h-0 flex-col gap-y-3">
-          <BlurFade delay={BLUR_FADE_DELAY * 5}>
-            <h2 className="text-xl font-bold">Work Experience</h2>
-          </BlurFade>
-          {DATA.work.map((work, id) => (
-            <BlurFade
-              key={work.company}
-              delay={BLUR_FADE_DELAY * 6 + id * 0.05}
-            >
-              <ResumeCard
-                key={work.company}
-                logoUrl={work.logoUrl}
-                altText={work.company}
-                title={work.company}
-                subtitle={work.title}
-                href={work.href}
-                badges={work.badges}
-                period={`${work.start} - ${work.end ?? "Present"}`}
-                description={work.description}
-              />
-            </BlurFade>
-          ))}
-        </div>
-      </section> */}
+   
       <br />
-      <section id="education">
+      <section id="education" className="px-6">
         <div className="flex min-h-0 flex-col gap-y-3">
           <BlurFade delay={BLUR_FADE_DELAY * 7}>
             <h2 className="text-2xl font-bold">Education</h2>
@@ -70,6 +48,7 @@ export default function Page() {
               delay={BLUR_FADE_DELAY * 8 + id * 0.05}
             >
               <ResumeCard
+               
                 key={education.school}
                 href={education.href}
                 logoUrl={education.logoUrl}
@@ -83,7 +62,7 @@ export default function Page() {
         </div>
       </section>
       <br />
-      <section id="skills">
+      <section id="skills" className="px-6">
         <div className="flex min-h-0 flex-col gap-y-3">
           <BlurFade delay={BLUR_FADE_DELAY * 9}>
             <h2 className="text-2xl font-bold">Skills</h2>
@@ -98,22 +77,41 @@ export default function Page() {
         </div>
       </section>
       <br />
-      <section id="hackathons">
+      <section id="projects">
         <div className="space-y-12 w-full py-12">
-          <BlurFade delay={BLUR_FADE_DELAY * 13}>
+          <BlurFade delay={BLUR_FADE_DELAY * 11}>
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
-                <ShinyButton>
-                  <p className="font-bold">my project</p>
+              <ShinyButton>
+                  <p className="font-bold">Projects and Articles</p>
                 </ShinyButton>
               </div>
             </div>
           </BlurFade>
-          <ViewMagicCard/>
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 max-w-[800px] mx-auto">
+            {DATA.projects.map((project, id) => (
+              <BlurFade
+                key={project.title}
+                delay={BLUR_FADE_DELAY * 12 + id * 0.05}
+              >
+                <ProjectCard
+                  href={project.href}
+                  key={project.title}
+                  title={project.title}
+                  description={project.description}
+                  dates={project.dates}
+                  tags={project.technologies}
+                  image={project.image}
+                  video={project.video}
+                  links={project.links}
+                />
+              </BlurFade>
+            ))}
+          </div>
         </div>
       </section>
       <br />
-      <section id="contact">
+      <section id="contact" className="px-6">
         <div className="grid items-center justify-center gap-4 px-4 text-center md:px-6 w-full py-12">
           <BlurFade delay={BLUR_FADE_DELAY * 16}>
             <div className="space-y-3">
@@ -138,6 +136,7 @@ export default function Page() {
           </BlurFade>
         </div>
       </section>
-    </main>
+    </ScrollShadow>
+    </>
   );
 }
