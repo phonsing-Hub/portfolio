@@ -145,5 +145,5 @@ code[data-line-numbers-max-digits="3"] > [data-line]::before {
 
 
 .hero {
- height: 100%;
+ height: calc(100vh - 2.2rem);
 }

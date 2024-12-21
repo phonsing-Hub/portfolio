@@ -6,7 +6,7 @@ interface Props {
   title: string;
   description: string;
   dates: string;
-  location: string;
+  group: string;
   image?: string;
   links?: readonly {
     icon: React.ReactNode;
@@ -19,14 +19,14 @@ export function HackathonCard({
   title,
   description,
   dates,
-  location,
+  group,
   image,
   links,
 }: Props) {
   return (
     <li className="relative ml-10 py-4">
-      <div className="absolute -left-16 top-2 flex items-center justify-center bg-white rounded-full">
-        <Avatar className="border size-12 m-auto">
+      <div className="absolute -left-16 top-2 flex items-center justify-center bg-white dark:bg-black">
+        <Avatar className="size-12 m-auto rounded-lg">
           <AvatarImage src={image} alt={title} className="object-contain" />
           <AvatarFallback>{title[0]}</AvatarFallback>
         </Avatar>
@@ -36,8 +36,8 @@ export function HackathonCard({
           <time className="text-xs text-muted-foreground">{dates}</time>
         )}
         <h2 className="font-semibold leading-none">{title}</h2>
-        {location && (
-          <p className="text-sm text-muted-foreground">{location}</p>
+        {group && (
+          <p className="text-sm text-muted-foreground">{group}</p>
         )}
         {description && (
           <span className="prose dark:prose-invert text-sm text-muted-foreground">

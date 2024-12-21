@@ -25,13 +25,16 @@ const useMorphingText = (texts: string[]) => {
       current2.style.opacity = `${Math.pow(fraction, 0.4) * 100}%`;
 
       const invertedFraction = 1 - fraction;
-      current1.style.filter = `blur(${Math.min(8 / invertedFraction - 8, 100)}px)`;
+      current1.style.filter = `blur(${Math.min(
+        8 / invertedFraction - 8,
+        100
+      )}px)`;
       current1.style.opacity = `${Math.pow(invertedFraction, 0.4) * 100}%`;
 
       current1.textContent = texts[textIndexRef.current % texts.length];
       current2.textContent = texts[(textIndexRef.current + 1) % texts.length];
     },
-    [texts],
+    [texts]
   );
 
   const doMorph = useCallback(() => {
@@ -98,11 +101,11 @@ const Texts: React.FC<Pick<MorphingTextProps, "texts">> = ({ texts }) => {
   return (
     <>
       <span
-        className="absolute inset-x-0 top-0 m-auto inline-block w-full bg-gradient-to-r bg-clip-text min-h-40"
+        className="absolute inset-x-0 top-0 m-auto inline-block w-full min-h-40 from-zinc-700 to-gray-300/80 bg-clip-text text-transparent bg-gradient-to-b"
         ref={text1Ref}
       />
       <span
-        className="absolute inset-x-0 top-0 m-auto inline-block w-full bg-gradient-to-r bg-clip-text min-h-40"
+        className="absolute inset-x-0 top-0 m-auto inline-block w-full min-h-40 from-zinc-700 to-gray-300/80 bg-clip-text text-transparent bg-gradient-to-b"
         ref={text2Ref}
       />
     </>
@@ -129,8 +132,8 @@ const SvgFilters: React.FC = () => (
 const MorphingText: React.FC<MorphingTextProps> = ({ texts, className }) => (
   <div
     className={cn(
-      "relative mx-auto h-16 w-full max-w-screen-md text-center font-sans text-[40pt] font-bold leading-none [filter:url(#threshold)_blur(0.6px)] md:h-24 lg:text-[4rem]",
-      className,
+      "relative mx-auto h-16 w-full max-w-screen-md text-center font-sans text-[30pt] font-bold leading-none [filter:url(#threshold)_blur(0.6px)] md:h-24 lg:text-[3rem]",
+      className
     )}
   >
     <Texts texts={texts} />

@@ -16,7 +16,7 @@ export function ParticlesBg() {
   return (
       <Particles
         className="inset-0 fixed"
-        quantity={150}
+        quantity={100}
         ease={100}
         color={color}
         refresh

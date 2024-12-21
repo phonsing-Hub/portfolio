@@ -10,7 +10,7 @@ export const DATA = {
   description:
     "Software Engineer turned Entrepreneur. I love building things and helping people. Very active on Twitter.",
   summary:
-    "Hello, my name is Phonsing Taleman. I am passionate about the development of technology and innovation. My expertise lies in software development and hardware design. I am always eager to learn and improve myself, with a commitment to creating valuable and interesting work continuously.",
+    "สวัสดีครับ ผมชื่อ NOAH เป็น Software Developer ที่เชี่ยวชาญด้านการพัฒนาซอฟต์แวร์และออกแบบระบบ ผมหลงใหลในเทคโนโลยีใหม่ๆ และมุ่งมั่นสร้างสรรค์โซลูชันที่มีประสิทธิภาพและตอบโจทย์ความต้องการของผู้ใช้งานครับ",
   avatarUrl: "/me.png",
   skills: [
     "C/C++",
@@ -119,14 +119,23 @@ export const DATA = {
   ],
   hackathons: [
     {
-      title: "Hack Western 5",
-      dates: "November 23rd - 25th, 2018",
-      location: "London, Ontario",
+      title: "มหาวิทยาลัยศรีปทุม",
+      dates: "2021 - 2022",
+      group: "คณะวิศวกรรมศาสตร์",
       description:
-        "Developed a mobile application which delivered bedtime stories to children using augmented reality.",
+        "สาขาวิศวกรรมยายนต์สมัยใหม่",
       image:
-        "https://pub-83c5db439b40468498f97946200806f7.r2.dev/hackline/hack-western.png",
-      mlh: "https://s3.amazonaws.com/logged-assets/trust-badge/2019/mlh-trust-badge-2019-white.svg",
+        "spu07.gif",
+      links: [],
+    },
+    {
+      title: "มหาวิทยาลัยศรีปทุม",
+      dates: "2022 - present",
+      group: "คณะเทคโนโลยีสารสนเทศ",
+      description:
+        "สาขาวิศวกรรมคอมพิวเตอร์",
+      image:
+        "spu07.gif",
       links: [],
     }
     
