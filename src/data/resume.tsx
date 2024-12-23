@@ -10,7 +10,7 @@ export const DATA = {
   description:
     "Software Engineer turned Entrepreneur. I love building things and helping people. Very active on Twitter.",
   summary:
-    "สวัสดีครับ ผมชื่อ NOAH เป็น Software Developer ที่เชี่ยวชาญด้านการพัฒนาซอฟต์แวร์และออกแบบระบบ ผมหลงใหลในเทคโนโลยีใหม่ๆ และมุ่งมั่นสร้างสรรค์โซลูชันที่มีประสิทธิภาพและตอบโจทย์ความต้องการของผู้ใช้งานครับ",
+    "สวัสดีครับ ผม NOAH เป็น Software Developer ที่ชอบเรียนรู้และลองใช้เทคโนโลยีใหม่ๆ อยู่เสมอ ผมสนุกกับการออกแบบและพัฒนาซอฟต์แวร์ที่ช่วยแก้ปัญหาและทำให้ชีวิตง่ายขึ้น งานของผมเน้นที่การสร้างโซลูชันที่ใช้งานได้จริงและตอบโจทย์ความต้องการของผู้ใช้งานครับ ถ้ามีอะไรอยากพูดคุยหรือปรึกษาเรื่องเทคโนโลยี ยินดีมากๆ ครับ!",
   avatarUrl: "/me.png",
   skills: [
     "C/C++",
@@ -48,7 +48,9 @@ export const DATA = {
   ],
   contact: {
     email: "polsing.ap@gmail.com",
-    tel: "+66 64 763 3547",
+    tel: "+66 064 763 3547",
+    location: "Bangbuathong, Nonthaburi",
+    time: "Mon - Fri, 10:00 - 22:00",
     social: {
       GitHub: {
         name: "GitHub",
@@ -89,32 +91,12 @@ export const DATA = {
   ],
   education: [
     {
-      school: "Sripatum University",
+      school: "มหาวิทยาลัยศรีปทุม",
       href: "https://www.spu.ac.th/",
-      degree: "Computer Engineering",
+      degree: "สาขา วิศวกรรมคอมพิวเตอร์",
       logoUrl: "spu07.gif",
       start: "2021",
       end: "Present",
-    },
-  ],
-  projects: [
-    {
-      title: "Employee System",
-      href: "https://github.com/phonsing-Hub/EmployeeSystem",
-      dates: "Sep 2024",
-      active: true,
-      description:
-        "technology designed to streamline core HR services and improve workforce productivity.",
-      technologies: ["React", "Go Fiber", "Gorm DB", "TailwindCSS", "Next UI"],
-      links: [
-        {
-          type: "Website",
-          href: "https://github.com/phonsing-Hub/EmployeeSystem",
-          icon: <Icons.globe className="size-3" />,
-        },
-      ],
-      image: "/",
-      video: "",
     },
   ],
   hackathons: [
@@ -141,3 +123,5 @@ export const DATA = {
     
   ],
 } as const;
+
+

@@ -96,13 +96,25 @@ const config = {
   				'100%': {
   					'offset-distance': '100%'
   				}
-  			}
+  			},
+			  shine: {
+				"0%": {
+				  "background-position": "0% 0%",
+				},
+				"50%": {
+				  "background-position": "100% 100%",
+				},
+				to: {
+				  "background-position": "0% 0%",
+				},
+			  },
   		},
   		animation: {
+			shine: "shine var(--duration) infinite linear",
+			orbit: 'orbit calc(var(--duration)*1s) linear infinite',
   			'accordion-down': 'accordion-down 0.2s ease-out',
   			'accordion-up': 'accordion-up 0.2s ease-out',
-  			orbit: 'orbit calc(var(--duration)*1s) linear infinite',
-  			'border-beam': 'border-beam calc(var(--duration)*1s) infinite linear'
+  			'border-beam': 'border-beam calc(var(--duration)*1s) infinite linear',
   		}
   	}
   },

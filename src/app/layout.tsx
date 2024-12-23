@@ -58,7 +58,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body
         className={cn(
-          "min-h-screen font-sans max-w-4xl mx-auto bg-transparent",
+          "min-h-screen max-w-4xl mx-auto bg-transparent",
           fontSans.variable
         )}
       >

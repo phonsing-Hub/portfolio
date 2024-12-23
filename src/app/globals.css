@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@100;200;300;400;500;600;700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -143,7 +144,12 @@ code[data-line-numbers-max-digits="3"] > [data-line]::before {
   width: 3rem;
 }
 
-
+* {
+    font-family: "IBM Plex Sans Thai", serif;
+    font-weight: 400;
+    font-style: normal;
+  
+}
 .hero {
  height: calc(100vh - 2.2rem);
 }
