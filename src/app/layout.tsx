@@ -1,7 +1,8 @@
 import Navbar from "@/components/navbar";
 import { ThemeProvider } from "@/components/theme-provider";
-import {NextUIProvider} from "@nextui-org/react";
+import { NextUIProvider } from "@nextui-org/react";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { ParticlesBg } from "@/components/magicui/ParticlesBg";
 import { DATA } from "@/data/resume";
 import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
@@ -57,18 +58,15 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={cn(
-          "min-h-screen max-w-4xl mx-auto bg-transparent",
-          fontSans.variable
-        )}
+        className={cn("min-h-screen w-full bg-transparent", fontSans.variable)}
       >
         <ThemeProvider attribute="class" defaultTheme="light">
           <NextUIProvider>
-
-          <TooltipProvider delayDuration={0}>
-            {children}
-            <Navbar />
-          </TooltipProvider>
+            <ParticlesBg />
+            <TooltipProvider delayDuration={0}>
+              {children}
+              <Navbar />
+            </TooltipProvider>
           </NextUIProvider>
         </ThemeProvider>
       </body>

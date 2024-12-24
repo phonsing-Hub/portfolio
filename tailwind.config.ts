@@ -21,6 +21,23 @@ const config = {
   		}
   	},
   	extend: {
+		typography: {
+			DEFAULT: {
+			  css: {
+				pre: {
+				  //backgroundColor: "#2d2d2d",
+				  //color: "#f8f8f2",
+				  borderRadius: "0.5rem",
+				  padding: "1rem",
+				},
+				code: {
+				//   backgroundColor: "#1e1e1e",
+				//   padding: "0.2rem 0.4rem",
+				  borderRadius: "0.3rem",
+				},
+			  },
+			},
+		},
   		fontFamily: {
   			sans: [
   				'var(--font-sans)',

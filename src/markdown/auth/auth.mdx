@@ -1,0 +1,74 @@
+import CodeComparison from "@/components/ui/code-comparison";
+import {Diagram, CODE_GO} from './auth.tsx'
+
+# Authentication & JWT Token
+บทความนี้จะพาคุณไปทำความเข้าใจเกี่ยวกับการทำ **Authentication** และ **JWT Token** ตั้งแต่ความเป็นมา ความหมายของ **Authentication** และ **JWT** รวมถึงตัวอย่างการใช้งานด้วยภาษา **Go**
+<div className="border-b"/>
+  
+## ความเป็นมา
+ในยุคแรกๆ การพัฒนาเว็บไซต์หรือแอปพลิเคชัน การจัดการผู้ใช้งานมักทำโดยการเก็บข้อมูลผู้ใช้ไว้ใน Session บน Server ซึ่งมีข้อจำกัดในเรื่องของ Scalability เมื่อมีผู้ใช้งานมากขึ้น Server ต้องแบกรับ Session จำนวนมาก ทำให้ประสิทธิภาพลดลง และเมื่อมีการใช้งานระบบแบบ Distributed System หรือ Microservices การจัดการ Session ยิ่งซับซ้อนมากขึ้น
+
+**[JWT (JSON Web Token)](https://jwt.io/)** จึงถูกพัฒนาขึ้นเพื่อแก้ไขปัญหาเหล่านี้ โดย JWT เป็นมาตรฐานเปิด (RFC 7519) ที่กำหนดวิธีการสร้าง Token สำหรับการยืนยันตัวตนและการแลกเปลี่ยนข้อมูลระหว่าง Client และ Server โดยไม่ต้องอาศัย Session บน Server ทำให้ระบบมีความยืดหยุ่นและรองรับการขยายตัวได้ดี
+ 
+## Authentication คืออะไร
+**Authentication** คือกระบวนการยืนยันตัวตนของผู้ใช้งาน เพื่อตรวจสอบว่าผู้ใช้งานเป็นใคร มีสิทธิ์เข้าถึงข้อมูลหรือทรัพยากรใดบ้าง โดยทั่วไปแล้ว Authentication ทำได้โดยการตรวจสอบข้อมูลที่ผู้ใช้งานให้มา เช่น Username และ Password หากข้อมูลถูกต้อง ระบบจะอนุญาตให้ผู้ใช้งานเข้าใช้งานได้
+
+#### โครงสร้างของ JWT ประกอบด้วย 3 ส่วน
+1. **Header** ส่วนหัวของ Token ประกอบด้วยข้อมูลเกี่ยวกับประเภทของ Token และ Algorithm ที่ใช้ในการเข้ารหัส
+
+<CodeComparison
+    code={`{
+    "alg": "HS256",
+    "typ": "JWT"
+}`}
+    language="json"
+    filename="Header"
+    lightTheme="github-light"
+    darkTheme="github-dark"
+    />
+
+2. **Payload** ประกอบด้วยข้อมูลที่ต้องการส่ง เช่น ข้อมูลผู้ใช้งาน (Claims) ซึ่งแบ่งออกเป็น 3 ประเภท
+- `Registered Claims` เป็น Claims ที่กำหนดไว้ในมาตรฐาน เช่น iss (Issuer), exp (Expiration Time), sub (Subject), aud (Audience)
+- `Public Claims` เป็น Claims ที่กำหนดโดยทั่วไป เช่น ชื่อผู้ใช้งาน อีเมล
+- `Private Claims` เป็น Claims ที่กำหนดขึ้นเองตามความต้องการของแอปพลิเคชัน
+
+<CodeComparison
+    code={`{
+        "sub": "1234567890",
+        "name": "John Doe",
+        "iat": 1516239022
+}`}
+    language="json"
+    filename="Payload"
+    lightTheme="github-light"
+    darkTheme="github-dark"
+    />
+
+3. **Signature** สร้างขึ้นโดยการนำ Header, Payload มาเข้ารหัสด้วย Algorithm ที่ระบุใน Header ร่วมกับ Secret Key ทำให้สามารถตรวจสอบได้ว่า Token ถูกแก้ไขหรือไม่
+
+<Diagram/>
+
+จาก diagram การทำงานของระบบ Authentication ด้วย JWT ซึ่งแสดงให้เห็นการทำงานระหว่าง Frontend, Backend, และ Database ขั้นตอนนี้อธิบายการทำงานแบบคร่าว ๆ ของการยืนยันตัวตนผู้ใช้ในระบบที่ใช้ JWT สำหรับการจัดการ session และการยืนยันสิทธิ์
+
+## ตัวอย่าง Code ด้วยภาษา Go และ Fiber
+
+<CodeComparison
+    code={CODE_GO}
+    language="go"
+    filename="main.go"
+    lightTheme="github-light"
+    darkTheme="github-dark"
+    />
+
+#### คำอธิบาย Code
+
+- `generateJWT()` สร้าง JWT โดยรับ User ID และกำหนด Expiration Time
+- `verifyJWT()` ตรวจสอบ JWT โดยการถอดรหัสและตรวจสอบ Signature
+- `/login` Endpoint สำหรับ Login ซึ่งจะสร้าง JWT และส่งกลับให้ Client
+- `/protected` Endpoint สำหรับ Resource ที่ต้องมีการยืนยันตัวตน โดยจะตรวจสอบ JWT ก่อนอนุญาตให้เข้าถึง
+
+#### ข้อควรระวัง
+
+- ควรเก็บ jwtSecret ในที่ปลอดภัย เช่น Environment Variable หรือ Secret Management Service
+- ควรเลือก Algorithm ที่เหมาะสมสำหรับการเข้ารหัส เช่น HS256, RS256
+- ควรตั้งค่า Expiration Time ให้เหมาะสม เพื่อป้องกันการนำ Token เก่ามาใช้งาน

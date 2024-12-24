@@ -3,7 +3,7 @@ import { Icons } from "@/components/icons";
 export const BLOG_TITLE = [
   {
     title: "Authentication & JWT",
-    href: "#",
+    href: "/authentication",
     dates: "Sep 2024",
     active: true,
     description:
@@ -12,7 +12,7 @@ export const BLOG_TITLE = [
     links: [
       {
         type: "Website",
-        href: "#",
+        href: "/authentication",
         icon: <Icons.globe className="size-3" />,
       },
     ],
@@ -21,7 +21,7 @@ export const BLOG_TITLE = [
   },
   {
     title: "What Is Docker?",
-    href: "#",
+    href: "/docker",
     dates: "Sep 2024",
     active: true,
     description:
@@ -30,7 +30,7 @@ export const BLOG_TITLE = [
     links: [
       {
         type: "Website",
-        href: "#",
+        href: "/docker",
         icon: <Icons.globe className="size-3" />,
       },
     ],
@@ -57,13 +57,18 @@ export const BLOG_TITLE = [
   },
   {
     title: "Face Recognition",
-    href: "#",
+    href: "/face-recognition",
     dates: "Oct 2024",
     active: true,
     description:
     "เทคโนโลยีการจดจำใบหน้า (Face Recognition) เป็นเทคโนโลยีที่ถูกสร้างขึ้นมาเพื่อวิเคราะห์โครงสร้างของใบหน้ามนุษย์ จากนั้นจะส่งข้อมูลใบหน้าที่ตรวจจับได้ไปยังระบบเพื่อประมวลผลและใช้งานตามวัตถุประสงค์ที่กำหนดไว้",
     technologies: ["Python", "OpenCV", "Dlib"],
     links: [
+      {
+        type: "Website",
+        href: "/face-recognition",
+        icon: <Icons.globe className="size-3" />,
+      },
       {
         type: "Source",
         href: "https://github.com/phonsing-Hub/ImageProcessing",

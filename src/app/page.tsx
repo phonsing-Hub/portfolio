@@ -3,7 +3,6 @@ import { BLOG_TITLE } from "@/data/blog-title";
 import { ProjectCard } from "@/components/project-card";
 import { ResumeCard } from "@/components/resume-card";
 import { Badge } from "@/components/ui/badge";
-import { ParticlesBg } from "@/components/magicui/ParticlesBg";
 import { OrbitingCircle } from "@/components/magicui/OrbitingCircle";
 import { ScrollShadow } from "@nextui-org/react";
 import { MagicCard } from "@/components/ui/magic-card";
@@ -16,12 +15,11 @@ const BLUR_FADE_DELAY = 0.04;
 
 export default function Page() {
   return (
-    <>
-      <ParticlesBg />
-      <ScrollShadow
-        hideScrollBar
-        className="flex flex-col h-screen pb-12 sm:pb-24 "
-      >
+    <ScrollShadow
+      hideScrollBar
+      className="flex flex-col h-screen pb-12 sm:pb-24 "
+    >
+      <div className="max-w-4xl mx-auto">
         <section id="hero">
           <OrbitingCircle />
         </section>
@@ -95,7 +93,7 @@ export default function Page() {
                     delay={BLUR_FADE_DELAY * 12 + id * 0.05}
                   >
                     <MagicCard
-                      className="cursor-pointer shadow-md"
+                      className="shadow-md"
                       gradientColor={"rgb(30, 64, 175, 0.4)"}
                     >
                       <ProjectCard
@@ -124,7 +122,7 @@ export default function Page() {
             </div>
           </section>
         </div>
-      </ScrollShadow>
-    </>
+      </div>
+    </ScrollShadow>
   );
 }

@@ -5,16 +5,15 @@ import rehypePrettyCode from "rehype-pretty-code";
 import rehypeStringify from "rehype-stringify";
 import remarkParse from "remark-parse";
 import remarkRehype from "remark-rehype";
+import { redirect } from 'next/navigation'
 import { unified } from "unified";
 
-type Metadata = {
-  title: string;
-  publishedAt: string;
-  summary: string;
-  image?: string;
-};
 
 function getMDXFiles(dir: string) {
+  if (!fs.existsSync(dir)) {
+    console.error(`Directory not found: ${dir}`);
+    return [];
+  }
   return fs.readdirSync(dir).filter((file) => path.extname(file) === ".mdx");
 }
 
@@ -37,7 +36,11 @@ export async function markdownToHTML(markdown: string) {
 }
 
 export async function getPost(slug: string) {
-  const filePath = path.join("content", `${slug}.mdx`);
+  const filePath = path.join("src/content", `${slug}.mdx`);
+  if (!fs.existsSync(filePath)) {
+    redirect('/404')
+  }
+
   let source = fs.readFileSync(filePath, "utf-8");
   const { content: rawContent, data: metadata } = matter(source);
   const content = await markdownToHTML(rawContent);
@@ -64,5 +67,5 @@ async function getAllPosts(dir: string) {
 }
 
 export async function getBlogPosts() {
-  return getAllPosts(path.join(process.cwd(), "content"));
+  return getAllPosts(path.join(process.cwd(), "src/content"));
 }
