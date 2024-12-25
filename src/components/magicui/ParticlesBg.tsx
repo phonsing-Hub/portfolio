@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 
 import Particles from "@/components/ui/particles";
+import Snowfall from "react-snowfall";
 
 export function ParticlesBg() {
   const { resolvedTheme } = useTheme();
@@ -14,14 +15,7 @@ export function ParticlesBg() {
   }, [resolvedTheme]);
 
   return (
-      <Particles
-        className="inset-0 fixed"
-        quantity={30}
-        ease={1}
-        color={color}
-        refresh
-        size={2}
-      />
+      <Snowfall snowflakeCount={100} speed={[0.5, 1.0]} wind={[-0.5, 1.0]} opacity={[0, 1]}/>
 
   );
 }

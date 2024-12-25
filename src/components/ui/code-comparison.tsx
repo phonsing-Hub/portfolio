@@ -1,9 +1,10 @@
 "use client";
-import { ScrollShadow } from "@nextui-org/react";
 import { FileIcon } from "lucide-react";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
-
+import { codeToHtml } from "shiki";
+import { ScrollShadow } from "@nextui-org/react";
+import { Button } from "@nextui-org/react";
 interface CodeComparisonProps {
   code: string;
   language: string;
@@ -23,53 +24,69 @@ export default function CodeComparison({
   const [highlightedBefore, setHighlightedBefore] = useState("");
 
   useEffect(() => {
-    // Ensure this code runs only in the client-side environment
-    if (typeof window !== "undefined") {
-      const currentTheme = theme === "system" ? systemTheme : theme;
-      const selectedTheme = currentTheme === "dark" ? darkTheme : lightTheme;
+    const currentTheme = theme === "system" ? systemTheme : theme;
+    const selectedTheme = currentTheme === "dark" ? darkTheme : lightTheme;
 
-      // Dynamically import `shiki` to ensure it only runs in the browser
-      import("shiki").then(({ codeToHtml }) => {
-        async function highlightCode() {
-          const before = await codeToHtml(code, {
-            lang: language,
-            theme: selectedTheme,
-          });
-          setHighlightedBefore(before);
-        }
-
-        highlightCode();
+    async function highlightCode() {
+      const after = await codeToHtml(code, {
+        lang: language,
+        theme: selectedTheme,
       });
+      setHighlightedBefore(after);
     }
+
+    highlightCode();
   }, [theme, systemTheme, code, language, lightTheme, darkTheme]);
 
   const renderCode = (code: string, highlighted: string) => {
     if (highlighted) {
       return (
         <div
-          className="w-[344px] sm:w-full overflow-auto bg-background font-mono [&>pre]:h-full [&>pre]:!bg-transparent [&>pre]:p-4 [&_code]:break-all "
+          className="h-full overflow-auto bg-background text-sm [&>pre]:h-full font-serif [&>pre]:!bg-transparent [&>pre]:p-4 [&_code]:break-all"
           dangerouslySetInnerHTML={{ __html: highlighted }}
         />
       );
     } else {
       return (
-        <pre className="w-[344px] sm:w-full overflow-auto break-all bg-background p-4 font-mono text-xs text-foreground ">
+        <pre className="h-full overflow-auto break-all bg-background p-4 font-serif text-foreground">
           {code}
         </pre>
       );
     }
   };
 
+  const copyToClipboard = () => {
+    navigator.clipboard
+      .writeText(code)
+      .then(() => {
+        alert("Code copied to clipboard!");
+      })
+      .catch((err) => {
+        console.error("Failed to copy: ", err);
+      });
+  };
+
   return (
-    <>
-      <div className="flex items-center bg-accent p-2 text-sm text-foreground rounded-t-lg">
-        <FileIcon className="mr-2 h-4 w-4" />
-        {filename}
-        <span className="ml-auto">{language}</span>
+    <ScrollShadow hideScrollBar className="mx-auto w-full max-w-5xl max-h-[36rem]">
+      <div className="relative w-full overflow-hidden rounded-xl border border-border">
+        <div className="relative grid md:grid-cols-1 md:divide-border">
+          <div className="flex items-center bg-accent p-2 text-sm text-foreground">
+            <FileIcon className="mr-2 h-4 w-4" />
+            {filename}
+            <Button
+              onPress={copyToClipboard}
+              size="sm"
+              radius="sm"
+              color="primary"
+              variant="light"
+              className="ml-auto"
+            >
+              Copy
+            </Button>
+          </div>
+          {renderCode(code, highlightedBefore)}
+        </div>
       </div>
-      <ScrollShadow  className="max-h-[500px] border-x border-b rounded-b-lg " hideScrollBar size={0}>
-      <div className=""> {renderCode(code, highlightedBefore)}</div>
-      </ScrollShadow>
-    </>
+    </ScrollShadow>
   );
 }
