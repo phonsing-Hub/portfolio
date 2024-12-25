@@ -1,5 +1,4 @@
 const {nextui} = require("@nextui-org/react");
-import { m } from "framer-motion";
 import type { Config } from "tailwindcss";
 import { fontFamily } from "tailwindcss/defaultTheme";
 
@@ -26,15 +25,16 @@ const config = {
 			DEFAULT: {
 			  css: {
 				pre: {
-				  borderRadius: "0.5rem",
-				  padding: "0.1rem",
-				  margin: "0",
-				  fontFamily: "var(--font-mono)",
-				  fontSize: "0.875rem",
-				  lineHeight: "1.25rem",
-				
+					borderRadius: "0.5rem",
+					padding: "0.1rem",
+					margin: "0",
+					fontFamily: "var(--font-mono)",
+					fontSize: "0.875rem",
+					lineHeight: "1.25rem",
 				},
 				code: {
+				//   backgroundColor: "#1e1e1e",
+				//   padding: "0.2rem 0.4rem",
 				  borderRadius: "0.3rem",
 				},
 			  },
