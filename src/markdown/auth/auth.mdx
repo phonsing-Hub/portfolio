@@ -1,74 +1,159 @@
-import CodeComparison from "@/components/ui/code-comparison";
-import {Diagram, CODE_GO} from './auth.tsx'
+import {CodeComparison} from "@/components/ui/code-comparison";
+import {AnimatedBeamDemo, Diagram, CODE_GO} from './authComponents.tsx'
 
 # Authentication & JWT Token
-บทความนี้จะพาคุณไปทำความเข้าใจเกี่ยวกับการทำ **Authentication** และ **JWT Token** ตั้งแต่ความเป็นมา ความหมายของ **Authentication** และ **JWT** รวมถึงตัวอย่างการใช้งานด้วยภาษา **Go**
+บทความนี้จะพาคุณไปทำความเข้าใจเกี่ยวกับการทำ **Authentication** และ **JWT Token** ตั้งแต่ความเป็นมา ความหมายของ Authentication และ JWT รวมถึงตัวอย่างการทำ Authentication & JWT Token ด้วย Go Fiber
 <div className="border-b"/>
-  
-## ความเป็นมา
-ในยุคแรกๆ การพัฒนาเว็บไซต์หรือแอปพลิเคชัน การจัดการผู้ใช้งานมักทำโดยการเก็บข้อมูลผู้ใช้ไว้ใน Session บน Server ซึ่งมีข้อจำกัดในเรื่องของ Scalability เมื่อมีผู้ใช้งานมากขึ้น Server ต้องแบกรับ Session จำนวนมาก ทำให้ประสิทธิภาพลดลง และเมื่อมีการใช้งานระบบแบบ Distributed System หรือ Microservices การจัดการ Session ยิ่งซับซ้อนมากขึ้น
 
-**[JWT (JSON Web Token)](https://jwt.io/)** จึงถูกพัฒนาขึ้นเพื่อแก้ไขปัญหาเหล่านี้ โดย JWT เป็นมาตรฐานเปิด (RFC 7519) ที่กำหนดวิธีการสร้าง Token สำหรับการยืนยันตัวตนและการแลกเปลี่ยนข้อมูลระหว่าง Client และ Server โดยไม่ต้องอาศัย Session บน Server ทำให้ระบบมีความยืดหยุ่นและรองรับการขยายตัวได้ดี
- 
 ## Authentication คืออะไร
-**Authentication** คือกระบวนการยืนยันตัวตนของผู้ใช้งาน เพื่อตรวจสอบว่าผู้ใช้งานเป็นใคร มีสิทธิ์เข้าถึงข้อมูลหรือทรัพยากรใดบ้าง โดยทั่วไปแล้ว Authentication ทำได้โดยการตรวจสอบข้อมูลที่ผู้ใช้งานให้มา เช่น Username และ Password หากข้อมูลถูกต้อง ระบบจะอนุญาตให้ผู้ใช้งานเข้าใช้งานได้
+**Authentication** หรือ **การพิสูจน์ตัวตน** เป็นกระบวนการที่ระบบหรือแอปพลิเคชันใช้เพื่อตรวจสอบว่าผู้ใช้งานหรือระบบที่ร้องขอการเข้าถึงทรัพยากรนั้นเป็นใคร และมีสิทธิ์ในการเข้าถึงทรัพยากรหรือข้อมูลที่ร้องขอหรือไม่
 
-#### โครงสร้างของ JWT ประกอบด้วย 3 ส่วน
-1. **Header** ส่วนหัวของ Token ประกอบด้วยข้อมูลเกี่ยวกับประเภทของ Token และ Algorithm ที่ใช้ในการเข้ารหัส
+**Authentication** เป็นขั้นตอนแรกที่สำคัญในกระบวนการรักษาความปลอดภัยของระบบ โดยมักใช้ควบคู่กับ **Authorization** (การอนุญาต) ซึ่งเป็นขั้นตอนที่ตรวจสอบว่าผู้ใช้นั้นมีสิทธิ์ทำอะไรได้บ้างในระบบ
 
-<CodeComparison
-    code={`{
-    "alg": "HS256",
-    "typ": "JWT"
-}`}
-    language="json"
-    filename="Header"
-    lightTheme="github-light"
-    darkTheme="github-dark"
-    />
+<AnimatedBeamDemo/>
 
-2. **Payload** ประกอบด้วยข้อมูลที่ต้องการส่ง เช่น ข้อมูลผู้ใช้งาน (Claims) ซึ่งแบ่งออกเป็น 3 ประเภท
-- `Registered Claims` เป็น Claims ที่กำหนดไว้ในมาตรฐาน เช่น iss (Issuer), exp (Expiration Time), sub (Subject), aud (Audience)
-- `Public Claims` เป็น Claims ที่กำหนดโดยทั่วไป เช่น ชื่อผู้ใช้งาน อีเมล
-- `Private Claims` เป็น Claims ที่กำหนดขึ้นเองตามความต้องการของแอปพลิเคชัน
+## ประเภทของ Authentication
+1. การใช้สิ่งที่คุณรู้ (Something You Know) เป็นการพิสูจน์ตัวตนโดยใช้ข้อมูลที่ผู้ใช้งานรู้ เช่น
+    - รหัสผ่าน (Password)
+    - รหัส PIN
+    - คำถามรักษาความปลอดภัย (Security Questions)
 
-<CodeComparison
-    code={`{
+2. การใช้สิ่งที่คุณมี (Something You Have) ใช้อุปกรณ์หรือสิ่งที่ผู้ใช้มี เช่น
+    - บัตรประชาชน/บัตรสมาร์ทการ์ด (Smart Card)
+    - อุปกรณ์ Token
+    - รหัส OTP (One-Time Password) ที่ส่งมาทาง SMS หรือแอปพลิเคชัน
+
+3. การใช้สิ่งที่คุณเป็น (Something You Are) ใช้ข้อมูลทางชีวภาพ (Biometric) ของผู้ใช้ เช่น
+    - ลายนิ้วมือ (Fingerprint)
+    - การสแกนม่านตา (Iris Scan)
+    - ใบหน้า (Facial Recognition)
+    - เสียง (Voice Recognition)
+<div className="border-b"/>
+
+## JWT (JSON Web Token) คืออะไร?
+[JSON Web Token](https://jwt.io) คือรูปแบบของโทเค็นที่ใช้สำหรับการส่งข้อมูลที่ปลอดภัยระหว่างฝ่ายต่าง ๆ ในรูปแบบ JSON โดยโทเค็นนี้มีโครงสร้างแบบเข้ารหัส ทำให้มั่นใจได้ว่าข้อมูลไม่ถูกแก้ไขระหว่างทาง
+JWT มักถูกใช้ในการพิสูจน์ตัวตน (Authentication) และการอนุญาต (Authorization) ในระบบที่มีการสื่อสารระหว่างเซิร์ฟเวอร์และไคลเอนต์
+
+ในยุคแรกๆ การพัฒนาเว็บไซต์หรือแอปพลิเคชัน การจัดการผู้ใช้งานมักทำโดยการเก็บข้อมูลผู้ใช้ไว้ใน Session บน Server ซึ่งมีข้อจำกัดในเรื่องของ Scalability เมื่อมีผู้ใช้งานมากขึ้น Server ต้องแบกรับ Session จำนวนมาก ทำให้ประสิทธิภาพลดลง และเมื่อมีการใช้งานระบบแบบ Distributed System หรือ Microservices การจัดการ Session ยิ่งซับซ้อนมากขึ้น 
+
+#### โครงสร้างของ JWT
+JWT มีรูปแบบที่แบ่งออกเป็น 3 ส่วนหลัก
+
+1. **Header** ใช้กำหนดข้อมูลเกี่ยวกับโทเค็น เช่น ประเภทของโทเค็น (JWT) และอัลกอริทึมที่ใช้ในการเข้ารหัส (เช่น HMAC, RSA)
+2. **Payload** คือข้อมูลหรือ Claims ที่ต้องการส่งไปยังอีกฝ่าย สามารถแบ่งเป็น
+    - **Registered Claims** ค่า Claim ที่กำหนดโดยมาตรฐาน เช่น iss (issuer), exp (expiration), sub (subject) เป็นต้น
+    - **Public Claims** ค่า Claim ที่ผู้พัฒนาระบุได้เอง เช่น userId, role
+    - **Private Claims** ค่า Claim ที่กำหนดโดยทั้งสองฝ่าย (ไคลเอนต์และเซิร์ฟเวอร์)
+3. **Signature** โดยเซิร์ฟเวอร์จะสร้างลายเซ็น(secretKey) เพื่อใช้ยืนยันว่าโทเค็นไม่ถูกแก้ไขระหว่างทาง
+<div className="border-b"/>
+
+#### ตัวอย่าง JWT ที่สมบูรณ์
+<CodeComparison code={`// Token Structure Example
+//eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWUsImlhdCI6MTUxNjIzOTAyMn0.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
+
+{
+    "header": {
+        "alg": "HS256",
+        "typ": "JWT"
+    },
+    "payload": {
         "sub": "1234567890",
         "name": "John Doe",
-        "iat": 1516239022
-}`}
-    language="json"
-    filename="Payload"
-    lightTheme="github-light"
-    darkTheme="github-dark"
-    />
+        "admin": true
+    },
+    "signature": "HMACSHA256(
+        base64UrlEncode(header) + "." +
+        base64UrlEncode(payload),
+        secretKey
+    )"
+}
 
-3. **Signature** สร้างขึ้นโดยการนำ Header, Payload มาเข้ารหัสด้วย Algorithm ที่ระบุใน Header ร่วมกับ Secret Key ทำให้สามารถตรวจสอบได้ว่า Token ถูกแก้ไขหรือไม่
+`} 
+language="json" 
+filename="Json"
+lightTheme="github-light"
+darkTheme="github-dark"
+/>
 
+#### ข้อดีของ JWT
+1. **Self-contained** ข้อมูลทั้งหมดที่จำเป็นอยู่ในโทเค็นเดียว ทำให้ไม่ต้องอ้างอิงข้อมูลจากเซิร์ฟเวอร์เพิ่มเติม
+2. **ง่ายต่อการใช้ในระบบกระจาย** JWT เหมาะสำหรับระบบที่มีการใช้งานหลายเซิร์ฟเวอร์หรือ Microservices เพราะข้อมูลในโทเค็นเพียงพอต่อการตรวจสอบสิทธิ์
+3. **ลดภาระเซิร์ฟเวอร์** เซิร์ฟเวอร์ไม่ต้องเก็บสถานะของผู้ใช้งาน (Stateless) เช่น ข้อมูล Session เพราะ JWT เก็บทุกอย่างไว้ในตัวมันเอง
+4. **ปลอดภัยเมื่อใช้งาน HTTPS** หากโทเค็นถูกส่งผ่าน HTTPS การป้องกันข้อมูลจะยิ่งปลอดภัยมากขึ้น
+<div className="border-b"/>
+
+#### ข้อจำกัดและความเสี่ยง
+1. **ความปลอดภัยของ Secret Key** หาก Secret Key ที่ใช้สร้าง Signature รั่วไหล โทเค็นสามารถถูกปลอมแปลงได้
+2. **ความยาวของโทเค็น** เนื่องจากโทเค็นเก็บข้อมูลในรูปแบบ Base64 จึงอาจมีขนาดใหญ่ และอาจกระทบประสิทธิภาพเมื่อใช้ในคำขอ HTTP
+3. **การหมดอายุ (Expiration)** หากไม่กำหนดเวลาหมดอายุ (exp) อย่างเหมาะสม โทเค็นอาจถูกใช้งานเกินเวลาที่ควร
+4. **ไม่สามารถเพิกถอนโทเค็น (Revoke) ได้ง่าย** เนื่องจาก JWT เป็น Stateless การยกเลิกโทเค็นที่ถูกออกไปแล้วเป็นเรื่องยุ่งยาก ต้องใช้วิธีการเพิ่มเติม เช่น การเก็บรายการ "Blacklist" บนเซิร์ฟเวอร์
+<div className="border-b"/>
+
+### ก่อนที่จะเริ่มลงมือทำโปรเจ็ค มาดู Diagram ของการทำ Authentication กันก่อน
 <Diagram/>
+จาก Diagram จะแสดงกระบวนการทำงานของ JWT Authentication ในระบบที่มีการใช้ OpenID และ Identity Provider (IdP) เพื่อจัดการการพิสูจน์ตัวตน (Authentication) และการอนุญาต (Authorization)
 
-จาก diagram การทำงานของระบบ Authentication ด้วย JWT ซึ่งแสดงให้เห็นการทำงานระหว่าง Frontend, Backend, และ Database ขั้นตอนนี้อธิบายการทำงานแบบคร่าว ๆ ของการยืนยันตัวตนผู้ใช้ในระบบที่ใช้ JWT สำหรับการจัดการ session และการยืนยันสิทธิ์
+1. **Client**
+- เริ่มกระบวนการพิสูจน์ตัวตน (Start user authentication process) ผู้ใช้งานเริ่มต้นเข้าสู่ระบบผ่าน OpenID ซึ่งเป็นมาตรฐานที่รองรับการพิสูจน์ตัวตนแบบ Single Sign-On (SSO)
+- Persist JWTs หลังจากที่ Identity Service ยืนยันตัวตนสำเร็จ (Login Successful) ระบบจะส่ง JWT กลับมาที่ไคลเอนต์ (ODC Studio) เพื่อเก็บไว้ใช้งานในคำขอถัดไป (เช่น Access Token และ ID Token)
+- User requests access to protected endpoint เมื่อผู้ใช้งานต้องการเข้าถึงทรัพยากรที่มีการป้องกัน (Protected Endpoint) โทเค็นที่ได้รับจะถูกส่งไปในส่วน Authorization Header ของคำขอ HTTP เพื่อยืนยันสิทธิ์
+<div className="border-b"/>
+2. **Identity Service หรือ External IdP**
+- Login ระบบตรวจสอบข้อมูลการเข้าสู่ระบบที่ส่งมาจากไคลเอนต์
+- Authentication Successful หรือ Error
+    - ถ้าการพิสูจน์ตัวตนสำเร็จ ระบบจะสร้าง JWT ที่มีการเซ็นชื่อแบบเข้ารหัส (Cryptographic Signatures) และส่งกลับไปยังไคลเอนต์
+    - ถ้าล้มเหลว จะส่งข้อความแสดงข้อผิดพลาดกลับไปยังไคลเอนต์ เช่น "Authentication error"
+- Validate Access Token เมื่อคำขอจากผู้ใช้งานถูกส่งมาพร้อม JWT (Access Token) ระบบจะตรวจสอบความถูกต้องของโทเค็น
+    - โครงสร้างของโทเค็นถูกต้องหรือไม่
+    - ลายเซ็น (Signature) ถูกต้องหรือไม่
+    - โทเค็นหมดอายุหรือยัง (exp)
+<div className="border-b"/>
+3. **Successful?**
+- ถ้าการตรวจสอบสำเร็จ ระบบจะดำเนินการตรวจสอบสิทธิ์เพิ่มเติม
+- ถ้าล้มเหลว เช่น โทเค็นหมดอายุหรือไม่ถูกต้อง ระบบจะปฏิเสธคำขอ (Reject HTTPS request)
+<div className="border-b"/>
 
-## ตัวอย่าง Code ด้วยภาษา Go และ Fiber
+### ตัวอย่างการทำ Authentication และ Authorization ด้วย Go โดยใช้ Fiber Framework และ JWT Token
+1. ติดตั้ง Dependency ที่จำเป็น
 
-<CodeComparison
-    code={CODE_GO}
-    language="go"
-    filename="main.go"
-    lightTheme="github-light"
-    darkTheme="github-dark"
-    />
+<CodeComparison 
+code={`go mod init auth-example
+go get github.com/gofiber/jwt/v3
+go get github.com/golang-jwt/jwt/v5`}
+language="bash" 
+filename="Bash"
+lightTheme="github-light"
+darkTheme="github-dark"
+/>
 
-#### คำอธิบาย Code
+2. สร้างไฟล์ main.go
 
-- `generateJWT()` สร้าง JWT โดยรับ User ID และกำหนด Expiration Time
-- `verifyJWT()` ตรวจสอบ JWT โดยการถอดรหัสและตรวจสอบ Signature
-- `/login` Endpoint สำหรับ Login ซึ่งจะสร้าง JWT และส่งกลับให้ Client
-- `/protected` Endpoint สำหรับ Resource ที่ต้องมีการยืนยันตัวตน โดยจะตรวจสอบ JWT ก่อนอนุญาตให้เข้าถึง
+<CodeComparison 
+code={CODE_GO}
+language="go" 
+filename="main.go"
+lightTheme="github-light"
+darkTheme="github-dark"
+/>
 
-#### ข้อควรระวัง
+### การทำงานของโค้ด
+1. Login Route (/login)
+    - รับ Username และ Password จากผู้ใช้
+    - ตรวจสอบความถูกต้องของข้อมูล
+    - ถ้าข้อมูลถูกต้อง จะสร้าง JWT Token พร้อมข้อมูลผู้ใช้ (sub) และเวลาหมดอายุ (exp)
+    - ส่ง Token กลับไปให้ผู้ใช้
+<div className="border-b"/>
 
-- ควรเก็บ jwtSecret ในที่ปลอดภัย เช่น Environment Variable หรือ Secret Management Service
-- ควรเลือก Algorithm ที่เหมาะสมสำหรับการเข้ารหัส เช่น HS256, RS256
-- ควรตั้งค่า Expiration Time ให้เหมาะสม เพื่อป้องกันการนำ Token เก่ามาใช้งาน
+2. Protected Routes (/api/dashboard) &  JWT Middleware
+    - ใช้ JWT Middleware เพื่อตรวจสอบ Token ใน Header (Authorization: Bearer \<token>\)
+    - หาก Token ถูกต้อง จะอนุญาตให้เข้าถึงข้อมูลได้
+    - ดึงข้อมูลจาก Token (เช่น username) เพื่อใช้งานในระบบ
+<div className="border-b"/>
+
+### เพิ่มเติม
+    - Configurable Secret Key ควรใช้ os.Getenv หรือ Environment Variables เก็บ jwtSecret แทนการเขียน Hardcoded
+    - Database Integration เชื่อมต่อกับฐานข้อมูลแทนการตรวจสอบ Username/Password แบบ Hardcoded
+    - เพิ่มระบบ Refresh Token เพื่อลดการใช้ Access Token ที่หมดอายุ
+
+### สรุปส่งท้าย
+การทำ Authentication เป็นส่วนสำคัญที่ช่วยปกป้องระบบและข้อมูลของเราให้ปลอดภัยจากการเข้าถึงโดยไม่ได้รับอนุญาต อยากแนะนำให้ทุกคนศึกษาประเภทของ Authentication อย่างลึกซึ้ง เพื่อเพิ่มความมั่นคงให้ซอฟต์แวร์ของเรา หวังว่าบทความนี้จะช่วยให้คุณเข้าใจการยืนยันตัวตนและนำไปปรับใช้ได้อย่างเหมาะสม พบกันใหม่ในบทความหน้า สวัสดีครับ!

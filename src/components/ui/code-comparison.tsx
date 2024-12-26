@@ -1,8 +1,10 @@
 "use client";
+
 import { ScrollShadow, Button } from "@nextui-org/react";
 import { FileIcon } from "lucide-react";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
+
 
 interface CodeComparisonProps {
   code: string;
@@ -12,7 +14,7 @@ interface CodeComparisonProps {
   darkTheme: string;
 }
 
-export default function CodeComparison({
+export function CodeComparison({
   code,
   language,
   filename,

@@ -1,3 +1,4 @@
+"use client"
 import { DATA } from "@/data/resume";
 import { BLOG_TITLE } from "@/data/blog-title";
 import { ProjectCard } from "@/components/project-card";

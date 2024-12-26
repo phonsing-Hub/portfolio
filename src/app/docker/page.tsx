@@ -1,12 +1,8 @@
+"use client"
 import { ScrollShadow } from "@nextui-org/react";
 import BlurFade from "@/components/magicui/blur-fade";
 import BoxContect from "@/components/magicui/BoxContect";
 
-export const metadata = {
-  title: "What Is Docker ?",
-  description:
-    "",
-};
 
 const BLUR_FADE_DELAY = 0.04;
 

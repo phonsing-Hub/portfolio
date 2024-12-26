@@ -1,13 +1,8 @@
+"use client"
 import { ScrollShadow } from "@nextui-org/react";
 import BlurFade from "@/components/magicui/blur-fade";
 import BoxContect from "@/components/magicui/BoxContect";
-import Auth from "@/markdown/auth/auth.mdx";
-export const metadata = {
-  title: "Authentication & JWT",
-  description:
-    "Learn the basics of authentication and its implementation in modern web applications.",
-};
-
+import Auth from "@/markdown/auth/auth.mdx"
 const BLUR_FADE_DELAY = 0.04;
 
 function page() {
@@ -17,7 +12,7 @@ function page() {
         <section id="content">
           <BlurFade delay={BLUR_FADE_DELAY * 3}>
             <article className="prose dark:prose-invert max-w-4xl">
-              <Auth />
+            <Auth/>
             </article>
           </BlurFade>
         </section>

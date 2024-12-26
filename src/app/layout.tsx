@@ -1,6 +1,7 @@
+import { Analytics } from '@vercel/analytics/next';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import Navbar from "@/components/navbar";
 import { ThemeProvider } from "@/components/theme-provider";
-import { NextUIProvider } from "@nextui-org/react";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { ParticlesBg } from "@/components/magicui/ParticlesBg";
 import { DATA } from "@/data/resume";
@@ -26,7 +27,7 @@ export const metadata: Metadata = {
     description: DATA.description,
     url: DATA.url,
     siteName: `${DATA.name}`,
-    locale: "en_US",
+    locale: "th_TH",
     type: "website",
   },
   robots: {
@@ -56,19 +57,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="th" suppressHydrationWarning>
       <body
         className={cn("min-h-screen w-full bg-transparent", fontSans.variable)}
       >
         <ThemeProvider attribute="class" defaultTheme="light">
-          <NextUIProvider>
+         
             <ParticlesBg />
             <TooltipProvider delayDuration={0}>
               {children}
               <Navbar />
             </TooltipProvider>
-          </NextUIProvider>
+          
         </ThemeProvider>
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
