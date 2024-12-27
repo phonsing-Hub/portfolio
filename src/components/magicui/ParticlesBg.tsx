@@ -15,7 +15,7 @@ export function ParticlesBg() {
 
   return (
     <>
-      <Snowfall snowflakeCount={100} speed={[0.5, 1.0]} wind={[-0.5, 1.0]} opacity={[0, 1]}/>
+      <Snowfall snowflakeCount={50} speed={[0.5, 1.0]} wind={[-0.5, 1.0]} opacity={[0, 1]}/>
       <Particles
       className="absolute inset-0"
       quantity={100}

@@ -3,7 +3,7 @@ import { Icons } from "@/components/icons";
 export const BLOG_TITLE = [
   {
     title: "Authentication & JWT",
-    href: "/authentication",
+    href: "/blog/authentication",
     dates: "Sep 2024",
     active: true,
     description:
@@ -12,7 +12,7 @@ export const BLOG_TITLE = [
     links: [
       {
         type: "Website",
-        href: "/authentication",
+        href: "/blog/authentication",
         icon: <Icons.globe className="size-3" />,
       },
     ],
@@ -21,7 +21,7 @@ export const BLOG_TITLE = [
   },
   {
     title: "What Is Docker?",
-    href: "/docker",
+    href: "/blog/docker",
     dates: "Sep 2024",
     active: true,
     description:
@@ -30,7 +30,7 @@ export const BLOG_TITLE = [
     links: [
       {
         type: "Website",
-        href: "/docker",
+        href: "/blog/docker",
         icon: <Icons.globe className="size-3" />,
       },
     ],
@@ -57,7 +57,7 @@ export const BLOG_TITLE = [
   },
   {
     title: "Face Recognition",
-    href: "/face-recognition",
+    href: "#",
     dates: "Oct 2024",
     active: true,
     description:
@@ -66,7 +66,7 @@ export const BLOG_TITLE = [
     links: [
       {
         type: "Website",
-        href: "/face-recognition",
+        href: "#",
         icon: <Icons.globe className="size-3" />,
       },
       {

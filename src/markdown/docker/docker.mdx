@@ -1,0 +1,165 @@
+import {CodeHello, DockerIcon, Dockerfile, ImageprogrammerHappy, ImageprogrammerAngry, ImageDockerEngine, Table} from "./docker-cpmponents"
+import {CodeComparison} from "@/components/ui/code-comparison";
+
+
+<DockerIcon/>
+# WHAT IS A DOCKER ?
+### **Development** 
+สมมติว่าคุณได้พัฒนา Application ในเครื่องคอมพิวเตอร์ของคุณ เเละนั่นก็ทำงานได้ดี ไม่ได้มีปัญหาเเต่อย่างใด
+<ImageprogrammerHappy/>
+### **Production**
+แต่พอ Deploy ขึ้น Production กลับพบปัญหาที่ไม่เคยเจอใน Development เช่น การตั้งค่าที่ไม่สอดคล้อง, Dependency ที่ขาดหาย, หรือ Environment ที่แตกต่างกัน ส่งผลให้ Application ไม่ทำงานอย่างที่ควรจะเป็น
+<ImageprogrammerAngry/>
+จริงเป็นที่มาของคำว่า **มันทำงานได้ในเครื่องผม**
+ (It works on my machine) ซึ่งเป็นคำที่นักพัฒนาใช้บ่อยเมื่อเจอปัญหาใน Production เพราะระบบในเครื่อง Development ของพวกเขาไม่มีปัญหา แต่ใน Production ที่มี Environment ต่างออกไป กลับไม่สามารถทำงานได้อย่างถูกต้อง
+
+ Docker พระเอกของเราที่มาช่วยแก้ปัญหานี้อย่างมีประสิทธิภาพโดยนำเสนอแนวคิดของ Containerization ซึ่งช่วยลดความซับซ้อนในการพัฒนาและ Deploy Application ดังนี้
+1. สร้าง Environment ที่เสถียรและเหมือนกัน
+Docker ใช้ Container ที่เก็บทุกอย่างที่ Application ต้องการ (Code, Libraries, Dependencies) ไว้ในแพ็คเกจเดียวกัน ทำให้มั่นใจได้ว่า Environment ในเครื่อง Development และ Production จะเหมือนกัน
+
+2. แยกส่วนและปรับแต่งง่าย
+แต่ละ Service (เช่น Database, Backend, Frontend) สามารถรันใน Container แยกกัน ช่วยลดปัญหา Dependency Conflict ระหว่าง Services
+
+3. การจัดการง่าย
+Docker มีเครื่องมืออย่าง Docker Compose ที่ช่วยกำหนด Configuration ของหลาย Container ได้ในไฟล์เดียว เช่น docker-compose.yml ทำให้การตั้งค่าระบบใน Development และ Production ทำได้ง่ายและเหมือนกัน
+<div className="border-b"/>
+### **Docker ทำงานอย่างไร?**
+Docker ใช้ Docker Engine เพื่อสร้างและรัน Container คือ Lightweight Virtual Environment ที่แชร์ Kernel กับ Host OS แต่แยกกันในระดับ Process และ File System โดยใช้ Image เป็นตัวต้นแบบของ Container ซึ่งสร้างจาก Dockerfile ที่ระบุขั้นตอนการติดตั้ง Application
+
+<ImageDockerEngine/>
+
+### **แตกต่างจาก VM อย่างไร?**
+<Table/>
+
+### **Container คืออะไร?**
+Container เป็นหัวใจสำคัญของ Docker ที่ทำให้การพัฒนาและการ Deploy Application มีประสิทธิภาพและความยืดหยุ่น มาลงรายละเอียดเกี่ยวกับ Container เพื่อเข้าใจให้ลึกขึ้น
+
+Container คือ หน่วยการทำงานแบบพกพา ที่เก็บทุกสิ่งที่จำเป็นต่อการรัน Application
+- Source Code
+- Dependencies (Libraries, Frameworks)
+- Runtime (เช่น Python, Node.js, Java)
+- การตั้งค่า (Configuration Files, Environment Variables)
+
+ทุกอย่างที่อยู่ใน Container จะทำงานแยกจาก Host OS และจาก Container อื่น ๆ
+
+### **ตัวอย่าง Use Case ของ Container**
+1. **Development Environment** สร้าง Environment เดียวกันในเครื่องนักพัฒนาและ Production
+2. **Microservices** ใช้ Container ในการแยกแต่ละ Service เช่น API, Database, Frontend
+3. **CI/CD Pipelines** ใช้ Container สำหรับการ Build และ Test Application แบบอัตโนมัติ
+4. **Scaling** ใช้ Container ร่วมกับ [Kubernetes](https://kubernetes.io/) เพื่อ Scale Application ได้อย่างยืดหยุ่น
+<div className="border-b"/>
+### **เรามาลอง Build Application และ Run ใน Docker**
+ต่อไปเราจะ Build Application และ Run ใน Docker โดยใช้ Go และ Go Fiber ที่มีความชัดเจนและเข้าใจง่ายกันนะครับ
+
+#### ตัวอย่างโค้ด Go Fiber - Hello World API
+<CodeComparison 
+code={CodeHello}
+language="go" 
+filename="main.go"
+lightTheme="github-light"
+darkTheme="github-dark"
+/>
+<br/>
+1. **Dockerfile**
+- เราจะสร้าง Image โดยใช้ [Dockerfile](https://docs.docker.com/build/concepts/dockerfile/) ซึ่งระบุขั้นตอนการติดตั้งและตั้งค่า Application
+
+    <CodeComparison 
+    code={Dockerfile}
+    language="dockerfile" 
+    filename="Dockerfile"
+    lightTheme="github-light"
+    darkTheme="github-dark"
+    />
+
+2. **สร้าง Docker Image**
+    <CodeComparison 
+    code={`docker build -t go-fiber-app .`}
+    language="bash" 
+    filename="Bash"
+    lightTheme="github-light"
+    darkTheme="github-dark"
+    />
+
+3. **Run Container**
+    <CodeComparison 
+    code={`docker run -p 3000:3000 go-fiber-app`}
+    language="bash" 
+    filename="Bash"
+    lightTheme="github-light"
+    darkTheme="github-dark"
+    />
+
+4. **ทดสอบ**
+    <CodeComparison 
+    code={`curl http://localhost:3000/api/noah`}
+    language="bash" 
+    filename="Bash"
+    lightTheme="github-light"
+    darkTheme="github-dark"
+    />
+
+5. **ผลลัพธ์**
+    <CodeComparison 
+    code={`{
+    "message": "Hello, noah!"
+    }`}
+    language="json" 
+    filename="Json"
+    lightTheme="github-light"
+    darkTheme="github-dark"
+    />
+
+
+6. **ขยายเพิ่มเติม**
+    <CodeComparison 
+    code={`#ดูสถานะของ Container
+    docker ps
+
+    #หยุดการทำงานของ Container
+    docker stop <container_id> #go-fiber-app
+
+    #ลบ Container ที่ไม่ใช้งาน
+    docker rm <container_id> #go-fiber-app
+
+    #folder structure
+    #app
+    # |- go.mod
+    # |- go.sum
+    # |- main.go
+    # Dockerfile
+    `}
+    language="bash" 
+    filename="Bash"
+    lightTheme="github-light"
+    darkTheme="github-dark"
+    />
+<div className="border-b"/>
+### **Docker และ Cloud Services**
+Docker และ Cloud Services เป็นเทคโนโลยีที่มีบทบาทสำคัญในวงการ IT และซอฟต์แวร์ในปัจจุบันและอนาคต เนื่องจากการผสานกันของทั้งสองทำให้เกิดความคล่องตัวและประสิทธิภาพในการพัฒนาและจัดการแอปพลิเคชันในหลายมิติ
+
+#### **บทบาทของ Cloud Service**
+Cloud Providers อย่าง AWS, Google Cloud, Microsoft Azure, และอื่นๆ ได้พัฒนาเครื่องมือและบริการที่สนับสนุน Docker โดยเฉพาะ เช่น
+
+- **Container Orchestration Services**
+เช่น AWS ECS, Google Kubernetes Engine (GKE), Azure Kubernetes Service (AKS) เพื่อจัดการและ Scale Container
+- **Serverless Containers**
+บริการอย่าง AWS Fargate และ Google Cloud Run ช่วยให้สามารถรัน Containers โดยไม่ต้องจัดการ Infrastructure
+- **Integrated CI/CD Pipelines**
+เช่น AWS CodePipeline, Azure DevOps, หรือ Google Cloud Build ที่สามารถทำงานร่วมกับ Docker ได้โดยตรง
+
+#### **แนวโน้มในอนาคต**
+- **Multi-Cloud Strategy**
+Docker และ Kubernetes จะช่วยให้การย้ายและรันแอปพลิเคชันข้าม Cloud Providers ง่ายขึ้น ลดความเสี่ยงจากการผูกติดกับ Cloud เดียว (Vendor Lock-in)
+- **Edge Computing**
+Docker จะมีบทบาทสำคัญใน Edge Computing ซึ่งช่วยนำแอปพลิเคชันไปประมวลผลใกล้กับผู้ใช้มากขึ้น เช่น IoT และ 5G
+- **Hybrid Cloud**
+การผสมผสานระหว่าง On-premise และ Cloud Services จะกลายเป็นมาตรฐานใหม่ โดย Docker จะช่วยให้การจัดการแอปพลิเคชันทั้งสองฝั่งราบรื่น
+- **Serverless Containers**
+แนวคิด Serverless จะรวมเข้ากับ Containers มากขึ้น โดยนักพัฒนาสามารถโฟกัสที่โค้ด โดยไม่ต้องกังวลเกี่ยวกับ Infrastructure
+- **Security Enhancement**
+บริการด้านความปลอดภัย เช่น การ Scan Container Images และ Runtime Security จะกลายเป็นมาตรฐาน
+<div className="border-b"/>
+### สรุปส่งท้าย
+Docker ช่วยแก้ปัญหา “It works on my machine” ด้วยการสร้าง Environment ที่เสถียรและใช้ทรัพยากรอย่างมีประสิทธิภาพ และช่วยปรับปรุงกระบวนการพัฒนาและ Deploy Application ให้เร็วและง่ายขึ้น
+
+Docker และ Cloud Services เป็นคู่หูที่สมบูรณ์แบบสำหรับการพัฒนาและ Deploy แอปพลิเคชันในยุคปัจจุบัน ด้วยความสามารถในการ Scale, ยืดหยุ่น และลดความซับซ้อนของการจัดการ Infrastructure การผสานทั้งสองเทคโนโลยีช่วยผลักดันธุรกิจให้ก้าวสู่ยุคดิจิทัลได้อย่างมั่นคง ในอนาคต Docker จะยังคงเป็นหัวใจสำคัญของการพัฒนาและการจัดการระบบที่มีความซับซ้อนสูง โดยเฉพาะในโลกของ Hybrid Cloud และ Edge Computing

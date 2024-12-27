@@ -87,3 +87,7 @@
 .hero {
  height: calc(100vh - 2.2rem);
 }
+
+.docker{
+  filter: drop-shadow(0 25px 25px rgba(10, 118, 219, 0.3));
+}
