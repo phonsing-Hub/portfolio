@@ -138,7 +138,7 @@ func main() {
 }`
 
 export const Dockerfile = `# Stage 1: Build Stage
-FROM golang:1.20 AS builder
+FROM golang:1.22.5 AS builder
 
 # Set the Current Working Directory inside the container
 WORKDIR /app
@@ -153,7 +153,10 @@ RUN go mod download
 COPY . .
 
 # Build the Go application
-RUN go build -o main .
+#RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o main .
+
+# Build the Go application for ARM64 architecture
+RUN CGO_ENABLED=0 GOOS=linux GOARCH=arm64 go build -o main .
 
 # Stage 2: Run Stage
 FROM alpine:latest

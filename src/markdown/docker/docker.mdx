@@ -10,7 +10,7 @@ import {CodeComparison} from "@/components/ui/code-comparison";
 ### **Production**
 แต่พอ Deploy ขึ้น Production กลับพบปัญหาที่ไม่เคยเจอใน Development เช่น การตั้งค่าที่ไม่สอดคล้อง, Dependency ที่ขาดหาย, หรือ Environment ที่แตกต่างกัน ส่งผลให้ Application ไม่ทำงานอย่างที่ควรจะเป็น
 <ImageprogrammerAngry/>
-จริงเป็นที่มาของคำว่า **มันทำงานได้ในเครื่องผม**
+จึงเป็นที่มาของคำว่า **มันทำงานได้ในเครื่องผม**
  (It works on my machine) ซึ่งเป็นคำที่นักพัฒนาใช้บ่อยเมื่อเจอปัญหาใน Production เพราะระบบในเครื่อง Development ของพวกเขาไม่มีปัญหา แต่ใน Production ที่มี Environment ต่างออกไป กลับไม่สามารถทำงานได้อย่างถูกต้อง
 
  Docker พระเอกของเราที่มาช่วยแก้ปัญหานี้อย่างมีประสิทธิภาพโดยนำเสนอแนวคิดของ Containerization ซึ่งช่วยลดความซับซ้อนในการพัฒนาและ Deploy Application ดังนี้
@@ -82,7 +82,7 @@ darkTheme="github-dark"
 
 3. **Run Container**
     <CodeComparison 
-    code={`docker run -p 3000:3000 go-fiber-app`}
+    code={`docker run -p 3000:3000 -d go-fiber-app`}
     language="bash" 
     filename="Bash"
     lightTheme="github-light"
@@ -116,17 +116,17 @@ darkTheme="github-dark"
     docker ps
 
     #หยุดการทำงานของ Container
-    docker stop <container_id> #go-fiber-app
+    docker stop <container_id> 
 
     #ลบ Container ที่ไม่ใช้งาน
-    docker rm <container_id> #go-fiber-app
+    docker rm <container_id> 
 
     #folder structure
     #app
     # |- go.mod
     # |- go.sum
     # |- main.go
-    # Dockerfile
+    # |- Dockerfile
     `}
     language="bash" 
     filename="Bash"
