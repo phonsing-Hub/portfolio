@@ -1,4 +1,4 @@
-import { Icons } from "@/components/icons";
+import { Icons } from "@/components/magicui/icons";
 import { HomeIcon, NotebookIcon } from "lucide-react";
 
 export const DATA = {
@@ -54,7 +54,7 @@ export const DATA = {
     social: {
       GitHub: {
         name: "GitHub",
-        url: "https://github.com/phonsing-Hub/blog",
+        url: "https://github.com/phonsing-Hub/portfolio",
         icon: Icons.github,
 
         navbar: true,

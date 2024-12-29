@@ -1,4 +1,4 @@
-import { Icons } from "@/components/icons";
+import { Icons } from "@/components/magicui/icons";
 
 export const BLOG_TITLE = [
   {
@@ -39,7 +39,7 @@ export const BLOG_TITLE = [
   },
   {
     title: "Hardware Controlled System",
-    href: "#",
+    href: "https://www.tinkercad.com/things/a9ByuVDriVn-phonsing-taleman",
     dates: "Sep 2024",
     active: true,
     description:
@@ -48,7 +48,7 @@ export const BLOG_TITLE = [
     links: [
       {
         type: "Website",
-        href: "#",
+        href: "https://www.tinkercad.com/things/a9ByuVDriVn-phonsing-taleman",
         icon: <Icons.globe className="size-3" />,
       },
     ],
@@ -57,18 +57,13 @@ export const BLOG_TITLE = [
   },
   {
     title: "Face Recognition",
-    href: "#",
+    href: "https://github.com/phonsing-Hub/ImageProcessing",
     dates: "Oct 2024",
     active: true,
     description:
     "เทคโนโลยีการจดจำใบหน้า (Face Recognition) เป็นเทคโนโลยีที่ถูกสร้างขึ้นมาเพื่อวิเคราะห์โครงสร้างของใบหน้ามนุษย์ จากนั้นจะส่งข้อมูลใบหน้าที่ตรวจจับได้ไปยังระบบเพื่อประมวลผลและใช้งานตามวัตถุประสงค์ที่กำหนดไว้",
     technologies: ["Python", "OpenCV", "Dlib"],
     links: [
-      {
-        type: "Website",
-        href: "#",
-        icon: <Icons.globe className="size-3" />,
-      },
       {
         type: "Source",
         href: "https://github.com/phonsing-Hub/ImageProcessing",

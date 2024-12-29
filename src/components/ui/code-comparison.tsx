@@ -4,7 +4,7 @@ import { ScrollShadow, Button } from "@nextui-org/react";
 import { FileIcon } from "lucide-react";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
-
+import { TbFiles } from "react-icons/tb";
 
 interface CodeComparisonProps {
   code: string;
@@ -74,12 +74,14 @@ export function CodeComparison({
   };
 
   return (
-    <ScrollShadow hideScrollBar className="mx-auto w-full max-w-5xl max-h-[36rem]">
+    <ScrollShadow hideScrollBar size={0} className="mx-auto w-full max-w-5xl max-h-[36rem]">
       <div className="relative w-full overflow-hidden rounded-xl border border-border">
         <div className="relative grid md:grid-cols-1 md:divide-border">
           <div className="flex items-center bg-accent p-2 text-sm text-foreground">
-            <FileIcon className="mr-2 h-4 w-4" />
+            <span className="flex">
+            <FileIcon className="mr-2 h-4 w-4 " />
             {filename}
+            </span>
             <Button
               onPress={copyToClipboard}
               size="sm"
@@ -87,6 +89,7 @@ export function CodeComparison({
               color="primary"
               variant="light"
               className="ml-auto"
+              endContent={<TbFiles size={16}/>}
             >
               Copy
             </Button>

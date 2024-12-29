@@ -1,8 +1,8 @@
 "use client"
 import { DATA } from "@/data/resume";
 import { BLOG_TITLE } from "@/data/blog-title";
-import { ProjectCard } from "@/components/project-card";
-import { ResumeCard } from "@/components/resume-card";
+import { ProjectCard } from "@/components/magicui/project-card";
+import { ResumeCard } from "@/components/magicui/resume-card";
 import { Badge } from "@/components/ui/badge";
 import { OrbitingCircle } from "@/components/magicui/OrbitingCircle";
 import { ScrollShadow } from "@nextui-org/react";

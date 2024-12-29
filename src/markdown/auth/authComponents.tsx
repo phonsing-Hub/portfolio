@@ -25,7 +25,7 @@ const Circle = forwardRef<
 
 Circle.displayName = "Circle";
 
-function AnimatedBeamDemo() {
+export function AnimatedBeamDemo() {
   const containerRef = useRef<HTMLDivElement>(null);
   const div1Ref = useRef<HTMLDivElement>(null);
   const div2Ref = useRef<HTMLDivElement>(null);
@@ -67,7 +67,7 @@ function AnimatedBeamDemo() {
   );
 }
 
-function Diagram() {
+export function Diagram() {
   return (
     <div className="flex flex-col items-center justify-center ">
       <Image
@@ -87,83 +87,3 @@ function Diagram() {
     </div>
   );
 }
-
-const CODE_GO = `package main
-
-import (
-	"time"
-	"github.com/gofiber/fiber/v2"
-    "github.com/gofiber/jwt/v3"
-	"github.com/golang-jwt/jwt/v5"
-)
-
-// Secret Key สำหรับเซ็น JWT
-var jwtSecret = []byte("secret_key")
-
-// User Struct สำหรับจำลองข้อมูลผู้ใช้งาน
-type User struct {
-	Username string \`json:"username"\`
-	Password string \`json:"password"\`
-}
-
-func main() {
-	app := fiber.New()
-
-	// Public Routes (ไม่ต้องตรวจสอบ JWT)
-	app.Post("/login", login)
-
-	// Protected Routes (ต้องตรวจสอบ JWT)
-	protected := app.Group("/api")
-	protected.Use(jwtware.New(jwtware.Config{
-		SigningKey: jwtSecret,
-	}))
-
-	protected.Get("/dashboard", dashboard)
-
-	// Start Server
-	app.Listen(":3000")
-}
-
-// Login Handler - สำหรับรับ Username และ Password
-func login(c *fiber.Ctx) error {
-	// รับข้อมูลจาก Body
-	var user User
-	if err := c.BodyParser(&user); err != nil {
-		return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{"error": "Invalid request"})
-	}
-
-	// ตรวจสอบข้อมูลผู้ใช้งาน (Hardcoded)
-	if user.Username != "admin" || user.Password != "password" {
-		return c.Status(fiber.StatusUnauthorized).JSON(fiber.Map{"error": "Invalid credentials"})
-	}
-
-	// สร้าง JWT Token
-	token := jwt.New(jwt.SigningMethodHS256)
-	claims := token.Claims.(jwt.MapClaims)
-	claims["sub"] = user.Username
-	claims["exp"] = time.Now().Add(time.Hour * 1).Unix() // 1 ชั่วโมง
-
-	// ลงลายเซ็น Token
-	tokenString, err := token.SignedString(jwtSecret)
-	if err != nil {
-		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{"error": "Could not login"})
-	}
-
-	// ส่ง JWT กลับไปให้ไคลเอนต์
-	return c.JSON(fiber.Map{"token": tokenString})
-}
-
-// Dashboard Handler - Protected Route
-func dashboard(c *fiber.Ctx) error {
-	// ดึงข้อมูลผู้ใช้จาก JWT Claims
-	user := c.Locals("user").(*jwt.Token)
-	claims := user.Claims.(jwt.MapClaims)
-	username := claims["sub"].(string)
-
-	return c.JSON(fiber.Map{
-		"message": "Welcome to the dashboard!",
-		"user":    username,
-	})
-}`;
-
-export { AnimatedBeamDemo, Diagram, CODE_GO };

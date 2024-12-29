@@ -5,7 +5,7 @@ import { SiOpensuse } from "react-icons/si";
 import { RiCentosFill, RiCoreosFill } from "react-icons/ri";
 import { PiAppleLogoDuotone, PiWindowsLogoDuotone } from "react-icons/pi";
 import { Link, Image } from "@nextui-org/react";
-import {globalComponents} from "@/components/mdx"
+import {globalComponents} from "@/components/magicui/mdx"
 
 import OrbitingCircles from "@/components/ui/orbiting-circles";
 const OsIcon = [
