@@ -70,24 +70,38 @@
   @layer base {
     * {
       @apply border-border;
+      font-family: sans-serif;
+      font-style: normal;
+      font-weight: 350;
     }
     body {
       @apply bg-background text-foreground;
     }
   }
 
-
-
-* {
+/* * {
     font-family: "IBM Plex Sans Thai", serif;
-    font-weight: 400;
+    font-weight: 350;
     font-style: normal;
   
-}
+} */
 .hero {
  height: calc(100vh - 2.2rem);
 }
 
 .docker{
   filter: drop-shadow(0 25px 25px rgba(10, 118, 219, 0.3));
+}
+article p, li{
+  font-size: 0.875rem;
+}
+
+.prose :where(ul ul, ul ol, ol ul, ol ol):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.prose :where(a):not(:where([class~="not-prose"], [class~="not-prose"] *)){
+  color: #006FEE;
+  text-decoration: none;
 }

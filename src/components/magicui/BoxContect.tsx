@@ -3,7 +3,6 @@ import { FaSquareFacebook, FaInstagram } from "react-icons/fa6";
 import ShineBorder from "@/components/ui/shine-border";
 import { DATA } from "@/data/resume";
 import { HiOutlineMail } from "react-icons/hi";
-import { FiPhone } from "react-icons/fi";
 import { LiaMapMarkedAltSolid } from "react-icons/lia";
 import { IoMdTime } from "react-icons/io";
 function BoxContect() {
@@ -36,10 +35,6 @@ function BoxContect() {
           <span className="flex items-center gap-1">
             <HiOutlineMail size={18} />
             {DATA.contact.email}
-          </span>
-          <span className="flex items-center gap-1">
-            <FiPhone size={18} />
-            {DATA.contact.tel}
           </span>
           <span className="flex items-center gap-1">
             <LiaMapMarkedAltSolid size={18} />

@@ -8,7 +8,7 @@ export const DATA = {
   location: "Bangbuathong, Nonthaburi",
   locationLink: "https://maps.app.goo.gl/cUXxfMgTgEvttuxH7",
   description:
-    "Software Engineer turned Entrepreneur. I love building things and helping people. Very active on Twitter.",
+    "Hii My name is NOAH I'm Software Developer and Computer Engineering Welcome To My Portfolio",
   summary:
     "สวัสดีครับ ผม NOAH เป็น Software Developer ที่ชอบเรียนรู้และลองใช้เทคโนโลยีใหม่ๆ อยู่เสมอ ผมสนุกกับการออกแบบและพัฒนาซอฟต์แวร์ที่ช่วยแก้ปัญหาและทำให้ชีวิตง่ายขึ้น งานของผมเน้นที่การสร้างโซลูชันที่ใช้งานได้จริงและตอบโจทย์ความต้องการของผู้ใช้งานครับ ถ้ามีอะไรอยากพูดคุยหรือปรึกษาเรื่องเทคโนโลยี ยินดีมากๆ ครับ!",
   avatarUrl: "/me.png",

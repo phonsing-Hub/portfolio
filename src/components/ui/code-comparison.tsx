@@ -44,18 +44,18 @@ export function CodeComparison({
       });
     }
   }, [theme, systemTheme, code, language, lightTheme, darkTheme]);
-
+  // font-mono
   const renderCode = (code: string, highlighted: string) => {
     if (highlighted) {
       return (
         <div
-          className=" sm:w-full overflow-auto bg-background font-mono [&>pre]:h-full [&>pre]:!bg-transparent [&>pre]:p-4 [&_code]:break-all "
+          className=" sm:w-full overflow-auto bg-background [&>pre]:h-full [&>pre]:!bg-transparent [&>pre]:p-4 [&_code]:break-all "
           dangerouslySetInnerHTML={{ __html: highlighted }}
         />
       );
     } else {
       return (
-        <pre className=" sm:w-full overflow-auto break-all bg-background p-4 font-mono text-xs text-foreground ">
+        <pre className=" sm:w-full overflow-auto break-all bg-background p-4 text-xs text-foreground ">
           {code}
         </pre>
       );
@@ -74,29 +74,33 @@ export function CodeComparison({
   };
 
   return (
-    <ScrollShadow hideScrollBar size={0} className="mx-auto w-full max-w-5xl max-h-[36rem]">
-      <div className="relative w-full overflow-hidden rounded-xl border border-border">
-        <div className="relative grid md:grid-cols-1 md:divide-border">
-          <div className="flex items-center bg-accent p-2 text-sm text-foreground">
-            <span className="flex">
+    <div className="relative w-full overflow-hidden rounded-xl border border-border">
+      <div className="relative grid md:grid-cols-1 md:divide-border">
+        <div className="flex items-center bg-accent p-2 text-sm text-foreground">
+          <span className="flex">
             <FileIcon className="mr-2 h-4 w-4 " />
             {filename}
-            </span>
-            <Button
-              onPress={copyToClipboard}
-              size="sm"
-              radius="sm"
-              color="primary"
-              variant="light"
-              className="ml-auto"
-              endContent={<TbFiles size={16}/>}
-            >
-              Copy
-            </Button>
-          </div>
-          {renderCode(code, highlightedBefore)}
+          </span>
+          <Button
+            onPress={copyToClipboard}
+            size="sm"
+            radius="sm"
+            color="primary"
+            variant="light"
+            className="ml-auto"
+            endContent={<TbFiles size={16} />}
+          >
+            Copy
+          </Button>
         </div>
+        <ScrollShadow
+          
+          size={40}
+          className="mx-auto w-full max-w-5xl max-h-[36rem]"
+        >
+          {renderCode(code, highlightedBefore)}
+        </ScrollShadow>
       </div>
-    </ScrollShadow>
+    </div>
   );
 }

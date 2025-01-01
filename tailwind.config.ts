@@ -1,3 +1,4 @@
+import { m } from "framer-motion";
 import type { Config } from "tailwindcss";
 const { nextui } = require("@nextui-org/react");
 import { fontFamily } from "tailwindcss/defaultTheme";
@@ -24,6 +25,10 @@ const config = {
       typography: {
         DEFAULT: {
           css: {
+            p: { marginBottom: "0.25rem" },
+            ul: { marginBottom: 0, marginTop: 0 },
+            li: { margin: 0 },
+            ol: { marginBottom: "0.25rem", marginTop: "0.25rem" },
             pre: {
               borderRadius: "0.5rem",
               padding: "0.1rem",
