@@ -19,11 +19,11 @@ import { siteConfig } from "@/config/site";
 export const metadata: Metadata = {
   title: {
     default: siteConfig.name,
-    template: `${siteConfig.name}: %s`,
+    template: `${siteConfig.name} | %s`,
   },
   description: siteConfig.description,
   icons: {
-    icon: "/favicon.png",
+    icon: "/truffle.svg",
   },
 };
 
@@ -62,7 +62,7 @@ export default function RootLayout({
                   <p className="text-xs uppercase">APL-PS version 0.9.1</p>
                 </div>
                 <div className="flex gap-2">
-                  <ThemeSwitch iconSize={20} />
+                  <ThemeSwitch />
                   <Link
                     isExternal
                     className="text-default-600 cursor-pointer"

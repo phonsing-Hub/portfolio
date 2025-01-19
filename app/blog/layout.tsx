@@ -11,6 +11,6 @@ export default function BlogLayout({
   children: React.ReactNode;
 }) {
   return (
-    <section className="container max-w-7xl mx-auto py-16">{children}</section>
+    <section className="py-16">{children}</section>
   );
 }

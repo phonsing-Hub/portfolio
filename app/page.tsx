@@ -14,7 +14,7 @@ export default function Home() {
 
   return (
     <>
-      <HeaderSection />
+      <HeaderSection /> 
       <AboutSection />
       <FeaturesListSection />
       <CtaSection />

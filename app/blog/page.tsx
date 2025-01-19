@@ -29,7 +29,7 @@ export default function BlogPage() {
 
   return (
     <>
-      <Form className="max-w-xs mb-8" onSubmit={onSubmit}>
+      {/* <Form className="max-w-xs mb-8" onSubmit={onSubmit}>
         <Input
           isDisabled
           name="search"
@@ -45,7 +45,7 @@ export default function BlogPage() {
         <div className="text-small text-default-500">
           You submitted: {submitted.search}
         </div>
-      )}
+      )} */}
       <div className="gap-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
         {BlogTitle.map((item, index) => (
           <BlurFade key={index} inView delay={0.25 + index * 0.05}>
@@ -55,7 +55,7 @@ export default function BlogPage() {
                 as={Link}
                 className="border-zinc-200 border dark:border-zinc-700"
                 href={item.href}
-                isDisabled={item.title === "Face Recognition" ? true : false}
+                //isDisabled={item.title === "Face Recognition" ? true : false}
                 shadow="none"
               >
                 <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">

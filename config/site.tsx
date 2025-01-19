@@ -7,10 +7,6 @@ export const siteConfig = {
   description: "portfolio of NOAH",
   navItems: [
     {
-      label: "Home",
-      href: "/",
-    },
-    {
       label: "Blog",
       href: "/blog",
     },

@@ -6,6 +6,7 @@ import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import { TbFiles } from "react-icons/tb";
 import { message } from "antd";
+import { codeToHtml } from "shiki";
 
 interface CodeComparisonProps {
   code: string;
@@ -27,26 +28,20 @@ export function CodeComparison({
   const [messageApi, contextHolder] = message.useMessage();
 
   useEffect(() => {
-    // Ensure this code runs only in the client-side environment
-    if (typeof window !== "undefined") {
-      const currentTheme = theme === "system" ? systemTheme : theme;
-      const selectedTheme = currentTheme === "dark" ? darkTheme : lightTheme;
-
-      // Dynamically import `shiki` to ensure it only runs in the browser
-      import("shiki").then(({ codeToHtml }) => {
-        async function highlightCode() {
-          const before = await codeToHtml(code, {
-            lang: language,
-            theme: selectedTheme,
-          });
-
-          setHighlightedBefore(before);
-        }
-
-        highlightCode();
+    const currentTheme = theme === "system" ? systemTheme : theme;
+    const selectedTheme = currentTheme === "dark" ? darkTheme : lightTheme;
+    
+    async function highlightCode() {
+      const before = await codeToHtml(code, {
+        lang: language,
+        theme: selectedTheme,
       });
+      setHighlightedBefore(before);
     }
+
+    highlightCode();
   }, [theme, systemTheme, code, language, lightTheme, darkTheme]);
+
   // font-mono
   const renderCode = (code: string, highlighted: string) => {
     if (highlighted) {

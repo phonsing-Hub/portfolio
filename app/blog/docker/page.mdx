@@ -12,14 +12,14 @@ import {CodeComparison} from "@/components/ui/code-comparison";
 จึงเป็นที่มาของคำว่า **มันทำงานได้ในเครื่องผม**
  (It works on my machine) ซึ่งเป็นคำที่นักพัฒนาใช้บ่อยเมื่อเจอปัญหาใน Production เพราะระบบในเครื่อง Development ของพวกเขาไม่มีปัญหา แต่ใน Production ที่มี Environment ต่างออกไป กลับไม่สามารถทำงานได้อย่างถูกต้อง
 
- Docker พระเอกของเราที่มาช่วยแก้ปัญหานี้อย่างมีประสิทธิภาพโดยนำเสนอแนวคิดของ Containerization ซึ่งช่วยลดความซับซ้อนในการพัฒนาและ Deploy Application ดังนี้
-1. สร้าง Environment ที่เสถียรและเหมือนกัน
+Docker พระเอกของเราที่มาช่วยแก้ปัญหานี้อย่างมีประสิทธิภาพโดยนำเสนอแนวคิดของ Containerization ซึ่งช่วยลดความซับซ้อนในการพัฒนาและ Deploy Application ดังนี้
+- สร้าง Environment ที่เสถียรและเหมือนกัน
 Docker ใช้ Container ที่เก็บทุกอย่างที่ Application ต้องการ (Code, Libraries, Dependencies) ไว้ในแพ็คเกจเดียวกัน ทำให้มั่นใจได้ว่า Environment ในเครื่อง Development และ Production จะเหมือนกัน
 
-2. แยกส่วนและปรับแต่งง่าย
+- แยกส่วนและปรับแต่งง่าย
 แต่ละ Service (เช่น Database, Backend, Frontend) สามารถรันใน Container แยกกัน ช่วยลดปัญหา Dependency Conflict ระหว่าง Services
 
-3. การจัดการง่าย
+- การจัดการง่าย
 Docker มีเครื่องมืออย่าง Docker Compose ที่ช่วยกำหนด Configuration ของหลาย Container ได้ในไฟล์เดียว เช่น docker-compose.yml ทำให้การตั้งค่าระบบใน Development และ Production ทำได้ง่ายและเหมือนกัน
 
 ### **Docker ทำงานอย่างไร?**
@@ -42,10 +42,10 @@ Container คือ หน่วยการทำงานแบบพกพา
 ทุกอย่างที่อยู่ใน Container จะทำงานแยกจาก Host OS และจาก Container อื่น ๆ
 
 ### **ตัวอย่าง Use Case ของ Container**
-1. **Development Environment** สร้าง Environment เดียวกันในเครื่องนักพัฒนาและ Production
-2. **Microservices** ใช้ Container ในการแยกแต่ละ Service เช่น API, Database, Frontend
-3. **CI/CD Pipelines** ใช้ Container สำหรับการ Build และ Test Application แบบอัตโนมัติ
-4. **Scaling** ใช้ Container ร่วมกับ [Kubernetes](https://kubernetes.io/) เพื่อ Scale Application ได้อย่างยืดหยุ่น
+- **Development Environment** สร้าง Environment เดียวกันในเครื่องนักพัฒนาและ Production
+- **Microservices** ใช้ Container ในการแยกแต่ละ Service เช่น API, Database, Frontend
+- **CI/CD Pipelines** ใช้ Container สำหรับการ Build และ Test Application แบบอัตโนมัติ
+- **Scaling** ใช้ Container ร่วมกับ [Kubernetes](https://kubernetes.io/) เพื่อ Scale Application ได้อย่างยืดหยุ่น
 
 ### **เรามาลอง Build Application และ Run ใน Docker**
 ต่อไปเราจะ Build Application และ Run ใน Docker โดยใช้ Go และ Go Fiber ที่มีความชัดเจนและเข้าใจง่ายกันนะครับ

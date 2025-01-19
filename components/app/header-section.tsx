@@ -1,5 +1,3 @@
-// "use client"
-// import { useEffect } from "react";
 import { Button } from "@heroui/button";
 import { Chip } from "@heroui/chip";
 import { Image } from "@heroui/image";
@@ -22,13 +20,10 @@ export default function HeaderSection() {
           "md:[mask-image:radial-gradient(400px_circle_at_center,white,transparent)]",
           "[mask-image:radial-gradient(150px_circle_at_center,white,transparent)]",
         )}
-        // width={100}
-        // height={20}
-        squares={[80, 80]}
         squaresClassName="hover:fill-blue-300"
       />
       <div
-        className="md:w-1/2 w-full relative flex flex-col"
+        className="md:w-1/2 w-full flex flex-col"
         data-aos="fade-right"
         data-aos-delay="50"
       >
@@ -47,7 +42,7 @@ export default function HeaderSection() {
           than happy to connect!
         </span>
         <div className="flex gap-2 mb-4">
-          <Button
+          {/* <Button
             isDisabled
             color="primary"
             endContent={<TbFileCv size={22} />}
@@ -55,8 +50,8 @@ export default function HeaderSection() {
             variant="flat"
           >
             Download CV
-          </Button>
-          <Button
+          </Button> */}
+          {/* <Button
             as={Link}
             endContent={<CgNotes size={22} />}
             href={"/blog"}
@@ -64,18 +59,18 @@ export default function HeaderSection() {
             variant="flat"
           >
             Blog
-          </Button>
+          </Button> */}
         </div>
       </div>
       <div
-        className="md:w-1/2 w-full relative flex justify-center"
+        className="md:w-1/2 w-full flex justify-center"
         data-aos="fade-left"
         data-aos-delay="50"
       >
         <Image
           alt="reshot-icon-computer"
-          className="md:size-80 size-60 inset-x-0 inset-y-[-10%] h-[200%] skew-y-6"
-          src="/reshot-icon-computer.svg"
+          className="md:size-80 size-60 drop-shadow-2xl"
+          src="/truffle.svg"
         />
       </div>
     </section>
