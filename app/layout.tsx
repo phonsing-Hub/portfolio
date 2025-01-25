@@ -48,7 +48,7 @@ export default function RootLayout({
           fontSans.variable,
         )}
       >
-        <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
+        <Providers themeProps={{ attribute: "class", defaultTheme: "light" }}>
           <div className="relative flex flex-col min-h-screen">
             <Navbar />
             <main className="container mx-auto max-w-7xl px-6 flex-grow">
@@ -59,7 +59,7 @@ export default function RootLayout({
               <div className="flex justify-between pt-5 pb-12">
                 <div className="flex gap-2">
                   <span className="text-default-600 text-xs">© 2025</span>
-                  <p className="text-xs uppercase">APL-PS version 0.9.1</p>
+                  <p className="text-xs uppercase">APL-PS</p>
                 </div>
                 <div className="flex gap-2">
                   <ThemeSwitch />

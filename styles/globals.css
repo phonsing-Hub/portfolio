@@ -6,6 +6,7 @@
 *{
   line-height: normal;
 }
+
 .header-section {
   min-height: calc(100vh - 64px);
 }
@@ -41,6 +42,16 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
-  line-clamp: 3;
+  line-clamp: 2;
+  box-orient: vertical; 
+}
+
+.multiline-truncate-header {
+  display: -webkit-box;
+  -webkit-line-clamp: 1; 
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-clamp: 1;
   box-orient: vertical; 
 }

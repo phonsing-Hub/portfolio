@@ -5,6 +5,7 @@ import { Chip } from "@heroui/chip";
 import { Input, Textarea } from "@heroui/input";
 import { Form } from "@heroui/form";
 import { SiMinutemailer } from "react-icons/si";
+import { LuMailbox } from "react-icons/lu";
 import {
   Modal,
   ModalContent,
@@ -65,16 +66,11 @@ export function ModelPopupSendme() {
   return (
     <>
       {contextHolder}
-      <Button
-        color="primary"
-        variant="flat"
-        radius="sm"
-        endContent={<SiMinutemailer size={24} />}
-        onPress={onOpen}
-        className="text-sm font-normal"
+      <button
+        onClick={onOpen}
       >
-        Send me
-      </Button>
+        <LuMailbox size={26} className=" text-default-500" />
+      </button>
       <Modal
         isDismissable={false}
         isKeyboardDismissDisabled={true}

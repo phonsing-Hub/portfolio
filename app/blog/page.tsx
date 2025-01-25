@@ -46,10 +46,10 @@ export default function BlogPage() {
           You submitted: {submitted.search}
         </div>
       )} */}
-      <div className="gap-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="gap-2 grid grid-cols-2 lg:grid-cols-4">
         {BlogTitle.map((item, index) => (
           <BlurFade key={index} inView delay={0.25 + index * 0.05}>
-            <MagicCard key={index} gradientColor={"#93c5fd"}>
+            <MagicCard gradientColor={"#93c5fd"}>
               <Card
                 isPressable
                 as={Link}
@@ -59,11 +59,11 @@ export default function BlogPage() {
                 shadow="none"
               >
                 <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
-                  <h4 className="font-bold text-large text-start">
+                  <h4 className="font-bold text-large text-start multiline-truncate-header h-8">
                     {item.title}
                   </h4>
                   <small className="text-default-500">{item.dates}</small>
-                  <p className="text-tiny text-start mt-2 multiline-truncate min-h-8">
+                  <p className="text-tiny text-start mt-2 multiline-truncate h-7">
                     {item.description}
                   </p>
                 </CardHeader>
@@ -75,7 +75,7 @@ export default function BlogPage() {
                     // width={270}
                   />
                 </CardBody>
-                <CardFooter className="gap-1">
+                {/* <CardFooter className="gap-1">
                   {item.tag.map((item, index) => (
                     <Chip
                       key={index}
@@ -88,7 +88,7 @@ export default function BlogPage() {
                       {item}
                     </Chip>
                   ))}
-                </CardFooter>
+                </CardFooter> */}
               </Card>
             </MagicCard>
           </BlurFade>

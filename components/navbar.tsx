@@ -10,10 +10,10 @@ import {
   NavbarMenuItem,
 } from "@heroui/navbar";
 import { Button } from "@heroui/button";
+import {Divider} from "@heroui/divider";
 import { Link } from "@heroui/link";
 import { User } from "@heroui/user";
 import { FaGithub } from "react-icons/fa";
-import { CgNotes } from "react-icons/cg";
 import { Image } from "@heroui/image";
 import { ModelPopupSendme } from "./model-sendme";
 import { ThemeSwitch } from "@/components/theme-switch";
@@ -34,7 +34,7 @@ export const Navbar = () => {
         description="full-stack developers"
         name="p.phonsing_"
       />
-      <div className="sm:hidden">
+      <div className="lg:hidden">
         <ModelPopupSendme />
       </div>
     </div>
@@ -53,42 +53,25 @@ export const Navbar = () => {
             <Image className=" size-12" src="/truffle.svg" />
           </NextLink>
         </NavbarBrand>
-        <ul className="hidden lg:flex gap-4 justify-start">
-          {siteConfig.navItems.map((item) => (
-            <NavbarItem key={item.href}>
-              <Button
-                startContent={<CgNotes size={18} />}
-                size="sm"
-                radius="sm"
-                variant="flat"
-                as={Link}
-                href={item.href}
-              >
-                {item.label}
-              </Button>
-            </NavbarItem>
-          ))}
-        </ul>
       </NavbarContent>
 
       <NavbarContent
         className="hidden lg:flex basis-1/5 sm:basis-full"
         justify="end"
       >
-        <NavbarItem className="hidden sm:flex gap-4 items-center">
-          <ThemeSwitch color="primary" />
+        <NavbarItem className="hidden sm:flex gap-2 items-center">
+          <ThemeSwitch/>
+          <ModelPopupSendme />
           <Link isExternal aria-label="Github" href={siteConfig.links.github}>
             <FaGithub className="text-default-500" size={24} />
           </Link>
         </NavbarItem>
+      
         <NavbarItem className="hidden lg:flex">{titleUser}</NavbarItem>
-        <NavbarItem className="hidden md:flex">
-          <ModelPopupSendme />
-        </NavbarItem>
       </NavbarContent>
 
       <NavbarContent className="lg:hidden basis-1 pl-4" justify="end">
-        <ThemeSwitch color="primary" />
+        <ThemeSwitch />
         <Link isExternal aria-label="Github" href={siteConfig.links.github}>
           <FaGithub className="text-default-500" size={24} />
         </Link>
@@ -98,8 +81,9 @@ export const Navbar = () => {
       </NavbarContent>
 
       <NavbarMenu>
-        {titleUser}
-        <div className="mx-4 mt-2 flex flex-col gap-2">
+        <div className="pl-2">{titleUser}</div>
+        <Divider className="my-4" />
+        <div className="flex flex-col gap-2">
           {siteConfig.navMenuItems.map((item, index) => (
             <NavbarMenuItem key={`${item}-${index}`}>
               <Button

@@ -3,26 +3,26 @@ import {CodeComparison} from "@/components/ui/code-comparison"
 
 export function Code1() {
   const code =
-  `import cv2
-  import dlib 
+`import cv2
+import dlib 
 
-  detector = dlib.get_frontal_face_detector()
+detector = dlib.get_frontal_face_detector()
 
-  img = cv2.imread("path/image.png")
-  gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+img = cv2.imread("path/image.png")
+gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
-  faces = detector(gray)
-  for face in faces:
-      x, y, w, h = face.left(), face.top(), face.width(), face.height()
-      cv2.rectangle(img, (x, y), (x + w, y + h), (238, 111, 0), 2)
+faces = detector(gray)
+for face in faces:
+  x, y, w, h = face.left(), face.top(), face.width(), face.height()
+  cv2.rectangle(img, (x, y), (x + w, y + h), (238, 111, 0), 2)
 
-  while True:
-      cv2.imshow("Face", img)
-      key = cv2.waitKey(1)
-      if key == ord('q'):
-          break
+while True:
+  cv2.imshow("Face", img)
+  key = cv2.waitKey(1)
+  if key == ord('q'):
+    break
 
-  cv2.destroyAllWindows()`
+cv2.destroyAllWindows()`
 
   return (
     <CodeComparison 

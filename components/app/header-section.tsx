@@ -12,34 +12,29 @@ import { title } from "../primitives";
 export default function HeaderSection() {
   return (
     <section
-      className="header-section flex flex-wrap-reverse justify-between items-center relative"
+      className="header-section flex flex-wrap-reverse relative"
       id="header-section"
     >
       <InteractiveGridPattern
         className={cn(
-          "md:[mask-image:radial-gradient(400px_circle_at_center,white,transparent)]",
+          "md:[mask-image:radial-gradient(300px_circle_at_center,white,transparent)]",
           "[mask-image:radial-gradient(150px_circle_at_center,white,transparent)]",
         )}
         squaresClassName="hover:fill-blue-300"
       />
       <div
-        className="md:w-1/2 w-full flex flex-col"
+        className="md:w-1/2 w-full flex flex-col justify-center"
         data-aos="fade-right"
         data-aos-delay="50"
       >
         <span className={title()}>Welcome to My&nbsp;</span>
         <span className={title({ color: "blue" })}>Portfolio</span>
-        <span className="my-4 text-sm text-default-600 backdrop-blur-sm rounded-md">
+        <span className="my-4 text-lg text-default-600 backdrop-blur-sm rounded-md lg:w-3/4">
           Hi there! I’m{" "}
           <Chip color="primary" radius="sm" size="sm" variant="flat">
             NOAH
           </Chip>
-          , a Software Developer who loves learning and experimenting with new
-          technologies. I enjoy designing and developing software that solves
-          problems and makes life easier. My work focuses on creating practical
-          solutions that truly meet users’ needs. If you’d like to chat or
-          discuss anything tech-related, feel free to reach out. I’d be more
-          than happy to connect!
+          , a Computer Engineering & Software Developer
         </span>
         <div className="flex gap-2 mb-4">
           {/* <Button
@@ -51,7 +46,7 @@ export default function HeaderSection() {
           >
             Download CV
           </Button> */}
-          {/* <Button
+          <Button
             as={Link}
             endContent={<CgNotes size={22} />}
             href={"/blog"}
@@ -59,17 +54,17 @@ export default function HeaderSection() {
             variant="flat"
           >
             Blog
-          </Button> */}
+          </Button>
         </div>
       </div>
       <div
-        className="md:w-1/2 w-full flex justify-center"
+        className="md:w-1/2 w-full flex justify-center md:items-center items-end"
         data-aos="fade-left"
         data-aos-delay="50"
       >
         <Image
           alt="reshot-icon-computer"
-          className="md:size-80 size-60 drop-shadow-2xl"
+          className="size-80 drop-shadow-2xl"
           src="/truffle.svg"
         />
       </div>
