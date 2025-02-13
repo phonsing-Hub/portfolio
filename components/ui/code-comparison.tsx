@@ -79,9 +79,9 @@ export function CodeComparison({
   };
 
   return (
-    <div className="relative w-full overflow-hidden rounded-xl shadow-md dark:shadow-zinc-700 border-border">
+    <div className="relative w-full overflow-hidden rounded-xl border dark:border-zinc-800 border-border">
       <div className="relative grid md:grid-cols-1 md:divide-border">
-        <div className="flex items-center bg-slate-100 dark:bg-zinc-800 p-2 text-sm text-foreground ">
+        <div className="flex items-center bg-zinc-100 dark:bg-zinc-800 p-2 text-sm text-foreground ">
           <span className="flex">
             <FaRegFileAlt className="mr-2 h-4 w-4" />
             {filename}
@@ -89,7 +89,7 @@ export function CodeComparison({
           {contextHolder}
           <Button
             className="ml-auto"
-            color="primary"
+            //color="primary"
             endContent={<TbFiles size={16} />}
             radius="sm"
             size="sm"

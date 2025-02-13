@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Form } from "@heroui/form";
 import { Chip } from "@heroui/chip";
 import { Card, CardHeader, CardBody, CardFooter } from "@heroui/card";
+import { Button } from "@heroui/button";
 import { Image } from "@heroui/image";
 import { Input } from "@heroui/input";
 import { Link } from "@heroui/link";
@@ -46,51 +47,39 @@ export default function BlogPage() {
           You submitted: {submitted.search}
         </div>
       )} */}
-      <div className="gap-2 grid grid-cols-2 lg:grid-cols-4">
+      <div className="gap-4 grid grid-cols-2 ">
         {BlogTitle.map((item, index) => (
           <BlurFade key={index} inView delay={0.25 + index * 0.05}>
-            <MagicCard gradientColor={"#93c5fd"}>
-              <Card
-                isPressable
-                as={Link}
-                className="border-zinc-200 border dark:border-zinc-700"
-                href={item.href}
-                //isDisabled={item.title === "Face Recognition" ? true : false}
-                shadow="none"
-              >
-                <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
-                  <h4 className="font-bold text-large text-start multiline-truncate-header h-8">
-                    {item.title}
-                  </h4>
-                  <small className="text-default-500">{item.dates}</small>
-                  <p className="text-tiny text-start mt-2 multiline-truncate h-7">
-                    {item.description}
-                  </p>
-                </CardHeader>
-                <CardBody className="overflow-visible p-4 ">
-                  <Image
-                    alt={item.title}
-                    className="object-cover rounded-xl "
-                    src={item.img}
-                    // width={270}
-                  />
-                </CardBody>
-                {/* <CardFooter className="gap-1">
-                  {item.tag.map((item, index) => (
-                    <Chip
-                      key={index}
-                      className=" text-xs font-bold"
-                      color="primary"
-                      radius="sm"
-                      size="sm"
-                      variant="flat"
-                    >
-                      {item}
-                    </Chip>
-                  ))}
-                </CardFooter> */}
-              </Card>
-            </MagicCard>
+            {/* <MagicCard gradientColor={"#93c5fd"}> */}
+            <Card className="shadow-none rounded-md s dark:shadow-sm dark:shadow-zinc-700">
+              <CardHeader className="aspect-video" as={Link} href={item.href}>
+                <Image
+                  alt={item.img}
+                  src={item.img}
+                 // className="rounded-md s dark:shadow-sm dark:shadow-zinc-700"
+                />
+              </CardHeader>
+              <CardBody>
+                <p className=" text-xl font-bold multiline-truncate-header">
+                  {item.title.toUpperCase()}
+                </p>
+                <p className="text-sm text-default-600 multiline-truncate h-10">
+                  {item.description}
+                </p>
+                <Chip
+                  as={Link}
+                  href={item.href}
+                  showAnchorIcon
+                  size="sm"
+                  radius="sm"
+                  variant="flat"
+                  className="max-w-max mt-2"
+                >
+                  more
+                </Chip>
+              </CardBody>
+            </Card>
+            {/* </MagicCard> */}
           </BlurFade>
         ))}
       </div>

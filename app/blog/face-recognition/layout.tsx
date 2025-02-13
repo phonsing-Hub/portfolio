@@ -10,7 +10,7 @@ export default function FaceRecognitionLayout({
   children: React.ReactNode;
 }) {
   return (
-    <article className="prose prose-sm prose-neutral dark:prose-invert max-w-3xl">
+    <article className="prose prose-sm prose-neutral dark:prose-invert max-w-3xl mx-auto container">
       {children}
     </article>
   );

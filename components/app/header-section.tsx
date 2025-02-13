@@ -5,7 +5,6 @@ import { Link } from "@heroui/link";
 import { TbFileCv } from "react-icons/tb";
 import { CgNotes } from "react-icons/cg";
 import { cn } from "@heroui/theme";
-
 import { InteractiveGridPattern } from "../ui/interactive-grid-pattern";
 import { title } from "../primitives";
 

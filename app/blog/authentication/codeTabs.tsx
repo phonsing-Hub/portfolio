@@ -164,10 +164,10 @@ export function CodeTabs() {
     <div className="flex w-full flex-col ">
       <Tabs
         aria-label="CodeTabs"
-        color="primary"
+        //color="primary"
         radius="sm"
         size="sm"
-        variant="bordered"
+        variant="light"
       >
         <Tab
           key="cmd"

@@ -45,7 +45,9 @@ export const Navbar = () => {
       shouldHideOnScroll
       isMenuOpen={isMenuOpen}
       maxWidth="xl"
+      //isBlurred={false}
       onMenuOpenChange={setIsMenuOpen}
+      //className="bg-transparent"
     >
       <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
         <NavbarBrand as="li" className="max-w-fit">
