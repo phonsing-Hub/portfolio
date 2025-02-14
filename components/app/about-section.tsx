@@ -61,7 +61,7 @@ export default function AboutSection() {
       <div className="relative lg:w-1/2 w-full lg:h-[70vh] h-[300px] mb-10 flex items-center">
         <InteractiveGridPattern
           className={cn(
-            "lg:[mask-image:radial-gradient(300px_circle_at_center,white,transparent)]",
+            "lg:[mask-image:radial-gradient(250px_circle_at_center,white,transparent)]",
             "[mask-image:radial-gradient(100px_circle_at_center,white,transparent)]",
           )}
           squaresClassName="hover:fill-fuchsia-400"

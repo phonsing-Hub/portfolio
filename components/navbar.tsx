@@ -1,5 +1,7 @@
 "use client";
+import { PressEvent } from "@react-types/shared";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import {
   Navbar as NextUINavbar,
   NavbarContent,
@@ -10,7 +12,7 @@ import {
   NavbarMenuItem,
 } from "@heroui/navbar";
 import { Button } from "@heroui/button";
-import {Divider} from "@heroui/divider";
+import { Divider } from "@heroui/divider";
 import { Link } from "@heroui/link";
 import { User } from "@heroui/user";
 import { FaGithub } from "react-icons/fa";
@@ -18,11 +20,21 @@ import { Image } from "@heroui/image";
 import { ModelPopupSendme } from "./model-sendme";
 import { ThemeSwitch } from "@/components/theme-switch";
 import { siteConfig } from "@/config/site";
+import { BlogTitle } from "./blogTitle";
 import NextLink from "next/link";
 
+import { LuUserSearch } from "react-icons/lu";
+import { CiBoxList } from "react-icons/ci";
+
 export const Navbar = () => {
+  const router = useRouter();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  const onNavigat = (e: PressEvent, href: string) => {
+    setIsMenuOpen(false);
+    router.push(href);
+  };
+  
   const titleUser = (
     <div className="flex justify-between" id="User">
       <User
@@ -34,9 +46,6 @@ export const Navbar = () => {
         description="full-stack developers"
         name="p.phonsing_"
       />
-      <div className="lg:hidden">
-        <ModelPopupSendme />
-      </div>
     </div>
   );
 
@@ -45,9 +54,7 @@ export const Navbar = () => {
       shouldHideOnScroll
       isMenuOpen={isMenuOpen}
       maxWidth="xl"
-      //isBlurred={false}
       onMenuOpenChange={setIsMenuOpen}
-      //className="bg-transparent"
     >
       <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
         <NavbarBrand as="li" className="max-w-fit">
@@ -62,13 +69,12 @@ export const Navbar = () => {
         justify="end"
       >
         <NavbarItem className="hidden sm:flex gap-2 items-center">
-          <ThemeSwitch/>
-          <ModelPopupSendme />
+          <ThemeSwitch />
           <Link isExternal aria-label="Github" href={siteConfig.links.github}>
             <FaGithub className="text-default-500" size={24} />
           </Link>
         </NavbarItem>
-      
+
         <NavbarItem className="hidden lg:flex">{titleUser}</NavbarItem>
       </NavbarContent>
 
@@ -83,24 +89,41 @@ export const Navbar = () => {
       </NavbarContent>
 
       <NavbarMenu>
-        <div className="pl-2">{titleUser}</div>
-        <Divider className="my-4" />
         <div className="flex flex-col gap-2">
-          {siteConfig.navMenuItems.map((item, index) => (
-            <NavbarMenuItem key={`${item}-${index}`}>
+          <NavbarMenuItem>
+            <Button
+              variant="light"
+              size="sm"
+              radius="sm"
+              startContent={<LuUserSearch size={14} />}
+              onPress={(e) => onNavigat(e, "/")}
+            >
+              Me
+            </Button>
+            <Button
+              variant="light"
+              size="sm"
+              radius="sm"
+              startContent={<CiBoxList size={14} />}
+              onPress={(e) => onNavigat(e, "/blog")}
+            >
+              Blog All
+            </Button>
+
+            <Divider className="my-2" />
+            {BlogTitle.map((item, index) => (
               <Button
-                as={Link}
-                className="w-full flex justify-start"
-                href={item.href}
-                size="sm"
-                startContent={item.icon}
+                key={`${item}-${index}`}
+                isDisabled={item.isDisabled}
                 variant="light"
-                onPress={() => setIsMenuOpen(false)}
+                size="sm"
+                radius="sm"
+                onPress={(e) => onNavigat(e, item.href)}
               >
-                {item.label}
+                {item.title}
               </Button>
-            </NavbarMenuItem>
-          ))}
+            ))}
+          </NavbarMenuItem>
         </div>
       </NavbarMenu>
     </NextUINavbar>
