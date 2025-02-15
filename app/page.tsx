@@ -13,11 +13,11 @@ export default function Home() {
   }, []);
 
   return (
-    <>
-      <HeaderSection /> 
+    <div className="container max-w-5xl mx-auto">
+      <HeaderSection />
       <AboutSection />
       <FeaturesListSection />
       <CtaSection />
-    </>
+    </div>
   );
 }

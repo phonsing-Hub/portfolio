@@ -10,9 +10,5 @@ export default function BlogLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return (
-    <section className="py-16">
-       
-      {children}</section>
-  );
+  return <section className="py-10">{children}</section>;
 }

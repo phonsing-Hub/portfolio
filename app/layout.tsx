@@ -1,21 +1,12 @@
 import "@/styles/globals.css";
 import "aos/dist/aos.css";
 import { Metadata, Viewport } from "next";
-import { Link } from "@heroui/link";
-import { Divider } from "@heroui/divider";
-import { FiFacebook } from "react-icons/fi";
-import { FaInstagram } from "react-icons/fa";
-import { FiLinkedin } from "react-icons/fi";
-import { FaXTwitter } from "react-icons/fa6";
 import clsx from "clsx";
-
 import { Providers } from "./providers";
-
-import { ThemeSwitch } from "@/components/theme-switch";
 import { Navbar } from "@/components/navbar";
 import { fontSans } from "@/config/fonts";
 import { siteConfig } from "@/config/site";
-
+import Footer from "@/components/footer";
 export const metadata: Metadata = {
   title: {
     default: siteConfig.name,
@@ -45,55 +36,16 @@ export default function RootLayout({
       <body
         className={clsx(
           "min-h-screen font-sans antialiased bg-background",
-          fontSans.variable,
+          fontSans.variable
         )}
       >
         <Providers themeProps={{ attribute: "class", defaultTheme: "light" }}>
           <div className="relative flex flex-col min-h-screen">
             <Navbar />
-            <main className="container mx-auto max-w-5xl px-6 flex-grow">
+            <main className="container mx-auto max-w-full px-6 flex-grow">
               {children}
             </main>
-            <footer className="container max-w-7xl mx-auto px-6">
-              <Divider />
-              <div className="flex justify-between pt-5 pb-12">
-                <div className="flex gap-2">
-                  <span className="text-default-600 text-xs">© 2025</span>
-                  <p className="text-xs uppercase">APL-PS</p>
-                </div>
-                <div className="flex gap-2">
-                  <ThemeSwitch />
-                  <Link
-                    isExternal
-                    className="text-default-600 cursor-pointer"
-                    href={siteConfig.links.facebook}
-                  >
-                    <FiFacebook size={18} />
-                  </Link>
-                  <Link
-                    isExternal
-                    className="text-default-600 cursor-pointer"
-                    href={siteConfig.links.instagram}
-                  >
-                    <FaInstagram size={18} />
-                  </Link>
-                  <Link
-                    isExternal
-                    className="text-default-600 cursor-pointer"
-                    href={siteConfig.links.linkedin}
-                  >
-                    <FiLinkedin size={18} />
-                  </Link>
-                  <Link
-                    isExternal
-                    className="text-default-600 cursor-pointer"
-                    href={siteConfig.links.twitter}
-                  >
-                    <FaXTwitter size={18} />
-                  </Link>
-                </div>
-              </div>
-            </footer>
+            <Footer />
           </div>
         </Providers>
       </body>

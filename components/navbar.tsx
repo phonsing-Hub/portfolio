@@ -15,9 +15,7 @@ import { Button } from "@heroui/button";
 import { Divider } from "@heroui/divider";
 import { Link } from "@heroui/link";
 import { User } from "@heroui/user";
-import { FaGithub } from "react-icons/fa";
 import { Image } from "@heroui/image";
-import { ModelPopupSendme } from "./model-sendme";
 import { ThemeSwitch } from "@/components/theme-switch";
 import { siteConfig } from "@/config/site";
 import { BlogTitle } from "./blogTitle";
@@ -25,6 +23,7 @@ import NextLink from "next/link";
 
 import { LuUserSearch } from "react-icons/lu";
 import { CiBoxList } from "react-icons/ci";
+import { NotepadTextDashed, Github } from "lucide-react";
 
 export const Navbar = () => {
   const router = useRouter();
@@ -34,7 +33,7 @@ export const Navbar = () => {
     setIsMenuOpen(false);
     router.push(href);
   };
-  
+
   const titleUser = (
     <div className="flex justify-between" id="User">
       <User
@@ -64,27 +63,21 @@ export const Navbar = () => {
         </NavbarBrand>
       </NavbarContent>
 
-      <NavbarContent
-        className="hidden lg:flex basis-1/5 sm:basis-full"
-        justify="end"
-      >
-        <NavbarItem className="hidden sm:flex gap-2 items-center">
+      <NavbarContent className="flex basis-1/5 sm:basis-full" justify="end">
+        <NavbarItem className="flex gap-2 items-center">
           <ThemeSwitch />
-          <Link isExternal aria-label="Github" href={siteConfig.links.github}>
-            <FaGithub className="text-default-500" size={24} />
+          <Link aria-label="blog" href="/blog">
+            <NotepadTextDashed className="text-default-600" />
+          </Link>
+          <Link isExternal aria-label="github" href={siteConfig.links.github}>
+            <Github className="text-default-600" />
           </Link>
         </NavbarItem>
 
         <NavbarItem className="hidden lg:flex">{titleUser}</NavbarItem>
-      </NavbarContent>
-
-      <NavbarContent className="lg:hidden basis-1 pl-4" justify="end">
-        <ThemeSwitch />
-        <Link isExternal aria-label="Github" href={siteConfig.links.github}>
-          <FaGithub className="text-default-500" size={24} />
-        </Link>
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+          className="lg:hidden basis-1 pl-4"
         />
       </NavbarContent>
 
@@ -109,7 +102,6 @@ export const Navbar = () => {
             >
               Blog All
             </Button>
-
             <Divider className="my-2" />
             {BlogTitle.map((item, index) => (
               <Button

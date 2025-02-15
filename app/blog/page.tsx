@@ -9,7 +9,7 @@ import BlurFade from "@/components/ui/blur-fade";
 export default function BlogPage() {
 
   return (
-    <>
+    <div className="container max-w-5xl mx-auto">
       <div className="gap-4 grid grid-cols-2 md:grid-cols-3 ">
         {BlogTitle.map((item, index) => (
           <BlurFade key={index} inView delay={0.25 + index * 0.05}>
@@ -44,6 +44,6 @@ export default function BlogPage() {
           </BlurFade>
         ))}
       </div>
-    </>
+    </div>
   );
 }

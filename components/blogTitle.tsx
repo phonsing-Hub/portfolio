@@ -1,5 +1,13 @@
 export const BlogTitle = [
   {
+    title: "เริ่มต้นกับภาษา Go (Golang)",
+    dates: "Sep 2025",
+    description: "แนะนำภาษา Go สำหรับนักพัฒนา โดยครอบคลุมพื้นฐานของภาษา และการพัฒนา Web API",
+    img: "images/5.png",
+    href: "/blog/go",
+    isDisabled: false
+  },
+  {
     title: "Authentication & JWT",
     dates: "Sep 2024",
     description:
@@ -47,14 +55,5 @@ export const BlogTitle = [
     href: "#",
     isDisabled: true
   },
-  {
-    title: "เริ่มต้นกับภาษา Go (Golang)",
-    dates: "Sep 2025",
-    description: "แนะนำภาษา Go สำหรับนักพัฒนา โดยครอบคลุมพื้นฐานของภาษา แนวคิดเกี่ยวกับ Concurrency และการพัฒนา Web API ด้วย Go รวมถึงเครื่องมือและแนวปฏิบัติที่ดีที่สุดในการเขียนโค้ดให้มีประสิทธิภาพ",
-    img: "#",
-    href: "#",
-    isDisabled: true
-  }
-  
   
 ];
