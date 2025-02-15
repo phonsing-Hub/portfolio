@@ -1,12 +1,15 @@
-import "@/styles/globals.css";
-import "aos/dist/aos.css";
+import { Analytics } from '@vercel/analytics/next';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Metadata, Viewport } from "next";
-import clsx from "clsx";
 import { Providers } from "./providers";
 import { Navbar } from "@/components/navbar";
 import { fontSans } from "@/config/fonts";
 import { siteConfig } from "@/config/site";
 import Footer from "@/components/footer";
+import clsx from "clsx";
+import "@/styles/globals.css";
+import "aos/dist/aos.css";
+
 export const metadata: Metadata = {
   title: {
     default: siteConfig.name,
@@ -48,6 +51,8 @@ export default function RootLayout({
             <Footer />
           </div>
         </Providers>
+        <Analytics/>
+        <SpeedInsights />
       </body>
     </html>
   );
