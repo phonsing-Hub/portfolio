@@ -3,6 +3,7 @@ import { Tabs, Tab } from "@heroui/tabs";
 import { Card, CardBody } from "@heroui/card";
 import { TbBrandGolang } from "react-icons/tb";
 import { TbBrandPowershell } from "react-icons/tb";
+import { AppWindowMac } from "lucide-react";
 
 import { CodeComparison } from "@/components/ui/code-comparison";
 
@@ -173,7 +174,7 @@ export function CodeTabs() {
           key="cmd"
           title={
             <div className="flex items-center space-x-2">
-              <TbBrandPowershell size={20} />
+              <TbBrandPowershell size={22} />
               <span>cmd</span>
             </div>
           }

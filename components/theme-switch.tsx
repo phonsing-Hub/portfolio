@@ -42,12 +42,17 @@ export const SunIcon: FC<React.SVGProps<SVGSVGElement>> = (props) => {
   );
 };
 export interface ThemeSwitchProps {
-  color?: "default" | "primary" | "secondary" | "success" | "warning" | "danger" | undefined;
+  color?:
+    | "default"
+    | "primary"
+    | "secondary"
+    | "success"
+    | "warning"
+    | "danger"
+    | undefined;
 }
 
-export const ThemeSwitch: FC<ThemeSwitchProps> = ({
-  color
-}) => {
+export const ThemeSwitch: FC<ThemeSwitchProps> = ({ color }) => {
   const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useTheme();
 
@@ -64,7 +69,7 @@ export const ThemeSwitch: FC<ThemeSwitchProps> = ({
   return (
     <Switch
       defaultSelected
-      color={color ||"default"}
+      color={color || "default"}
       isSelected={isLightMode}
       size="sm"
       thumbIcon={({ isSelected, className }) =>

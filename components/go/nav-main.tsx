@@ -1,6 +1,7 @@
 "use client";
-import { useRouter, usePathname } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { ChevronRight, type LucideIcon } from "lucide-react";
+
 import {
   Collapsible,
   CollapsibleContent,
@@ -32,6 +33,7 @@ export function NavMain({
   }[];
 }) {
   const paathname = usePathname();
+
   return (
     <SidebarGroup>
       <SidebarGroupLabel>GO (GOLANG)</SidebarGroupLabel>
@@ -39,10 +41,10 @@ export function NavMain({
         {items.map((item) => (
           <Collapsible
             key={item.title}
+            className="group/collapsible"
             asChild
             //defaultOpen={item.url == paathname ? true : false}
             defaultOpen={item.isActive}
-            className="group/collapsible"
           >
             <SidebarMenuItem>
               <CollapsibleTrigger asChild>

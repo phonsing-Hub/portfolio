@@ -7,12 +7,7 @@ import { AppSidebar } from "@/components/go/app-sidebar";
 //   BreadcrumbPage,
 //   BreadcrumbSeparator,
 // } from "@/components/ui/breadcrumb"
-import { Separator } from "@/components/ui/separator";
-import {
-  SidebarInset,
-  SidebarProvider,
-  SidebarTrigger,
-} from "@/components/ui/sidebar";
+import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 export const metadata = {
   title: "Go (Golang)",
   description: "แนะนำภาษา Go สำหรับนักพัฒนา",

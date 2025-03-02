@@ -1,3 +1,4 @@
+import { Navbar } from "@/components/navbar";
 export const metadata = {
   title: {
     default: "Blog",
@@ -10,5 +11,10 @@ export default function BlogLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <section className="py-10">{children}</section>;
+  return (
+    <>
+      <Navbar />
+      <section className="py-10">{children}</section>
+    </>
+  );
 }

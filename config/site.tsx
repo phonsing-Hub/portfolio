@@ -3,7 +3,8 @@ import { PiUserListBold } from "react-icons/pi";
 import { CgNotes } from "react-icons/cg";
 
 export const siteConfig = {
-  name: "Phonsing",
+  name: "Phonsing Taleman",
+  nickname: "NOAH",
   description: "portfolio of NOAH",
   navItems: [
     {
@@ -23,6 +24,12 @@ export const siteConfig = {
       href: "/blog",
     },
   ],
+  title: {
+    university: "Sripatum University",
+    location: "Nonthaburi",
+    mail: "Polsing.ap@gmail.com",
+    time: "23:15 (UTC +07:00)",
+  },
   links: {
     facebook: "https://facebook.com/noar.ps.3",
     instagram: "https://instagram.com/p.phonsing_",

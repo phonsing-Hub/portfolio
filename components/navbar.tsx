@@ -16,14 +16,16 @@ import { Divider } from "@heroui/divider";
 import { Link } from "@heroui/link";
 import { User } from "@heroui/user";
 import { Image } from "@heroui/image";
-import { ThemeSwitch } from "@/components/theme-switch";
-import { siteConfig } from "@/config/site";
-import { BlogTitle } from "./blogTitle";
 import NextLink from "next/link";
-
 import { LuUserSearch } from "react-icons/lu";
 import { CiBoxList } from "react-icons/ci";
-import { NotepadTextDashed, Github } from "lucide-react";
+import { TbNotes } from "react-icons/tb";
+import { RiGithubLine } from "react-icons/ri";
+
+import { BlogTitle } from "./blogTitle";
+
+import { siteConfig } from "@/config/site";
+import { ThemeSwitch } from "@/components/theme-switch";
 
 export const Navbar = () => {
   const router = useRouter();
@@ -66,11 +68,11 @@ export const Navbar = () => {
       <NavbarContent className="flex basis-1/5 sm:basis-full" justify="end">
         <NavbarItem className="flex gap-2 items-center">
           <ThemeSwitch />
-          <Link aria-label="blog" href="/blog">
-            <NotepadTextDashed className="text-default-600" />
-          </Link>
+          <NextLink aria-label="blog" href="/blog">
+            <TbNotes className="text-default-600" size={22} />
+          </NextLink>
           <Link isExternal aria-label="github" href={siteConfig.links.github}>
-            <Github className="text-default-600" />
+            <RiGithubLine className="text-default-600" size={22} />
           </Link>
         </NavbarItem>
 
@@ -85,19 +87,19 @@ export const Navbar = () => {
         <div className="flex flex-col gap-2">
           <NavbarMenuItem>
             <Button
-              variant="light"
-              size="sm"
               radius="sm"
+              size="sm"
               startContent={<LuUserSearch size={14} />}
+              variant="light"
               onPress={(e) => onNavigat(e, "/")}
             >
               Me
             </Button>
             <Button
-              variant="light"
-              size="sm"
               radius="sm"
+              size="sm"
               startContent={<CiBoxList size={14} />}
+              variant="light"
               onPress={(e) => onNavigat(e, "/blog")}
             >
               Blog All
@@ -107,9 +109,9 @@ export const Navbar = () => {
               <Button
                 key={`${item}-${index}`}
                 isDisabled={item.isDisabled}
-                variant="light"
-                size="sm"
                 radius="sm"
+                size="sm"
+                variant="light"
                 onPress={(e) => onNavigat(e, item.href)}
               >
                 {item.title}

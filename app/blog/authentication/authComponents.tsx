@@ -4,8 +4,10 @@ import { cn } from "@heroui/theme";
 import { forwardRef, useRef } from "react";
 import { Link } from "@heroui/link";
 import { Image } from "@heroui/image";
-import { FaUser, FaServer } from "react-icons/fa";
-
+import {  FaServer } from "react-icons/fa";
+import { FaUserLock } from "react-icons/fa";
+// import {UserCheck} from "react/lucide-solid"
+import { UserCheck, Server } from "lucide-react";
 import { AnimatedBeam } from "@/components/ui/animated-beam";
 
 const Circle = forwardRef<
@@ -40,10 +42,10 @@ export function AnimatedBeamDemo() {
       <div className="flex size-full flex-col items-stretch justify-between gap-10">
         <div className="flex flex-row justify-between">
           <Circle ref={div1Ref}>
-            <FaUser size={22} />
+            <UserCheck />
           </Circle>
           <Circle ref={div2Ref}>
-            <FaServer size={22} />
+          <Server />
           </Circle>
         </div>
       </div>

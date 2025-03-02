@@ -1,12 +1,13 @@
-import { Analytics } from '@vercel/analytics/next';
-import { SpeedInsights } from '@vercel/speed-insights/next';
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Metadata, Viewport } from "next";
+import clsx from "clsx";
+
 import { Providers } from "./providers";
-import { Navbar } from "@/components/navbar";
+
 import { fontSans } from "@/config/fonts";
 import { siteConfig } from "@/config/site";
 import Footer from "@/components/footer";
-import clsx from "clsx";
 import "@/styles/globals.css";
 import "aos/dist/aos.css";
 
@@ -17,7 +18,7 @@ export const metadata: Metadata = {
   },
   description: siteConfig.description,
   icons: {
-    icon: "/truffle.svg",
+    icon: "/truffle.ico",
   },
 };
 
@@ -39,19 +40,19 @@ export default function RootLayout({
       <body
         className={clsx(
           "min-h-screen font-sans antialiased bg-background",
-          fontSans.variable
+          fontSans.variable,
         )}
       >
         <Providers themeProps={{ attribute: "class", defaultTheme: "light" }}>
           <div className="relative flex flex-col min-h-screen">
-            <Navbar />
-            <main className="container mx-auto max-w-full px-6 flex-grow">
+            {/* <Navbar /> */}
+            <main className="container mx-auto max-w-full flex-grow">
               {children}
             </main>
             <Footer />
           </div>
         </Providers>
-        <Analytics/>
+        <Analytics />
         <SpeedInsights />
       </body>
     </html>

@@ -30,12 +30,13 @@ export function CodeComparison({
   useEffect(() => {
     const currentTheme = theme === "system" ? systemTheme : theme;
     const selectedTheme = currentTheme === "dark" ? darkTheme : lightTheme;
-    
+
     async function highlightCode() {
       const before = await codeToHtml(code, {
         lang: language,
         theme: selectedTheme,
       });
+
       setHighlightedBefore(before);
     }
 

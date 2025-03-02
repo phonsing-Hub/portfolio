@@ -1,5 +1,5 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@heroui/theme";
 
@@ -20,7 +20,7 @@ const badgeVariants = cva(
     defaultVariants: {
       variant: "default",
     },
-  }
+  },
 );
 
 export interface BadgeProps
@@ -35,7 +35,7 @@ const Badge = ({ className, variant, ...props }: BadgeProps) => {
 
 Badge.propTypes = {
   className: PropTypes.string,
-  variant: PropTypes.oneOf(['default', 'secondary', 'destructive', 'outline']),
+  variant: PropTypes.oneOf(["default", "secondary", "destructive", "outline"]),
 };
 
 export { Badge, badgeVariants };

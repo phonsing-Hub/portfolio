@@ -1,8 +1,9 @@
 import { Network, BicepsFlexed, GalleryVerticalEnd } from "lucide-react";
-import { title, subtitle } from "../primitives";
-import { DotPattern } from "../ui/dot-pattern";
 import { Card, CardHeader, CardBody } from "@heroui/card";
 import { cn } from "@heroui/theme";
+
+import { title, subtitle } from "../primitives";
+import { DotPattern } from "../ui/dot-pattern";
 
 export default function FeaturesListSection() {
   const data = [
@@ -25,19 +26,17 @@ export default function FeaturesListSection() {
         "3+ years of experience in full-stack development, focusing on delivering practical and scalable solutions.",
     },
   ];
+
   return (
-    <section
-      className="features-list-section flex flex-col justify-center relative my-4"
-      id="features-list-section"
-    >
+    <section className="relative my-4" id="features-list-section">
       <DotPattern
         className={cn(
-          "[mask-image:radial-gradient(300px_circle_at_center,white,transparent)]"
+          "[mask-image:radial-gradient(300px_circle_at_center,white,transparent)]",
         )}
       />
       <div className="flex flex-col md:w-2/3 w-full ">
         <h2 className={title()}>My</h2>
-        <h2 className={title({ color: "green" })}>Expertise & Achievements</h2>
+        <h2 className={title({ color: "cyan" })}>Expertise & Achievements</h2>
         <p className={subtitle()}>
           Discover my portfolio highlights, professional background, and key
           skill sets that showcase my capabilities and expertise.

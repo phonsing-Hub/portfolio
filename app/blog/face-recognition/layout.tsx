@@ -1,4 +1,3 @@
-
 export const metadata = {
   title: "Face Recognition & Dlib OpenCV",
   description: "เทคโนโลยีการรู้จำใบหน้า (Face Recognition)",

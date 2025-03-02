@@ -2,10 +2,11 @@ export const BlogTitle = [
   {
     title: "เริ่มต้นกับภาษา Go (Golang)",
     dates: "Sep 2025",
-    description: "แนะนำภาษา Go สำหรับนักพัฒนา โดยครอบคลุมพื้นฐานของภาษา และการพัฒนา Web API",
+    description:
+      "แนะนำภาษา Go สำหรับนักพัฒนา โดยครอบคลุมพื้นฐานของภาษา และการพัฒนา Web API",
     img: "images/5.png",
     href: "/blog/go",
-    isDisabled: false
+    isDisabled: false,
   },
   {
     title: "Authentication & JWT",
@@ -14,8 +15,7 @@ export const BlogTitle = [
       "การยืนยันตัวตน (Authentication) & JWT (JSON Web Token) เพื่อจัดการการยืนยันตัวตนของ User",
     img: "images/2.png",
     href: "/blog/authentication",
-    isDisabled: false
-
+    isDisabled: false,
   },
   {
     title: "What Is Docker?",
@@ -24,8 +24,7 @@ export const BlogTitle = [
       "เบื่อไหมกับปัญหาความเข้ากันได้ของแอปพลิเคชัน? Docker คือคำตอบ!",
     img: "images/1.png",
     href: "/blog/docker",
-    isDisabled: false
-
+    isDisabled: false,
   },
   {
     title: "Embedded System",
@@ -34,8 +33,7 @@ export const BlogTitle = [
       "ระบบควบคุมที่ถูกฝังอยู่ในอุปกรณ์ต่างๆ เช่น ไมโครคอนโทรลเลอร์, ไมโครโปรเซสเซอร์",
     img: "images/3.png",
     href: "/blog/embedded-system",
-    isDisabled: false
-
+    isDisabled: false,
   },
   {
     title: "Face Recognition",
@@ -44,16 +42,15 @@ export const BlogTitle = [
       "เทคโนโลยีการจดจำใบหน้า (Face Recognition) เป็นเทคโนโลยีที่ถูกสร้างขึ้นมาเพื่อวิเคราะห์โครงสร้างของใบหน้า",
     img: "images/4.png",
     href: "/blog/face-recognition",
-    isDisabled: false
-
+    isDisabled: false,
   },
   {
     title: "การจัดการฐานข้อมูลด้วย SQL",
     dates: "Sep 2025",
-    description: "เรียนรู้พื้นฐานและเทคนิคขั้นสูงของ SQL รวมถึงการออกแบบฐานข้อมูล การเขียนคำสั่ง Query ที่มีประสิทธิภาพ และการทำงานร่วมกับระบบฐานข้อมูลยอดนิยม เช่น MySQL, PostgreSQL และ SQL Server",
+    description:
+      "เรียนรู้พื้นฐานและเทคนิคขั้นสูงของ SQL รวมถึงการออกแบบฐานข้อมูล การเขียนคำสั่ง Query ที่มีประสิทธิภาพ และการทำงานร่วมกับระบบฐานข้อมูลยอดนิยม เช่น MySQL, PostgreSQL และ SQL Server",
     img: "#",
     href: "#",
-    isDisabled: true
+    isDisabled: true,
   },
-  
 ];

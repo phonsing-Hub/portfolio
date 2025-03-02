@@ -66,10 +66,8 @@ export function ModelPopupSendme() {
   return (
     <>
       {contextHolder}
-      <button
-        onClick={onOpen}
-      >
-        <LuMailbox size={26} className=" text-default-500" />
+      <button onClick={onOpen}>
+        <LuMailbox className=" text-default-500" size={26} />
       </button>
       <Modal
         isDismissable={false}
@@ -223,13 +221,12 @@ export function ModelSendme() {
         validationBehavior="native"
         onSubmit={sendEmail}
       >
-        <Chip color="warning" radius="sm" size="sm" variant="dot">
+        <Chip radius="sm" size="sm" variant="dot">
           Send me
         </Chip>
         <div className="flex gap-4 w-full">
           <Input
             isRequired
-            color="warning"
             errorMessage="Please enter a valid name"
             label="Name"
             name="name"
@@ -243,7 +240,6 @@ export function ModelSendme() {
           />
           <Input
             isRequired
-            color="warning"
             errorMessage="Please enter a valid subject"
             label="Subject"
             name="subject"
@@ -258,7 +254,6 @@ export function ModelSendme() {
         </div>
         <Input
           isRequired
-          color="warning"
           errorMessage="Please enter a valid email"
           label="Email"
           name="email"
@@ -278,7 +273,6 @@ export function ModelSendme() {
             //base: "max-w-xs",
             input: "resize-y min-h-[128px]",
           }}
-          color="warning"
           errorMessage="Please enter a valid description"
           label="Description"
           name="message"
@@ -289,7 +283,6 @@ export function ModelSendme() {
           onChange={handleChange}
         />
         <Button
-          color="warning"
           endContent={<SiMinutemailer size={22} />}
           isLoading={isLoading}
           radius="sm"

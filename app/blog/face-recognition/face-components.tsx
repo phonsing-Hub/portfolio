@@ -1,9 +1,7 @@
-
-import {CodeComparison} from "@/components/ui/code-comparison"
+import { CodeComparison } from "@/components/ui/code-comparison";
 
 export function Code1() {
-  const code =
-`import cv2
+  const code = `import cv2
 import dlib 
 
 detector = dlib.get_frontal_face_detector()
@@ -22,22 +20,21 @@ while True:
   if key == ord('q'):
     break
 
-cv2.destroyAllWindows()`
+cv2.destroyAllWindows()`;
 
   return (
-    <CodeComparison 
-    code={code}
-    language="python" 
-    filename="main.py"
-    lightTheme="github-light"
-    darkTheme="github-dark"
+    <CodeComparison
+      code={code}
+      darkTheme="github-dark"
+      filename="main.py"
+      language="python"
+      lightTheme="github-light"
     />
-  )
+  );
 }
 
-export function Code2(){
-  const code =
-`import cv2
+export function Code2() {
+  const code = `import cv2
 import matplotlib.pyplot as plt
 from skimage.feature import hog
 
@@ -96,22 +93,21 @@ plt.title("Feature Vector from HOG")
 plt.xlabel("Feature Index")
 plt.ylabel("Value")
 plt.show()
-`
+`;
 
   return (
-    <CodeComparison 
-    code={code}
-    language="python" 
-    filename="main.py"
-    lightTheme="github-light"
-    darkTheme="github-dark"
+    <CodeComparison
+      code={code}
+      darkTheme="github-dark"
+      filename="main.py"
+      language="python"
+      lightTheme="github-light"
     />
-  )
+  );
 }
 
 export function Code3() {
-  const code =
-`import cv2
+  const code = `import cv2
 import dlib
 import matplotlib.pyplot as plt
 
@@ -169,22 +165,21 @@ plt.figure(figsize=(8, 6))
 plt.imshow(img_rgb)
 plt.title("Face Landmarks (68 Points)")
 plt.axis("off")
-plt.show()`
+plt.show()`;
 
   return (
-    <CodeComparison 
-    code={code}
-    language="python" 
-    filename="main.py"
-    lightTheme="github-light"
-    darkTheme="github-dark"
+    <CodeComparison
+      code={code}
+      darkTheme="github-dark"
+      filename="main.py"
+      language="python"
+      lightTheme="github-light"
     />
-  )
+  );
 }
 
 export function Code4() {
-  const code =
-  `import cv2
+  const code = `import cv2
 import dlib
 import numpy as np
 import matplotlib.pyplot as plt
@@ -299,15 +294,15 @@ if encoding_B is not None:
     )
     plt.show()
 else:
-    print("Face encoding could not be generated for one or both images.")`
+    print("Face encoding could not be generated for one or both images.")`;
 
   return (
-    <CodeComparison 
-    code={code}
-    language="python" 
-    filename="main.py"
-    lightTheme="github-light"
-    darkTheme="github-dark"
+    <CodeComparison
+      code={code}
+      darkTheme="github-dark"
+      filename="main.py"
+      language="python"
+      lightTheme="github-light"
     />
-  )
+  );
 }
