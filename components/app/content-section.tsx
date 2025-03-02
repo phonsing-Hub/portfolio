@@ -1,14 +1,15 @@
 import { Link } from "@heroui/link";
 import { Divider } from "@heroui/divider";
-import { FaUniversity, FaInstagram } from "react-icons/fa";
-import { FiFacebook, FiLinkedin } from "react-icons/fi";
 import {
-  MdOutlineShareLocation,
-  MdOutlineMail,
-  MdOutlineAccessTime,
-} from "react-icons/md";
-import { FaXTwitter } from "react-icons/fa6";
-
+  Facebook,
+  Instagram,
+  Linkedin,
+  Twitter,
+  MapPin,
+  Mail,
+  Clock4,
+  School,
+} from "lucide-react";
 import HeaderSection from "./header-section";
 import AboutSection from "./about-section";
 import FeaturesListSection from "./features-list-section";
@@ -24,20 +25,20 @@ export default function ContentSection() {
           <div className="space-y-1 flex flex-col">
             <h4 className="text-medium font- uppercase">comEng. spu 👍🏻•_•👍🏻</h4>
             <br />
-            <Link className="text-small text-default-500 gap-2 " href="#">
-              <FaUniversity size={20} />
+            <Link className="text-small text-default-500 gap-2" href="#">
+              <School className="size-4"/>
               {siteConfig.title.university}
             </Link>
             <Link className="text-small text-default-500 gap-2 " href="#">
-              <MdOutlineShareLocation size={20} />
+              <MapPin className="size-4"/>
               {siteConfig.title.location}
             </Link>
             <Link className="text-small text-default-500 gap-2 " href="#">
-              <MdOutlineMail size={20} />
+              <Mail className="size-4"/>
               {siteConfig.title.mail}
             </Link>
             <Link className="text-small text-default-500 gap-2 " href="#">
-              <MdOutlineAccessTime size={20} />
+              <Clock4 className="size-4"/>
               {siteConfig.title.time}
             </Link>
           </div>
@@ -47,25 +48,25 @@ export default function ContentSection() {
               className="text-small text-default-500 gap-2 "
               href={siteConfig.links.facebook}
             >
-              <FiFacebook size={20} />
+              <Facebook className="size-5"/>
             </Link>
             <Link
               className="text-small text-default-500 gap-2 "
               href={siteConfig.links.instagram}
             >
-              <FaInstagram size={20} />
+              <Instagram className="size-5"/>
             </Link>
             <Link
               className="text-small text-default-500 gap-2 "
               href={siteConfig.links.linkedin}
             >
-              <FiLinkedin size={20} />
+              <Linkedin className="size-5"/>
             </Link>
             <Link
               className="text-small text-default-500 gap-2 "
               href={siteConfig.links.twitter}
             >
-              <FaXTwitter size={20} />
+              <Twitter className="size-5"/>
             </Link>
           </div>
         </div>

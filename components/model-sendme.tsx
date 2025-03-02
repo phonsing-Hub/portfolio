@@ -4,15 +4,10 @@ import { Button } from "@heroui/button";
 import { Chip } from "@heroui/chip";
 import { Input, Textarea } from "@heroui/input";
 import { Form } from "@heroui/form";
-import { SiMinutemailer } from "react-icons/si";
-import { LuMailbox } from "react-icons/lu";
-import {
-  Modal,
-  ModalContent,
-  ModalHeader,
-  ModalBody,
-  useDisclosure,
-} from "@heroui/modal";
+
+import { Send} from "lucide-react";
+
+
 import { message } from "antd";
 import emailjs from "emailjs-com";
 
@@ -20,158 +15,158 @@ const SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!;
 const TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!;
 const USER_ID = process.env.NEXT_PUBLIC_EMAILJS_USER_ID!;
 
-export function ModelPopupSendme() {
-  const { isOpen, onOpen, onClose, onOpenChange } = useDisclosure();
-  const [messageApi, contextHolder] = message.useMessage();
-  const [isLoading, setIsloading] = useState(false);
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-  });
+// export function ModelPopupSendme() {
+//   const { isOpen, onOpen, onClose, onOpenChange } = useDisclosure();
+//   const [messageApi, contextHolder] = message.useMessage();
+//   const [isLoading, setIsloading] = useState(false);
+//   const [formData, setFormData] = useState({
+//     name: "",
+//     email: "",
+//     subject: "",
+//     message: "",
+//   });
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-  ) => {
-    const { name, value } = e.target;
+//   const handleChange = (
+//     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+//   ) => {
+//     const { name, value } = e.target;
 
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
+//     setFormData((prev) => ({ ...prev, [name]: value }));
+//   };
 
-  const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setIsloading(true);
-    emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, e.currentTarget, USER_ID).then(
-      () => {
-        setIsloading(false);
-        setFormData({ name: "", email: "", subject: "", message: "" });
-        messageApi.open({
-          type: "success",
-          content: "Send email success.",
-        });
-        onClose();
-      },
-      () => {
-        setIsloading(false);
-        messageApi.open({
-          type: "error",
-          content: "Error sending email",
-        });
-        onClose();
-      },
-    );
-  };
+//   const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
+//     e.preventDefault();
+//     setIsloading(true);
+//     emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, e.currentTarget, USER_ID).then(
+//       () => {
+//         setIsloading(false);
+//         setFormData({ name: "", email: "", subject: "", message: "" });
+//         messageApi.open({
+//           type: "success",
+//           content: "Send email success.",
+//         });
+//         onClose();
+//       },
+//       () => {
+//         setIsloading(false);
+//         messageApi.open({
+//           type: "error",
+//           content: "Error sending email",
+//         });
+//         onClose();
+//       },
+//     );
+//   };
 
-  return (
-    <>
-      {contextHolder}
-      <button onClick={onOpen}>
-        <LuMailbox className=" text-default-500" size={26} />
-      </button>
-      <Modal
-        isDismissable={false}
-        isKeyboardDismissDisabled={true}
-        isOpen={isOpen}
-        placement="bottom-center"
-        size="lg"
-        onOpenChange={onOpenChange}
-      >
-        <ModalContent>
-          {() => (
-            <>
-              <ModalHeader className="flex flex-col gap-1">
-                <Chip color="primary" radius="sm" size="sm" variant="dot">
-                  Send me
-                </Chip>
-              </ModalHeader>
-              <ModalBody>
-                <Form
-                  className="w-full mb-4 flex flex-col gap-4"
-                  validationBehavior="native"
-                  onSubmit={sendEmail}
-                >
-                  <div className="flex gap-4 w-full">
-                    <Input
-                      isRequired
-                      color="primary"
-                      errorMessage="Please enter a valid name"
-                      label="Name"
-                      name="name"
-                      placeholder="Enter your name"
-                      radius="sm"
-                      size="sm"
-                      type="text"
-                      value={formData.name}
-                      variant="bordered"
-                      onChange={handleChange}
-                    />
-                    <Input
-                      isRequired
-                      color="primary"
-                      errorMessage="Please enter a valid subject"
-                      label="Subject"
-                      name="subject"
-                      placeholder="Enter your email"
-                      radius="sm"
-                      size="sm"
-                      type="text"
-                      value={formData.subject}
-                      variant="bordered"
-                      onChange={handleChange}
-                    />
-                  </div>
-                  <Input
-                    isRequired
-                    color="primary"
-                    errorMessage="Please enter a valid email"
-                    label="Email"
-                    name="email"
-                    placeholder="Enter your email"
-                    radius="sm"
-                    size="sm"
-                    type="email"
-                    value={formData.email}
-                    variant="bordered"
-                    onChange={handleChange}
-                  />
+//   return (
+//     <>
+//       {contextHolder}
+//       <button onClick={onOpen}>
+//         <LuMailbox className=" text-default-500" size={26} />
+//       </button>
+//       <Modal
+//         isDismissable={false}
+//         isKeyboardDismissDisabled={true}
+//         isOpen={isOpen}
+//         placement="bottom-center"
+//         size="lg"
+//         onOpenChange={onOpenChange}
+//       >
+//         <ModalContent>
+//           {() => (
+//             <>
+//               <ModalHeader className="flex flex-col gap-1">
+//                 <Chip color="primary" radius="sm" size="sm" variant="dot">
+//                   Send me
+//                 </Chip>
+//               </ModalHeader>
+//               <ModalBody>
+//                 <Form
+//                   className="w-full mb-4 flex flex-col gap-4"
+//                   validationBehavior="native"
+//                   onSubmit={sendEmail}
+//                 >
+//                   <div className="flex gap-4 w-full">
+//                     <Input
+//                       isRequired
+//                       color="primary"
+//                       errorMessage="Please enter a valid name"
+//                       label="Name"
+//                       name="name"
+//                       placeholder="Enter your name"
+//                       radius="sm"
+//                       size="sm"
+//                       type="text"
+//                       value={formData.name}
+//                       variant="bordered"
+//                       onChange={handleChange}
+//                     />
+//                     <Input
+//                       isRequired
+//                       color="primary"
+//                       errorMessage="Please enter a valid subject"
+//                       label="Subject"
+//                       name="subject"
+//                       placeholder="Enter your email"
+//                       radius="sm"
+//                       size="sm"
+//                       type="text"
+//                       value={formData.subject}
+//                       variant="bordered"
+//                       onChange={handleChange}
+//                     />
+//                   </div>
+//                   <Input
+//                     isRequired
+//                     color="primary"
+//                     errorMessage="Please enter a valid email"
+//                     label="Email"
+//                     name="email"
+//                     placeholder="Enter your email"
+//                     radius="sm"
+//                     size="sm"
+//                     type="email"
+//                     value={formData.email}
+//                     variant="bordered"
+//                     onChange={handleChange}
+//                   />
 
-                  <Textarea
-                    disableAutosize
-                    isRequired
-                    classNames={{
-                      //base: "max-w-xs",
-                      input: "resize-y min-h-[128px]",
-                    }}
-                    color="primary"
-                    errorMessage="Please enter a valid description"
-                    label="Description"
-                    name="message"
-                    placeholder="Enter your description"
-                    radius="sm"
-                    value={formData.message}
-                    variant="bordered"
-                    onChange={handleChange}
-                  />
-                  <Button
-                    color="primary"
-                    endContent={<SiMinutemailer size={22} />}
-                    isLoading={isLoading}
-                    radius="sm"
-                    type="submit"
-                    variant="bordered"
-                  >
-                    Send Email
-                  </Button>
-                </Form>
-              </ModalBody>
-            </>
-          )}
-        </ModalContent>
-      </Modal>
-    </>
-  );
-}
+//                   <Textarea
+//                     disableAutosize
+//                     isRequired
+//                     classNames={{
+//                       //base: "max-w-xs",
+//                       input: "resize-y min-h-[128px]",
+//                     }}
+//                     color="primary"
+//                     errorMessage="Please enter a valid description"
+//                     label="Description"
+//                     name="message"
+//                     placeholder="Enter your description"
+//                     radius="sm"
+//                     value={formData.message}
+//                     variant="bordered"
+//                     onChange={handleChange}
+//                   />
+//                   <Button
+//                     color="primary"
+//                     endContent={<SiMinutemailer size={22} />}
+//                     isLoading={isLoading}
+//                     radius="sm"
+//                     type="submit"
+//                     variant="bordered"
+//                   >
+//                     Send Email
+//                   </Button>
+//                 </Form>
+//               </ModalBody>
+//             </>
+//           )}
+//         </ModalContent>
+//       </Modal>
+//     </>
+//   );
+// }
 
 export function ModelSendme() {
   const [messageApi, contextHolder] = message.useMessage();
@@ -283,7 +278,7 @@ export function ModelSendme() {
           onChange={handleChange}
         />
         <Button
-          endContent={<SiMinutemailer size={22} />}
+          endContent={<Send size={22} />}
           isLoading={isLoading}
           radius="sm"
           type="submit"

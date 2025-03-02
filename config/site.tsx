@@ -1,6 +1,5 @@
 export type SiteConfig = typeof siteConfig;
-import { PiUserListBold } from "react-icons/pi";
-import { CgNotes } from "react-icons/cg";
+
 
 export const siteConfig = {
   name: "Phonsing Taleman",
@@ -12,18 +11,7 @@ export const siteConfig = {
       href: "/blog",
     },
   ],
-  navMenuItems: [
-    {
-      label: "Introduction",
-      icon: <PiUserListBold size={22} />,
-      href: "/",
-    },
-    {
-      label: "Blog",
-      icon: <CgNotes size={22} />,
-      href: "/blog",
-    },
-  ],
+
   title: {
     university: "Sripatum University",
     location: "Nonthaburi",

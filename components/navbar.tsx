@@ -17,10 +17,7 @@ import { Link } from "@heroui/link";
 import { User } from "@heroui/user";
 import { Image } from "@heroui/image";
 import NextLink from "next/link";
-import { LuUserSearch } from "react-icons/lu";
-import { CiBoxList } from "react-icons/ci";
-import { TbNotes } from "react-icons/tb";
-import { RiGithubLine } from "react-icons/ri";
+import { UserRoundSearch, List, ScrollText, Github} from "lucide-react";
 
 import { BlogTitle } from "./blogTitle";
 
@@ -69,10 +66,10 @@ export const Navbar = () => {
         <NavbarItem className="flex gap-2 items-center">
           <ThemeSwitch />
           <NextLink aria-label="blog" href="/blog">
-            <TbNotes className="text-default-600" size={22} />
+            <ScrollText className="text-default-600" />
           </NextLink>
           <Link isExternal aria-label="github" href={siteConfig.links.github}>
-            <RiGithubLine className="text-default-600" size={22} />
+            <Github className="text-default-600" />
           </Link>
         </NavbarItem>
 
@@ -89,7 +86,7 @@ export const Navbar = () => {
             <Button
               radius="sm"
               size="sm"
-              startContent={<LuUserSearch size={14} />}
+              startContent={<UserRoundSearch />}
               variant="light"
               onPress={(e) => onNavigat(e, "/")}
             >
@@ -98,7 +95,7 @@ export const Navbar = () => {
             <Button
               radius="sm"
               size="sm"
-              startContent={<CiBoxList size={14} />}
+              startContent={<List />}
               variant="light"
               onPress={(e) => onNavigat(e, "/blog")}
             >

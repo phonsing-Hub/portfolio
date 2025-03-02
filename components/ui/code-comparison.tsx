@@ -1,10 +1,9 @@
 "use client";
+import { useEffect, useState } from "react";
 import { Button } from "@heroui/button";
 import { ScrollShadow } from "@heroui/scroll-shadow";
-import { FaRegFileAlt } from "react-icons/fa";
+import { FileDigit, Copy } from "lucide-react";
 import { useTheme } from "next-themes";
-import { useEffect, useState } from "react";
-import { TbFiles } from "react-icons/tb";
 import { message } from "antd";
 import { codeToHtml } from "shiki";
 
@@ -84,14 +83,14 @@ export function CodeComparison({
       <div className="relative grid md:grid-cols-1 md:divide-border">
         <div className="flex items-center bg-zinc-100 dark:bg-zinc-800 p-2 text-sm text-foreground ">
           <span className="flex">
-            <FaRegFileAlt className="mr-2 h-4 w-4" />
+            <FileDigit className="mr-2 h-4 w-4" />
             {filename}
           </span>
           {contextHolder}
           <Button
             className="ml-auto"
             //color="primary"
-            endContent={<TbFiles size={16} />}
+            endContent={<Copy className=" size-4" />}
             radius="sm"
             size="sm"
             variant="light"

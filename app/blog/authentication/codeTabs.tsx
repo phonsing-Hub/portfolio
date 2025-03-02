@@ -1,9 +1,7 @@
 "use client";
 import { Tabs, Tab } from "@heroui/tabs";
 import { Card, CardBody } from "@heroui/card";
-import { TbBrandGolang } from "react-icons/tb";
-import { TbBrandPowershell } from "react-icons/tb";
-import { AppWindowMac } from "lucide-react";
+import { AppWindowMac, FileDigit } from "lucide-react";
 
 import { CodeComparison } from "@/components/ui/code-comparison";
 
@@ -174,7 +172,7 @@ export function CodeTabs() {
           key="cmd"
           title={
             <div className="flex items-center space-x-2">
-              <TbBrandPowershell size={22} />
+              <AppWindowMac className="size-4"/>
               <span>cmd</span>
             </div>
           }
@@ -195,7 +193,7 @@ export function CodeTabs() {
           key="main"
           title={
             <div className="flex items-center space-x-2">
-              <TbBrandGolang size={22} />
+             <FileDigit className="size-4"/>
               <span>main.go</span>
             </div>
           }
@@ -216,7 +214,7 @@ export function CodeTabs() {
           key="routers"
           title={
             <div className="flex items-center space-x-2">
-              <TbBrandGolang size={22} />
+             <FileDigit className="size-4"/>
               <span>routers/routers.go</span>
             </div>
           }
@@ -237,7 +235,7 @@ export function CodeTabs() {
           key="utils"
           title={
             <div className="flex items-center space-x-2">
-              <TbBrandGolang size={22} />
+              <FileDigit className="size-4"/>
               <span>utils/utils.go</span>
             </div>
           }

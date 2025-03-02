@@ -3,8 +3,7 @@ import { useEffect } from "react";
 import { Avatar } from "@heroui/avatar";
 import { Button } from "@heroui/button";
 import { Link } from "@heroui/link";
-import { TbNotes } from "react-icons/tb";
-import { RiGithubLine } from "react-icons/ri";
+import { ScrollText, Github } from "lucide-react";
 import AOS from "aos";
 
 import { siteConfig } from "@/config/site";
@@ -27,7 +26,7 @@ const blog = (
       href="/blog"
       radius="sm"
       size="sm"
-      startContent={<TbNotes className="text-default-600" size={18} />}
+      startContent={<ScrollText className="text-default-600" />}
       variant="flat"
     >
       Blog
@@ -37,7 +36,7 @@ const blog = (
       href={siteConfig.links.github}
       radius="sm"
       size="sm"
-      startContent={<RiGithubLine className="text-default-600" size={18} />}
+      startContent={<Github className="text-default-600"/>}
       variant="flat"
     >
       Github

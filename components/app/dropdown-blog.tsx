@@ -6,9 +6,7 @@ import {
   DropdownItem,
 } from "@heroui/dropdown";
 import { siteConfig } from "@/config/site";
-
-import { RiArrowDropDownLine, RiGithubLine } from "react-icons/ri";
-import { TbNotes } from "react-icons/tb";
+import { ScrollText, Github ,ChevronDown } from "lucide-react";
 
 export default function DropdownBlog() {
   const router = useRouter();
@@ -16,13 +14,13 @@ export default function DropdownBlog() {
     <Dropdown>
       <DropdownTrigger>
         <h2 className="sm:hidden flex text-xs font-bold text-default-500 items-center">
-          NOAH <RiArrowDropDownLine size={22} />
+          NOAH <ChevronDown className="size-4"/>
         </h2>
       </DropdownTrigger>
       <DropdownMenu aria-label="Static Actions">
         <DropdownItem
           key="blog"
-          startContent={<TbNotes />}
+          startContent={<ScrollText />}
           onPress={() => router.push("/blog")}
         >
           Blog
@@ -31,7 +29,7 @@ export default function DropdownBlog() {
           key="github"
           className="text-primary"
           color="primary"
-          startContent={<RiGithubLine />}
+          startContent={<Github />}
           onPress={() => router.push(siteConfig.links.github)}
         >
           Github

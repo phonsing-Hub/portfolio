@@ -1,8 +1,5 @@
 import { LiaDocker } from "react-icons/lia";
-import { FaUbuntu, FaFedora } from "react-icons/fa";
-import { FcLinux, FcDebian } from "react-icons/fc";
-import { SiOpensuse } from "react-icons/si";
-import { RiCentosFill, RiCoreosFill } from "react-icons/ri";
+import { FcLinux } from "react-icons/fc";
 import { PiAppleLogoDuotone, PiWindowsLogoDuotone } from "react-icons/pi";
 import { Link } from "@heroui/link";
 import { Image } from "@heroui/image";
@@ -10,60 +7,51 @@ import { Image } from "@heroui/image";
 import { globalComponents } from "@/components/ui/mdx";
 import { OrbitingCircles } from "@/components/ui/orbiting-circles";
 
-const OsIcon = [
-  <FaUbuntu key="ubuntu" className="size-28 text-orange-500" />,
-  <FcDebian key="debian" className="size-40" />,
-  <SiOpensuse key="opensuse" className="size-12 text-green-500" />,
-  <FaFedora key="fedora" className="size-12 text-blue-400" />,
-  <RiCentosFill key="centos" className="size-12 text-fuchsia-800" />,
-  <RiCoreosFill key="coreos" className="size-12 text-rose-600" />,
-];
+// export const DockerIcon = () => {
+//   return (
+//     <div className="relative flex h-[500px] w-full flex-col items-center justify-center overflow-hidden">
+//       <LiaDocker className="size-28 text-blue-500 docker" />
+//       <OrbitingCircles
+//         reverse
+//         className="size-[50px] border-none bg-transparent"
+//         duration={20}
+//         radius={90}
+//       >
+//         <FcLinux className=" size-40" />
+//       </OrbitingCircles>
+//       <OrbitingCircles
+//         reverse
+//         className="size-[50px] border-none bg-transparent"
+//         delay={20}
+//         duration={19}
+//         radius={120}
+//       >
+//         <PiAppleLogoDuotone className=" size-36" />
+//       </OrbitingCircles>
+//       <OrbitingCircles
+//         reverse
+//         className="size-[50px] border-none bg-transparent"
+//         duration={18}
+//         radius={150}
+//       >
+//         <PiWindowsLogoDuotone className=" size-36 text-blue-700" />
+//       </OrbitingCircles>
 
-export const DockerIcon = () => {
-  return (
-    <div className="relative flex h-[500px] w-full flex-col items-center justify-center overflow-hidden">
-      <LiaDocker className="size-28 text-blue-500 docker" />
-      <OrbitingCircles
-        reverse
-        className="size-[50px] border-none bg-transparent"
-        duration={20}
-        radius={95}
-      >
-        <FcLinux className=" size-40" />
-      </OrbitingCircles>
-      <OrbitingCircles
-        reverse
-        className="size-[50px] border-none bg-transparent"
-        delay={20}
-        duration={19}
-        radius={95}
-      >
-        <PiAppleLogoDuotone className=" size-36" />
-      </OrbitingCircles>
-      <OrbitingCircles
-        reverse
-        className="size-[50px] border-none bg-transparent"
-        duration={18}
-        radius={95}
-      >
-        <PiWindowsLogoDuotone className=" size-36 text-blue-700" />
-      </OrbitingCircles>
-
-      {OsIcon.map((icon, index) => (
-        <OrbitingCircles
-          key={index}
-          reverse
-          className="size-[50px] border-none bg-transparent"
-          delay={index % 2 == 0 ? 15 : undefined}
-          duration={15 - index}
-          radius={190}
-        >
-          {icon}
-        </OrbitingCircles>
-      ))}
-    </div>
-  );
-};
+//       {/* {OsIcon.map((icon, index) => (
+//         <OrbitingCircles
+//           key={index}
+//           reverse
+//           className="size-[50px] border-none bg-transparent"
+//           delay={index % 2 == 0 ? 15 : undefined}
+//           duration={15 - index}
+//           radius={190}
+//         >
+//           {icon}
+//         </OrbitingCircles>
+//       ))} */}
+//     </div>
+//   );
+// };
 
 export const ImageprogrammerHappy = () => {
   return (

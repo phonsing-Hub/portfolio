@@ -4,9 +4,6 @@ import { cn } from "@heroui/theme";
 import { forwardRef, useRef } from "react";
 import { Link } from "@heroui/link";
 import { Image } from "@heroui/image";
-import {  FaServer } from "react-icons/fa";
-import { FaUserLock } from "react-icons/fa";
-// import {UserCheck} from "react/lucide-solid"
 import { UserCheck, Server } from "lucide-react";
 import { AnimatedBeam } from "@/components/ui/animated-beam";
 
